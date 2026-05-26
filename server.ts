@@ -117,6 +117,24 @@ app.post(
   }
 );
 
+const extractCodeFromFilename = (filename: string): string => {
+  // Remove file extension
+  const nameWithoutExt = path.parse(filename).name;
+  
+  // Rule 1: Try splitting by ' - ' first (e.g. "418897 - TOSTINES Biscoito")
+  if (nameWithoutExt.includes(" - ")) {
+    return nameWithoutExt.split(" - ")[0].trim();
+  }
+  
+  // Rule 2: Fallback to regex matching leading alphanumeric characters (e.g. "418897frente")
+  const match = nameWithoutExt.match(/^([a-zA-Z0-9]+)/);
+  if (match) {
+    return match[1].trim();
+  }
+  
+  return nameWithoutExt.trim();
+};
+
 // Endpoint POST
 app.post(
   "/api/upload",
@@ -130,83 +148,103 @@ app.post(
       const files = req.files as {
         spreadsheet?: Express.Multer.File[];
         images?: Express.Multer.File[];
-      };
+      } || {};
 
-      if (!files.spreadsheet || files.spreadsheet.length === 0) {
-        return res.status(400).json({ status: "error", message: "Nenhuma planilha enviada." });
-      }
-
-      // Convert file (XLSX or MD) to JSON
-      const rawData: any[] = extractFileToJSON(files.spreadsheet[0]);
-      
-      const processedProducts = [];
-      const errors = req.eanErrors ? [...req.eanErrors] : [];
-      const eanSet = new Set<string>();
-      
+      let productsList: any[] = [];
+      const errors: any[] = req.eanErrors ? [...req.eanErrors] : [];
       const uploadedImages = files.images || [];
 
-      for (let i = 0; i < rawData.length; i++) {
-        const row = rawData[i];
-        
-        // Flexible key mapping to handle various spreadsheet headers
-        const codigo = String(row.codigo || row.CÓDIGO || row.code || "");
-        let ean = String(row.ean || row.EAN || "");
-        ean = ean.replace(/^0+/, ''); // strip leading zeros for uniqueness check
-        const nome = String(row.nome || row.DESCRIÇÃO || row.name || "");
-        const marca = String(row.marca || row.CATEGORIA || row.brand || "");
-        const categoria = String(row.categoria || row['SUB CATEGORIA'] || row.category || "");
-        const caixa = String(row.caixa || row.FATOR || row.packSize || "");
-        
-        if (!codigo || !nome) {
-           errors.push({ row: i + 2, reason: "Código ou Nome faltando", data: row });
-           continue;
-        }
+      const hasSpreadsheet = files.spreadsheet && files.spreadsheet.length > 0;
 
-        // Middleware logic extracted for EAN uniqueness
-        if (ean) {
-           if (eanSet.has(ean)) {
-              errors.push({ row: i + 2, reason: "EAN duplicado encontrado na planilha", data: row });
-              continue; // Skip processing this duplicate product
-           }
-           eanSet.add(ean);
-        }
+      if (hasSpreadsheet) {
+        // Convert file (XLSX or MD) to JSON
+        const rawData: any[] = extractFileToJSON(files.spreadsheet[0]);
+        const eanSet = new Set<string>();
 
-        // Image mapping logic
-        // Try to match an image to this product's code or ean
-        let savedImagePath = null;
+        for (let i = 0; i < rawData.length; i++) {
+          const row = rawData[i];
+          
+          // Flexible key mapping to handle various spreadsheet headers
+          const codigo = String(row.codigo || row.CÓDIGO || row.code || "");
+          let ean = String(row.ean || row.EAN || "");
+          ean = ean.replace(/^0+/, ''); // strip leading zeros for uniqueness check
+          const nome = String(row.nome || row.DESCRIÇÃO || row.name || "");
+          const marca = String(row.marca || row.CATEGORIA || row.brand || "");
+          const categoria = String(row.categoria || row['SUB CATEGORIA'] || row.category || "");
+          const caixa = String(row.caixa || row.FATOR || row.packSize || "");
+          
+          if (!codigo || !nome) {
+             errors.push({ row: i + 2, reason: "Código ou Nome faltando", data: row });
+             continue;
+          }
+
+          if (ean) {
+             if (eanSet.has(ean)) {
+                errors.push({ row: i + 2, reason: "EAN duplicado encontrado na planilha", data: row });
+                continue; // Skip processing this duplicate product
+             }
+             eanSet.add(ean);
+          }
+
+          productsList.push({
+             id: codigo,
+             code: codigo,
+             name: nome,
+             brand: marca,
+             category: categoria,
+             packSize: caixa,
+             ean,
+             imageUrl: row.imageUrl || null
+          });
+        }
+      } else if (req.body.existingProducts) {
+        try {
+          productsList = JSON.parse(req.body.existingProducts);
+        } catch (e) {
+          return res.status(400).json({ status: "error", message: "Lista de produtos existentes inválida." });
+        }
+      } else {
+        return res.status(400).json({ status: "error", message: "Nenhum dado ou planilha foi enviado." });
+      }
+
+      // Matching Engine for Images
+      const matchedCodes = new Set<string>();
+      const unmatchedImages: string[] = [];
+      const processedProducts = [...productsList];
+
+      for (const img of uploadedImages) {
+        const extractedCode = extractCodeFromFilename(img.originalname);
         
-        // 1. By Code
-        let matchedImage = uploadedImages.find(img => img.originalname.includes(codigo));
-        
-        // 2. By EAN
-        if (!matchedImage && ean) {
-           matchedImage = uploadedImages.find(img => img.originalname.includes(ean));
-        }
+        // Find index of matching product (case-insensitive)
+        const productIdx = processedProducts.findIndex(
+          p => String(p.code).trim().toLowerCase() === extractedCode.toLowerCase()
+        );
 
-        if (matchedImage) {
-           const ext = path.extname(matchedImage.originalname);
-           const newImageName = `${codigo}${ext}`;
-           const destPath = path.join(uploadDir, newImageName);
-           
-           await fs.writeFile(destPath, matchedImage.buffer);
-           savedImagePath = `/uploads/produtos/${newImageName}`;
+        if (productIdx !== -1) {
+          const product = processedProducts[productIdx];
+          const ext = path.extname(img.originalname).toLowerCase();
+          const newImageName = `${product.code}${ext}`;
+          const destPath = path.join(uploadDir, newImageName);
+          
+          await fs.writeFile(destPath, img.buffer);
+          
+          // Update imageUrl path
+          processedProducts[productIdx] = {
+            ...product,
+            imageUrl: `/uploads/produtos/${newImageName}`
+          };
+          matchedCodes.add(product.code);
+        } else {
+          unmatchedImages.push(img.originalname);
         }
-
-        processedProducts.push({
-           id: codigo,
-           code: codigo,
-           name: nome,
-           brand: marca,
-           category: categoria,
-           packSize: caixa,
-           ean,
-           imageUrl: savedImagePath
-        });
       }
 
       return res.json({
          status: "success",
-         processedCount: processedProducts.length,
+         processedCount: hasSpreadsheet ? processedProducts.length : matchedCodes.size,
+         matchedCount: matchedCodes.size,
+         unmatchedCount: unmatchedImages.length,
+         unmatchedImages: unmatchedImages,
          errorCount: errors.length,
          errors: errors,
          products: processedProducts

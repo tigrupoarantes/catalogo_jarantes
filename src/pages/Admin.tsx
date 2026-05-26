@@ -342,15 +342,24 @@ const Admin = () => {
                     const fileInput = formElement.querySelector('#spreadsheet') as HTMLInputElement;
                     const imagesInput = formElement.querySelector('#images') as HTMLInputElement;
                     
-                    if (!fileInput.files || fileInput.files.length === 0) {
-                      toast.error("Por favor, selecione um arquivo XLSX ou MD.");
+                    const hasSpreadsheet = fileInput.files && fileInput.files.length > 0;
+                    const hasImages = imagesInput.files && imagesInput.files.length > 0;
+
+                    if (!hasSpreadsheet && !hasImages) {
+                      toast.error("Por favor, selecione uma planilha XLSX/MD ou envie imagens em lote.");
                       return;
                     }
 
                     const formData = new FormData();
-                    formData.append("spreadsheet", fileInput.files[0]);
                     
-                    if (imagesInput.files) {
+                    if (hasSpreadsheet) {
+                      formData.append("spreadsheet", fileInput.files[0]);
+                    } else {
+                      // Pass current frontend registered products list for image matching
+                      formData.append("existingProducts", JSON.stringify(products));
+                    }
+                    
+                    if (hasImages) {
                       for (let i = 0; i < imagesInput.files.length; i++) {
                         formData.append("images", imagesInput.files[i]);
                       }
@@ -383,12 +392,28 @@ const Admin = () => {
                       const json = await res.json();
                       
                       if (json.status === "success") {
-                        toast.info(`Upload bem-sucedido! Sincronizando ${json.processedCount} produtos com o banco...`);
+                        if (hasSpreadsheet) {
+                          toast.info(`Upload bem-sucedido! Sincronizando ${json.processedCount} produtos com o banco...`);
+                        } else {
+                          toast.info(`Upload de imagens bem-sucedido! Vinculando ${json.matchedCount} imagens...`);
+                        }
                         
                         // Sincroniza com Supabase agora!
                         try {
                            await supabaseService.syncInitialData(json.products);
-                           toast.success("Sincronização concluída com sucesso!");
+                           
+                           // Beautiful feedback toast matching guidelines
+                           if (hasSpreadsheet) {
+                             toast.success(`Planilha processada! ${json.processedCount} produtos importados. ${json.matchedCount} imagens vinculadas.`);
+                           } else {
+                             toast.success(`${json.matchedCount} imagens vinculadas com sucesso, ${json.unmatchedCount} imagens ignoradas (código não encontrado).`);
+                           }
+
+                           if (json.unmatchedCount > 0) {
+                             toast.warning(`Algumas imagens não foram vinculadas por código ausente. Veja a aba Console F12 para detalhes dos nomes ignorados.`, { duration: 10000 });
+                             console.warn("Imagens ignoradas (não vinculadas a produtos):", json.unmatchedImages);
+                           }
+
                            // Recarrega lista
                            const data = await supabaseService.getProducts();
                            setProducts(data);
@@ -421,7 +446,7 @@ const Admin = () => {
                         </div>
                         <div className="pt-1">
                           <h4 className="font-semibold text-base">1. Planilha de Dados</h4>
-                          <p className="text-sm text-muted-foreground mt-1">Obrigatório. Arquivo (.xlsx ou .md)</p>
+                          <p className="text-sm text-muted-foreground mt-1">Opcional. Arquivo (.xlsx ou .md)</p>
                         </div>
                       </div>
                       <div className="relative z-10">
@@ -438,14 +463,14 @@ const Admin = () => {
                         </div>
                         <div className="pt-1">
                           <h4 className="font-semibold text-base">2. Imagens em Lote</h4>
-                          <p className="text-sm text-muted-foreground mt-1">Opcional. Selecione várias imagens</p>
+                          <p className="text-sm text-muted-foreground mt-1">Selecione várias imagens para vincular</p>
                         </div>
                       </div>
                       <div className="relative z-10 space-y-3">
                         <Label htmlFor="images" className="sr-only">Upload de Imagens</Label>
                         <Input id="images" type="file" accept="image/png, image/jpeg" multiple className="cursor-pointer h-12 file:h-12 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary/90 text-[#474747] bg-white border-input" />
                         <p className="text-xs text-[#474747] leading-tight">
-                          Imagens com nome do Código ou EAN (ex: "789123.jpg") serão associadas automaticamente.
+                          Nome esperado: [CÓDIGO] - [NOME].ext (ex: "418897 - TOSTINES.png"). Vinculação automática inteligente.
                         </p>
                       </div>
                     </div>
