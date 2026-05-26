@@ -10,10 +10,13 @@ import { ExportConfig } from "@/utils/exportConstants";
 import CatalogPreviewModal from "@/components/CatalogPreviewModal";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const ITEMS_PER_PAGE = 48;
 
 const Index = () => {
+  const navigate = useNavigate();
+
   const [products, setProducts] = useState(staticProducts);
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
@@ -166,12 +169,33 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-white/10 bg-primary py-5 shadow-sm">
-        <div className="container flex flex-col items-center gap-1">
-          <h1 className="font-medium tracking-wide text-xl text-primary-foreground my-[12px]">Catálogo de Produtos</h1>
+    <div className="min-h-screen bg-slate-50/50">
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-slate-200/80 py-4 shadow-sm transition-all duration-200">
+        <div className="container flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-md shadow-blue-500/20">
+              <span className="text-white font-extrabold text-base tracking-wider">JA</span>
+            </div>
+            <div>
+              <h1 className="font-extrabold tracking-tight text-base text-slate-900 leading-none">
+                J. Arantes
+              </h1>
+              <p className="text-[9px] font-extrabold uppercase tracking-widest text-blue-600 mt-1">Catálogo Digital</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={() => navigate("/admin")} 
+              className="text-xs font-semibold hover:bg-slate-50 border-slate-200 rounded-full px-4 h-9 shadow-sm"
+            >
+              Painel Admin
+            </Button>
+          </div>
         </div>
       </header>
+
 
       <main className="container py-8 pb-24 space-y-8">
         <ProductFilters
