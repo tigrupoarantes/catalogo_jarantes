@@ -172,19 +172,22 @@ const Index = () => {
     <div className="min-h-screen bg-slate-50/50 flex flex-col">
       {/* Topo do site com fundo branco */}
       <header className="w-full bg-white border-b border-slate-100/80 shadow-sm">
-        <div className="container py-4 flex flex-col items-center justify-center text-center gap-2">
+        <div className="container py-3 flex flex-col items-center justify-center text-center">
           <img 
             src="/J.ARANTES.png" 
             alt="J. Arantes Distribuição" 
-            className="h-16 sm:h-20 object-contain max-w-[280px] sm:max-w-[320px] transition-transform duration-300 hover:scale-[1.02]" 
+            className="h-14 sm:h-16 object-contain max-w-[240px] sm:max-w-[280px] transition-transform duration-300 hover:scale-[1.02]" 
           />
+        </div>
+      </header>
+
+      <main className="container flex-1 py-4 pb-24 space-y-4">
+        {/* Frase "Catálogo Digital" entre o topo e a busca */}
+        <div className="text-center">
           <p className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-blue-600">
             Catálogo Digital
           </p>
         </div>
-      </header>
-
-      <main className="container flex-1 py-6 pb-24 space-y-6">
         <ProductFilters
           search={search}
           onSearchChange={handleSearchChange}
