@@ -169,19 +169,22 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50/50">
-      <main className="container py-8 pb-24 space-y-8">
-        <div className="flex flex-col items-center justify-center text-center gap-3 pt-6 pb-2">
-          <div className="h-14 w-14 bg-gradient-to-tr from-blue-600 to-indigo-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/20 transform hover:scale-105 transition-transform duration-300">
-            <span className="text-white font-black text-xl tracking-wider">JA</span>
-          </div>
-          <div className="space-y-1">
-            <h1 className="font-black tracking-tight text-3xl bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 bg-clip-text text-transparent">
-              J. Arantes
-            </h1>
-            <p className="text-[11px] font-black uppercase tracking-[0.25em] text-blue-600">Catálogo Digital</p>
-          </div>
+    <div className="min-h-screen bg-slate-50/50 flex flex-col">
+      {/* Topo do site com fundo branco */}
+      <header className="w-full bg-white border-b border-slate-100/80 shadow-sm">
+        <div className="container py-4 flex flex-col items-center justify-center text-center gap-2">
+          <img 
+            src="/J.ARANTES.png" 
+            alt="J. Arantes Distribuição" 
+            className="h-16 sm:h-20 object-contain max-w-[280px] sm:max-w-[320px] transition-transform duration-300 hover:scale-[1.02]" 
+          />
+          <p className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-blue-600">
+            Catálogo Digital
+          </p>
         </div>
+      </header>
+
+      <main className="container flex-1 py-6 pb-24 space-y-6">
         <ProductFilters
           search={search}
           onSearchChange={handleSearchChange}
