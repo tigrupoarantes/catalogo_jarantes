@@ -1,0 +1,42 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (request.auth.token.email == 'philipezcp@gmail.com' || request.auth.token.email == 'acervo.grupoarantes@gmail.com');
+    }
+
+    function isValidProduct(data) {
+      return data.code is string && data.code.size() <= 100 &&
+             data.name is string && data.name.size() <= 200 &&
+             data.brand is string && data.brand.size() <= 100 &&
+             data.category is string && data.category.size() <= 100 &&
+             (data.get('packSize', '') is string) &&
+             (data.get('ean', '') is string);
+    }
+
+    match /products/{productId} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isValidProduct(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    match /products_v2/{productId} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isValidProduct(request.resource.data);
+      allow delete: if isAdmin();
+    }
+
+    match /settings/{settingId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "entities": {
+    "Product": {
+      "title": "Product",
+      "description": "A product in the catalog.",
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "Unique product code."
+        },
+        "name": {
+          "type": "string",
+          "description": "Product name."
+        },
+        "brand": {
+          "type": "string",
+          "description": "Product brand."
+        },
+        "category": {
+          "type": "string",
+          "description": "Product category."
+        },
+        "packSize": {
+          "type": "string",
+          "description": "Product pack size."
+        },
+        "ean": {
+          "type": "string",
+          "description": "Product EAN code."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Last update timestamp"
+        }
+      },
+      "required": ["code", "name", "brand", "category"]
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Collection of products."
+    }
+  }
+}
