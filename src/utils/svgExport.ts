@@ -1,4 +1,4 @@
-import { Product } from "@/data/products";
+import { Product, parseProductTechnicalData } from "@/data/products";
 import { saveAs } from "file-saver";
 import JSZip from "jszip";
 import { jsPDF } from "jspdf";
@@ -138,37 +138,36 @@ export function generatePageSvg(
       totalMetaH += (nameLines.length * nameSize) + ((nameLines.length - 1) * 0.8);
     }
     
+    const techData = parseProductTechnicalData(p);
+
     const tableFields = [
       { id: "code", label: "Cód.", value: p.code, active: config.showCode },
       { id: "box", label: "Caixa", value: p.packSize, active: config.showBox },
-      { id: "ean", label: "EAN", value: p.ean, active: config.showEan },
+      { id: "ncm", label: "Class. Fisc.", value: techData.ncm || "N/A", active: config.showNcm !== false },
+      { id: "ean", label: "EAN", value: techData.ean || "N/A", active: config.showEan },
+      { id: "dun", label: "DUN", value: techData.dun || "N/A", active: config.showDun !== false },
     ].filter(f => f.active);
 
-    const rowH = 4.0; 
-    const pillGap = 1.0; 
-    const tableH = tableFields.length * (rowH + pillGap);
+    const rowH = 2.8; 
+    const pillGap = 0.5; 
+    const tableH = tableFields.length * (rowH + pillGap) - pillGap;
     const tableW = cardWidth * 0.94; 
 
-    // 1. Calculate Image Area dynamically
+    // 1. Calculate Image Area dynamically and reserve exactly 22.0 units for the metadata zone
     const imgY = padding;
-    // exact size the image needs to be to fill the card
-    const maxImgH = Math.max(20, cardHeight - (totalMetaH + tableH + padding * 2 + 4));
-    const imgH = maxImgH; // Fill responsive space
+    const imgH = cardHeight - tableH - 22.0 - (padding * 2);
 
     const imgBorderSvg = `<rect x="${padding}" y="${imgY}" width="${innerWidth}" height="${imgH}" rx="2" fill="white" />`;
     const imageSvg = `<image href="${imgUrl}" x="${padding + 0.5}" y="${imgY + 0.5}" width="${innerWidth - 1}" height="${imgH - 1}" preserveAspectRatio="xMidYMid meet" />`;
 
-    // 2. Metadata Area
-    const metaAreaStartY = imgY + imgH + 2;
-    let currentY = metaAreaStartY; // Start immediately after image
+    // 2. Metadata Area starts exactly after the image + gap
+    const metaAreaStartY = imgY + imgH + 2.0;
+    let currentY = metaAreaStartY;
     
-    // 3. Table Data (Starts slightly after metadata)
-    const tableY = currentY + totalMetaH + 2;
+    // 3. Table Data (Perfectly anchored at the bottom base of the card)
+    const tableY = cardHeight - padding - tableH;
 
-    // Determine actual card height based on filled space
-    const actualCardHeight = tableY + tableH + padding;
-    // ensure it's not smaller than rowHeight-gap
-    const finalCardHeight = Math.max(cardHeight, actualCardHeight);
+    const finalCardHeight = cardHeight;
 
     let tableSvg = "";
     if (tableFields.length > 0) {
@@ -181,8 +180,8 @@ export function generatePageSvg(
             <rect width="${tableW}" height="${rowH}" rx="${rowH / 2}" fill="#242525" />
             <rect width="${labelW}" height="${rowH}" rx="${rowH / 2}" fill="#474747" />
             <line x1="${labelW}" y1="0" x2="${labelW}" y2="${rowH}" stroke="white" stroke-width="0.1" stroke-opacity="0.3" />
-            <text x="${labelW / 2}" y="${rowH / 2 + 0.9}" font-family="sans-serif" font-size="2.4" fill="white" font-weight="bold" text-anchor="middle">${escapeXml(f.label)}</text>
-            <text x="${labelW + 2}" y="${rowH / 2 + 0.9}" font-family="sans-serif" font-size="2.4" fill="white" font-weight="bold">${escapeXml(f.value)}</text>
+            <text x="${labelW / 2}" y="${rowH / 2 + 0.6}" font-family="sans-serif" font-size="1.8" fill="white" font-weight="bold" text-anchor="middle">${escapeXml(f.label)}</text>
+            <text x="${labelW + 2}" y="${rowH / 2 + 0.6}" font-family="sans-serif" font-size="1.8" fill="white" font-weight="bold">${escapeXml(f.value)}</text>
           </g>`;
       });
 
@@ -214,11 +213,27 @@ export function generatePageSvg(
       `;
     }
 
+    let newReleaseBadgeSvg = "";
+    const isProductNew = p.isNew || parseProductTechnicalData(p).isNew;
+    if (isProductNew) {
+      const badgeW = 9.0;
+      const badgeH = 3.2;
+      const badgeX = padding + innerWidth - badgeW - 1.2;
+      const badgeY = imgY + 1.2;
+      newReleaseBadgeSvg = `
+        <g id="badge-${p.code}" transform="translate(${badgeX}, ${badgeY})">
+          <rect width="${badgeW}" height="${badgeH}" rx="${badgeH / 2}" fill="#426EA8" />
+          <text x="${badgeW / 2}" y="${badgeH / 2 + 0.6}" text-anchor="middle" font-family="sans-serif" font-weight="black" font-size="1.6" fill="white" letter-spacing="0.1">NOVO</text>
+        </g>
+      `;
+    }
+
     cardsSvg += `
       <g id="card-${p.code}" transform="translate(${x}, ${y})">
         <rect width="${cardWidth}" height="${finalCardHeight}" fill="white" rx="3" stroke="#E2E8F0" stroke-width="0.4" />
         ${imgBorderSvg}
         ${imageSvg}
+        ${newReleaseBadgeSvg}
         ${brandSvg}
         ${categorySvg}
         ${nameSvg}
@@ -233,7 +248,7 @@ export function generatePageSvg(
     ? `<image href="${imageMap['header'] || escapeXml(bannerUrl!)}" x="0" y="0" width="195" height="${bannerHeight}" preserveAspectRatio="xMidYMid slice" />`
     : `<path d="M 0 0 H 195 V 35 C 195 38 190 42 180 42 H 0 Z" fill="#242525" />`;
 
-  const logoHref = imageMap['logo'] || "/logo.png";
+  const logoHref = imageMap['logo'] || "/J.ARANTES.png";
 
   return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 210 297" width="100%" height="auto" preserveAspectRatio="xMidYMid meet">
   <rect width="210" height="297" fill="white" />
@@ -299,7 +314,7 @@ export async function exportCatalogAsPdf(
   // Pre-fetch logo base64
   let logoBase64: string | null = null;
   try {
-    logoBase64 = await urlToBase64("/logo.png");
+    logoBase64 = await urlToBase64("/J.ARANTES.png");
   } catch (e) {
     console.warn("Could not fetch logo.png for PDF template", e);
   }
@@ -390,7 +405,7 @@ export async function exportCatalogAsPdf(
     }
   }
 
-  pdf.save("Catalogo_Chok.pdf");
+  pdf.save("Catalogo_J_Arantes.pdf");
 }
 
 export async function exportCatalogAsSvg(
@@ -411,7 +426,7 @@ export async function exportCatalogAsSvg(
   // Pre-fetch logo base64
   let logoBase64: string | null = null;
   try {
-    logoBase64 = await urlToBase64("/logo.png");
+    logoBase64 = await urlToBase64("/J.ARANTES.png");
   } catch (e) {
     console.warn("Could not fetch logo.png for SVG template", e);
   }
@@ -469,5 +484,5 @@ export async function exportCatalogAsSvg(
   }
 
   const content = await zip.generateAsync({ type: "blob" });
-  saveAs(content, "Catalogo_Chok.zip");
+  saveAs(content, "Catalogo_J_Arantes.zip");
 }

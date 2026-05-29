@@ -11,6 +11,7 @@ export default defineConfig(({ mode }) => ({
     hmr: {
       overlay: false,
     },
+    allowedHosts: true,
     watch: {
       ignored: ["**/*.xlsx", "**/*.xls", "**/.workspace/**"],
     },

@@ -21,6 +21,7 @@ const Index = () => {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
   const [brand, setBrand] = useState("all");
+  const [showNewOnly, setShowNewOnly] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [isExporting, setIsExporting] = useState(false);
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
@@ -106,16 +107,22 @@ const Index = () => {
   const filtered = useMemo(() => {
     return products
       .filter((p) => {
+        const searchLower = search.toLowerCase().trim();
         const matchSearch =
           !search ||
-          p.name.toLowerCase().includes(search.toLowerCase()) ||
-          p.code.includes(search);
+          p.name.toLowerCase().includes(searchLower) ||
+          p.code.toLowerCase().includes(searchLower) ||
+          (p.brand && p.brand.toLowerCase().includes(searchLower)) ||
+          (p.category && p.category.toLowerCase().includes(searchLower)) ||
+          (p.ean && p.ean.toLowerCase().includes(searchLower)) ||
+          (p.dun && p.dun.toLowerCase().includes(searchLower));
         const matchCategory = category === "all" || p.category === category;
         const matchBrand = brand === "all" || p.brand === brand;
-        return matchSearch && matchCategory && matchBrand;
+        const matchNewOnly = !showNewOnly || !!p.isNew;
+        return matchSearch && matchCategory && matchBrand && matchNewOnly;
       })
       .sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
-  }, [search, category, brand, products]);
+  }, [search, category, brand, showNewOnly, products]);
 
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
   const paginatedProducts = filtered.slice(
@@ -132,6 +139,7 @@ const Index = () => {
     setSearch("");
     setCategory("all");
     setBrand("all");
+    setShowNewOnly(false);
     setCurrentPage(1);
   };
 
@@ -169,10 +177,10 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#606060] flex flex-col">
-      {/* Topo do site com fundo branco */}
-      <header className="w-full bg-white border-b border-slate-100/80 shadow-sm">
-        <div className="container py-3 flex flex-col items-center justify-center text-center">
+    <div className="min-h-screen bg-[#FAFCFF] flex flex-col">
+      {/* Topo do site com fundo #FAFCFF */}
+      <header className="w-full bg-[#FAFCFF]">
+        <div className="container pt-7 pb-3 flex flex-col items-center justify-center text-center">
           <img 
             src="/J.ARANTES.png" 
             alt="J. Arantes Distribuição" 
@@ -183,10 +191,12 @@ const Index = () => {
 
       <main className="container flex-1 py-4 pb-24 space-y-4">
         {/* Frase "Catálogo Digital" entre o topo e a busca */}
-        <div className="text-center">
-          <p className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-white">
-            Catálogo Digital
-          </p>
+        <div className="flex justify-center mb-1.5">
+          <div className="inline-flex items-center justify-center bg-white border border-[#E2E8F0] rounded-full px-6 py-2.5 shadow-[0_4px_12px_rgba(0,0,0,0.03)] select-none">
+            <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-slate-800">
+              Catálogo Digital
+            </span>
+          </div>
         </div>
         <ProductFilters
           search={search}
@@ -195,6 +205,8 @@ const Index = () => {
           onCategoryChange={handleCategoryChange}
           brand={brand}
           onBrandChange={handleBrandChange}
+          showNewOnly={showNewOnly}
+          onShowNewOnlyChange={setShowNewOnly}
           categories={categoriesForBrand}
           brands={allBrands}
           onClear={clearFilters}
@@ -213,7 +225,7 @@ const Index = () => {
           />
         )}
 
-        <p className="text-center text-sm text-muted-foreground">
+        <p className="text-center text-sm text-slate-700 font-semibold">
           {filtered.length} produto(s) encontrado(s)
         </p>
 
@@ -284,17 +296,29 @@ const Index = () => {
         )}
       </main>
 
-      <footer className="border-t border-slate-200/60 bg-white/50 py-8 text-center mt-12">
+      <footer className="py-8 text-center mt-12 bg-transparent">
         <Button 
           variant="link" 
           onClick={() => navigate("/admin")} 
-          className="text-slate-400 hover:text-blue-600 text-xs font-semibold tracking-wide transition-colors"
+          className="text-slate-400 hover:text-slate-700 text-xs font-semibold tracking-wide transition-colors"
         >
           Painel Admin
         </Button>
       </footer>
 
       <SupportFab />
+
+      {isExporting && (
+        <div className="fixed inset-0 bg-slate-950/40 backdrop-blur-sm z-[999] flex items-center justify-center animate-fade-in">
+          <div className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center shadow-2xl max-w-xs text-center border border-slate-100/50">
+            <img src="/loading.gif" alt="Gerando Catálogo..." className="w-16 h-16 object-contain" />
+            <h3 className="mt-4 font-black text-sm text-slate-800 uppercase tracking-wide animate-pulse">Gerando Catálogo</h3>
+            <p className="mt-2 text-xs text-slate-400 leading-relaxed font-semibold">
+              Estamos preparando o seu catálogo em alta resolução. Isso pode levar alguns segundos...
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

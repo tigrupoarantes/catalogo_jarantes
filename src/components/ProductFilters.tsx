@@ -1,9 +1,11 @@
 import { Search, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
+import BotaoLancamentos from "./BotaoLancamentos";
 
 interface ProductFiltersProps {
   search: string;
@@ -12,6 +14,8 @@ interface ProductFiltersProps {
   onCategoryChange: (value: string) => void;
   brand: string;
   onBrandChange: (value: string) => void;
+  showNewOnly: boolean;
+  onShowNewOnlyChange: (value: boolean) => void;
   categories: string[];
   brands: string[];
   onClear: () => void;
@@ -22,47 +26,53 @@ interface ProductFiltersProps {
 
 const ProductFilters = ({
   search, onSearchChange, category, onCategoryChange,
-  brand, onBrandChange, categories, brands, onClear, onExport, isExporting, isDesktop,
+  brand, onBrandChange, showNewOnly, onShowNewOnlyChange, categories, brands, onClear, onExport, isExporting, isDesktop,
 }: ProductFiltersProps) => {
   const hasFilters = search || category !== "all" || brand !== "all";
 
   return (
-    <div className="rounded-xl border p-6 shadow-sm text-card-foreground" style={{ backgroundColor: '#ffffff' }}>
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-4 items-end">
-        <div className="space-y-1.5">
-          <label className="text-sm font-medium text-card-foreground">Buscar produtos</label>
+    <div className="rounded-xl border border-slate-100/50 p-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)] text-card-foreground bg-white">
+      <div className="grid grid-cols-1 lg:grid-cols-[1.8fr_auto_1.2fr_1.2fr_auto] gap-5 items-end">
+        <div className="space-y-2 w-full">
+          <label className="text-sm font-bold text-slate-800 block pl-1">Buscar produtos</label>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
             <Input
               placeholder="Nome ou código do produto..."
               value={search}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="pl-10"
+              className="pl-11 h-11 bg-white border-none rounded-xl font-bold text-slate-700 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all focus-visible:ring-2 focus-visible:ring-primary"
             />
           </div>
         </div>
-        <div className="space-y-1.5">
-          <label className="text-sm font-medium text-card-foreground">Marca</label>
+        
+        <div className="shrink-0">
+          <BotaoLancamentos showNewOnly={showNewOnly} onShowNewOnlyChange={onShowNewOnlyChange} disabled={isExporting} />
+        </div>
+        
+        <div className="space-y-2 w-full">
+          <label className="text-sm font-bold text-slate-800 block pl-1">Categoria</label>
           <Select value={brand} onValueChange={onBrandChange}>
-            <SelectTrigger className="w-[200px]">
-              <SelectValue placeholder="Todas as marcas" />
+            <SelectTrigger className="w-full h-11 bg-white border-none rounded-xl px-4 font-bold text-slate-700 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 focus:ring-2 focus:ring-primary select-none">
+              <SelectValue placeholder="Todas as categorias" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">Todas as marcas</SelectItem>
+            <SelectContent className="rounded-xl border-slate-100 shadow-lg">
+              <SelectItem value="all">Todas as categorias</SelectItem>
               {brands.map((b) => (
                 <SelectItem key={b} value={b}>{b}</SelectItem>
               ))}
             </SelectContent>
           </Select>
         </div>
-        <div className="space-y-1.5">
-          <label className="text-sm font-medium text-card-foreground">Mix de Produtos</label>
+        
+        <div className="space-y-2 w-full">
+          <label className="text-sm font-bold text-slate-800 block pl-1">Sub Categoria</label>
           <Select value={category} onValueChange={onCategoryChange}>
-            <SelectTrigger className="w-[200px]">
-              <SelectValue placeholder="Todas as categorias" />
+            <SelectTrigger className="w-full h-11 bg-white border-none rounded-xl px-4 font-bold text-slate-700 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.12)] transition-all duration-300 focus:ring-2 focus:ring-primary select-none">
+              <SelectValue placeholder="Todas as subcategorias" />
             </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="all">Todas as categorias</SelectItem>
+            <SelectContent className="rounded-xl border-slate-100 shadow-lg">
+              <SelectItem value="all">Todas as subcategorias</SelectItem>
               {categories.map((c) => (
                 <SelectItem key={c} value={c}>{c}</SelectItem>
               ))}

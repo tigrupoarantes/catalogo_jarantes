@@ -166,24 +166,29 @@ app.post(
           
           // Flexible key mapping to handle various spreadsheet headers
           const codigo = String(row.codigo || row.CÓDIGO || row.code || "");
-          let ean = String(row.ean || row.EAN || "");
-          ean = ean.replace(/^0+/, ''); // strip leading zeros for uniqueness check
+          let baseEan = String(row.ean || row.EAN || "");
+          baseEan = baseEan.replace(/^0+/, ''); // strip leading zeros for uniqueness check
           const nome = String(row.nome || row.DESCRIÇÃO || row.name || "");
           const marca = String(row.marca || row.CATEGORIA || row.brand || "");
           const categoria = String(row.categoria || row['SUB CATEGORIA'] || row.category || "");
           const caixa = String(row.caixa || row.FATOR || row.packSize || "");
+          const ncm = String(row.ncm || row['Classificação Fiscal'] || row['Classificação Fisc'] || row.NCM || "");
+          const dunCode = String(row.dun || row.DUN || "");
+          
+          // Combine EAN, NCM, and DUN into the ean field: EAN|NCM|DUN
+          const combinedEan = `${baseEan}|${ncm}|${dunCode}`;
           
           if (!codigo || !nome) {
              errors.push({ row: i + 2, reason: "Código ou Nome faltando", data: row });
              continue;
           }
 
-          if (ean) {
-             if (eanSet.has(ean)) {
+          if (baseEan) {
+             if (eanSet.has(baseEan)) {
                 errors.push({ row: i + 2, reason: "EAN duplicado encontrado na planilha", data: row });
                 continue; // Skip processing this duplicate product
              }
-             eanSet.add(ean);
+             eanSet.add(baseEan);
           }
 
           productsList.push({
@@ -193,7 +198,7 @@ app.post(
              brand: marca,
              category: categoria,
              packSize: caixa,
-             ean,
+             ean: combinedEan,
              imageUrl: row.imageUrl || null
           });
         }

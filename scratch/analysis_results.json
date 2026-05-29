@@ -1,0 +1,3820 @@
+{
+  "summary": {
+    "total": 521,
+    "withImage": 0,
+    "withoutImage": 521,
+    "coveragePercentage": "0.0%"
+  },
+  "missingByBrand": [
+    {
+      "brand": "BISCOITOS",
+      "count": 83
+    },
+    {
+      "brand": "MAGGI",
+      "count": 49
+    },
+    {
+      "brand": "CHOCOLATES NESTLE",
+      "count": 43
+    },
+    {
+      "brand": "GAROTO",
+      "count": 39
+    },
+    {
+      "brand": "WET",
+      "count": 30
+    },
+    {
+      "brand": "CEREAIS MATINAIS",
+      "count": 26
+    },
+    {
+      "brand": "SISTEMA DOLCE GUSTO",
+      "count": 25
+    },
+    {
+      "brand": "NHS ACTIVE NUTRITION",
+      "count": 23
+    },
+    {
+      "brand": "NESCAFE SOLUVEL + T&M",
+      "count": 23
+    },
+    {
+      "brand": "PREMIUM DRY DOG",
+      "count": 21
+    },
+    {
+      "brand": "CEREAIS INFANTIS",
+      "count": 20
+    },
+    {
+      "brand": "CEREAIS FAMILIA",
+      "count": 16
+    },
+    {
+      "brand": "RTD ADULTOS",
+      "count": 14
+    },
+    {
+      "brand": "PREMIUM DRY CAT",
+      "count": 14
+    },
+    {
+      "brand": "COMPATIVEIS NESPRESSO",
+      "count": 11
+    },
+    {
+      "brand": "BEBIDAS POS",
+      "count": 11
+    },
+    {
+      "brand": "MAINSTREAM",
+      "count": 11
+    },
+    {
+      "brand": "SUPER PREMIUM DRY",
+      "count": 11
+    },
+    {
+      "brand": "LEITES CULINARIOS",
+      "count": 10
+    },
+    {
+      "brand": "NINHO",
+      "count": 10
+    },
+    {
+      "brand": "SNACKS",
+      "count": 9
+    },
+    {
+      "brand": "MOLICO",
+      "count": 5
+    },
+    {
+      "brand": "RTD KIDS",
+      "count": 4
+    },
+    {
+      "brand": "FORMULAS INFANTIS",
+      "count": 4
+    },
+    {
+      "brand": "NINHO FASES",
+      "count": 3
+    },
+    {
+      "brand": "ORAL CARE",
+      "count": 3
+    },
+    {
+      "brand": "LEITES DE CRESCIMENTO",
+      "count": 3
+    }
+  ],
+  "missingBySubCategory": [
+    {
+      "subCategory": "MAGGI > CALDOS TABLETE",
+      "count": 16
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS COOKIES",
+      "count": 12
+    },
+    {
+      "subCategory": "PREMIUM DRY CAT > FRISKIES DRY SMALL BAGS",
+      "count": 12
+    },
+    {
+      "subCategory": "NHS ACTIVE NUTRITION > NUTREN SENIOR LATA",
+      "count": 11
+    },
+    {
+      "subCategory": "PREMIUM DRY DOG > DOG CHOW DRY LARGE BAGS",
+      "count": 11
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS WAFER",
+      "count": 10
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > JUMBOS NESTLE",
+      "count": 10
+    },
+    {
+      "subCategory": "PREMIUM DRY DOG > DOG CHOW DRY SMALL BAGS",
+      "count": 10
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS RECHEADOS NEGRESCO",
+      "count": 9
+    },
+    {
+      "subCategory": "MAGGI > SOPAO",
+      "count": 8
+    },
+    {
+      "subCategory": "CEREAIS MATINAIS > DEMAIS CEREAIS MATINAIS",
+      "count": 8
+    },
+    {
+      "subCategory": "WET > DOG CHOW WET POUCH",
+      "count": 8
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS PLENOS DOCES NESFIT",
+      "count": 8
+    },
+    {
+      "subCategory": "GAROTO > JUMBOS TALENTO",
+      "count": 8
+    },
+    {
+      "subCategory": "GAROTO > JUMBOS GAROTO",
+      "count": 8
+    },
+    {
+      "subCategory": "WET > FANCY FEAST WET POUCH",
+      "count": 8
+    },
+    {
+      "subCategory": "WET > FRISKIES WET POUCH",
+      "count": 8
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > CANDY BARS NESTLE",
+      "count": 7
+    },
+    {
+      "subCategory": "COMPATIVEIS NESPRESSO > NESCAFE CAPS NESPRESSO",
+      "count": 7
+    },
+    {
+      "subCategory": "RTD ADULTOS > RTD ADULTOS CAFES",
+      "count": 7
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS RECHEADOS PASSATEMPO",
+      "count": 7
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS RECHEADOS BONO",
+      "count": 7
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS CHOCOCOOKIES",
+      "count": 7
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS PLENOS DOCES TOSTINES",
+      "count": 6
+    },
+    {
+      "subCategory": "GAROTO > TABLETES GAROTO",
+      "count": 6
+    },
+    {
+      "subCategory": "GAROTO > BATON",
+      "count": 6
+    },
+    {
+      "subCategory": "SUPER PREMIUM DRY > ONE DRY CAT SMALL BAGS",
+      "count": 6
+    },
+    {
+      "subCategory": "SISTEMA DOLCE GUSTO > DEMAIS CAFES",
+      "count": 6
+    },
+    {
+      "subCategory": "MAGGI > TEMPEROS PO SACHET",
+      "count": 6
+    },
+    {
+      "subCategory": "MAGGI > DEMAIS SOPAS",
+      "count": 5
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS COBERTOS",
+      "count": 5
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS RECHEADOS OUTROS",
+      "count": 5
+    },
+    {
+      "subCategory": "CEREAIS FAMILIA > NESTLE AVEIAS",
+      "count": 5
+    },
+    {
+      "subCategory": "CEREAIS MATINAIS > NESCAU ATE 300G",
+      "count": 5
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > KIT KAT 4 FINGERS",
+      "count": 5
+    },
+    {
+      "subCategory": "NESCAFE SOLUVEL + T&M > NESCAFE 40G",
+      "count": 5
+    },
+    {
+      "subCategory": "SUPER PREMIUM DRY > ONE DRY DOG SMALL BAGS",
+      "count": 5
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > CHOCOTRIO NESTLE",
+      "count": 5
+    },
+    {
+      "subCategory": "NHS ACTIVE NUTRITION > NUTREN PROTEIN RTD",
+      "count": 5
+    },
+    {
+      "subCategory": "MAGGI > TEMPEROS FRASCO",
+      "count": 4
+    },
+    {
+      "subCategory": "MAGGI > TEMPEROS CARTONADO",
+      "count": 4
+    },
+    {
+      "subCategory": "COMPATIVEIS NESPRESSO > STARBUCKS CAPS NESPRESSO",
+      "count": 4
+    },
+    {
+      "subCategory": "RTD ADULTOS > RTD ADULTOS REGULAR",
+      "count": 4
+    },
+    {
+      "subCategory": "CEREAIS INFANTIS > MUCILON TRAD LATA",
+      "count": 4
+    },
+    {
+      "subCategory": "CEREAIS INFANTIS > MUCILON SACHET 180G",
+      "count": 4
+    },
+    {
+      "subCategory": "CEREAIS MATINAIS > SNOW ATE 300G",
+      "count": 4
+    },
+    {
+      "subCategory": "SISTEMA DOLCE GUSTO > MAQUINAS E ACESSORIOS G1",
+      "count": 4
+    },
+    {
+      "subCategory": "NESCAFE SOLUVEL + T&M > TORRADO E MOIDO PREMIUM",
+      "count": 4
+    },
+    {
+      "subCategory": "CEREAIS INFANTIS > MUCILON SNACKS",
+      "count": 4
+    },
+    {
+      "subCategory": "BEBIDAS POS > NESCAU ESPECIAIS",
+      "count": 4
+    },
+    {
+      "subCategory": "SISTEMA DOLCE GUSTO > DEMAIS BEBIDAS",
+      "count": 4
+    },
+    {
+      "subCategory": "CEREAIS MATINAIS > KIT KAT",
+      "count": 4
+    },
+    {
+      "subCategory": "LEITES CULINARIOS > CREME TP",
+      "count": 3
+    },
+    {
+      "subCategory": "NHS ACTIVE NUTRITION > NUTREN ACTIVE",
+      "count": 3
+    },
+    {
+      "subCategory": "CEREAIS FAMILIA > NESTON LATA",
+      "count": 3
+    },
+    {
+      "subCategory": "NESCAFE SOLUVEL + T&M > NESCAFE 100G",
+      "count": 3
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS PLENOS DOCES PASSATEMPO",
+      "count": 3
+    },
+    {
+      "subCategory": "CEREAIS INFANTIS > MUCILON SACHET 600G",
+      "count": 3
+    },
+    {
+      "subCategory": "NHS ACTIVE NUTRITION > NUTREN KIDS",
+      "count": 3
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > TABLETES NESTLE",
+      "count": 3
+    },
+    {
+      "subCategory": "CEREAIS FAMILIA > NESTON SACHET",
+      "count": 3
+    },
+    {
+      "subCategory": "CEREAIS MATINAIS > NESCAU 300G+",
+      "count": 3
+    },
+    {
+      "subCategory": "SNACKS > DOGUITOS SNACKS",
+      "count": 3
+    },
+    {
+      "subCategory": "ORAL CARE > DOG CHOW ORAL SNACKS",
+      "count": 3
+    },
+    {
+      "subCategory": "MAGGI > CALDOS PO",
+      "count": 3
+    },
+    {
+      "subCategory": "NESCAFE SOLUVEL + T&M > SOLUVEL PREMIUM DEMAIS",
+      "count": 3
+    },
+    {
+      "subCategory": "WET > ONE DOG WET POUCH",
+      "count": 3
+    },
+    {
+      "subCategory": "WET > ONE CAT WET POUCH",
+      "count": 3
+    },
+    {
+      "subCategory": "MAINSTREAM > ALPO LARGE BAGS",
+      "count": 3
+    },
+    {
+      "subCategory": "CEREAIS INFANTIS > MUCILON SACHET 360G",
+      "count": 3
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > JUMBOS FAMILIARES NESTLE",
+      "count": 3
+    },
+    {
+      "subCategory": "NESCAFE SOLUVEL + T&M > DEMAIS NESCAFE",
+      "count": 3
+    },
+    {
+      "subCategory": "GAROTO > JUMBOS FAMILIARES GAROTO",
+      "count": 3
+    },
+    {
+      "subCategory": "SISTEMA DOLCE GUSTO > QUERIDINHOS BEBIDAS",
+      "count": 3
+    },
+    {
+      "subCategory": "SISTEMA DOLCE GUSTO > BEBIDAS CHOCOS",
+      "count": 3
+    },
+    {
+      "subCategory": "SISTEMA DOLCE GUSTO > QUERIDINHOS CAFES",
+      "count": 3
+    },
+    {
+      "subCategory": "NESCAFE SOLUVEL + T&M > SOLUVEL PREMIUM SACHET",
+      "count": 3
+    },
+    {
+      "subCategory": "SNACKS > DOG CHOW BISCUITS SNACKS",
+      "count": 3
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS CHOCOBISCUIT",
+      "count": 3
+    },
+    {
+      "subCategory": "SNACKS > FRISKIES TREATS",
+      "count": 3
+    },
+    {
+      "subCategory": "RTD ADULTOS > RTD ADULTOS PROTEINADOS",
+      "count": 3
+    },
+    {
+      "subCategory": "MAGGI > TEMPEROS GRANULADO SACHET",
+      "count": 3
+    },
+    {
+      "subCategory": "FORMULAS INFANTIS > FAMILIA NESTOGENO",
+      "count": 3
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > JUMBOS RECHEADOS NESTLE",
+      "count": 3
+    },
+    {
+      "subCategory": "CEREAIS MATINAIS > SNOW 300G+",
+      "count": 2
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > POS NESTLE",
+      "count": 2
+    },
+    {
+      "subCategory": "GAROTO > POS GAROTO",
+      "count": 2
+    },
+    {
+      "subCategory": "LEITES CULINARIOS > MOCA CAIXINHA",
+      "count": 2
+    },
+    {
+      "subCategory": "CEREAIS FAMILIA > FARINHA LACTEA SACHET ATE 400G",
+      "count": 2
+    },
+    {
+      "subCategory": "MOLICO > MOLICO LATA ",
+      "count": 2
+    },
+    {
+      "subCategory": "NINHO FASES > NINHO FASES OUTROS",
+      "count": 2
+    },
+    {
+      "subCategory": "MAINSTREAM > KANINA LARGE BAGS",
+      "count": 2
+    },
+    {
+      "subCategory": "MAINSTREAM > BONZO LARGE BAGS",
+      "count": 2
+    },
+    {
+      "subCategory": "MOLICO > MOLICO ESPECIAIS",
+      "count": 2
+    },
+    {
+      "subCategory": "CEREAIS INFANTIS > MUCILON ZERO",
+      "count": 2
+    },
+    {
+      "subCategory": "NESCAFE SOLUVEL + T&M > STARBUCKS T&M",
+      "count": 2
+    },
+    {
+      "subCategory": "MAINSTREAM > ALPO SMALL BAGS",
+      "count": 2
+    },
+    {
+      "subCategory": "PREMIUM DRY CAT > FRISKIES DRY LARGE BAGS",
+      "count": 2
+    },
+    {
+      "subCategory": "RTD KIDS > RTD KIDS ESPECIAIS",
+      "count": 2
+    },
+    {
+      "subCategory": "MAINSTREAM > GATSY DRY LARGE BAGS",
+      "count": 2
+    },
+    {
+      "subCategory": "SISTEMA DOLCE GUSTO > STARBUCKS CAPS NDG",
+      "count": 2
+    },
+    {
+      "subCategory": "GAROTO > CHOCOTRIO GAROTO",
+      "count": 2
+    },
+    {
+      "subCategory": "NINHO > NINHO INTEGRAL SACHET",
+      "count": 2
+    },
+    {
+      "subCategory": "NINHO > NINHO INSTANTANEO SACHET",
+      "count": 2
+    },
+    {
+      "subCategory": "NINHO > NINHO ZERO LACTOSE",
+      "count": 2
+    },
+    {
+      "subCategory": "LEITES CULINARIOS > CREME LATA",
+      "count": 1
+    },
+    {
+      "subCategory": "BISCOITOS > BISCOITOS PLENOS SALGADOS",
+      "count": 1
+    },
+    {
+      "subCategory": "GAROTO > PASTILHAS",
+      "count": 1
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > CAIXAS ESPECIAIS NESTLE",
+      "count": 1
+    },
+    {
+      "subCategory": "CEREAIS FAMILIA > FARINHA LACTEA SACHET 600G+",
+      "count": 1
+    },
+    {
+      "subCategory": "RTD KIDS > RTD KIDS 1L",
+      "count": 1
+    },
+    {
+      "subCategory": "MOLICO > MOLICO SACHET",
+      "count": 1
+    },
+    {
+      "subCategory": "LEITES CULINARIOS > MOCA LATA",
+      "count": 1
+    },
+    {
+      "subCategory": "BEBIDAS POS > NESQUIK",
+      "count": 1
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > COBERTURAS NESTLE",
+      "count": 1
+    },
+    {
+      "subCategory": "GAROTO > BOMBONS GAROTO",
+      "count": 1
+    },
+    {
+      "subCategory": "NHS ACTIVE NUTRITION > NUTREN PROTEIN LATA",
+      "count": 1
+    },
+    {
+      "subCategory": "LEITES CULINARIOS > MOCA ESPECIAIS",
+      "count": 1
+    },
+    {
+      "subCategory": "LEITES CULINARIOS > MOCA ZERO LACTOSE",
+      "count": 1
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > CAIXAS NESTLE",
+      "count": 1
+    },
+    {
+      "subCategory": "BEBIDAS POS > NESCAU SACHET ATE 600G",
+      "count": 1
+    },
+    {
+      "subCategory": "BEBIDAS POS > NESCAU SACHET 730G",
+      "count": 1
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > CONFEITOS NESTLE",
+      "count": 1
+    },
+    {
+      "subCategory": "LEITES DE CRESCIMENTO > NESLAC SUPREME",
+      "count": 1
+    },
+    {
+      "subCategory": "CEREAIS FAMILIA > FARINHA LACTEA LATA",
+      "count": 1
+    },
+    {
+      "subCategory": "RTD KIDS > RTD KIDS REGULAR",
+      "count": 1
+    },
+    {
+      "subCategory": "LEITES DE CRESCIMENTO > NESLAC COMFOR",
+      "count": 1
+    },
+    {
+      "subCategory": "BEBIDAS POS > NESCAU LATA 200G",
+      "count": 1
+    },
+    {
+      "subCategory": "BEBIDAS POS > NESCAU LATA 670G",
+      "count": 1
+    },
+    {
+      "subCategory": "GAROTO > CAIXAS ESPECIAIS GAROTO",
+      "count": 1
+    },
+    {
+      "subCategory": "FORMULAS INFANTIS > FAMILIA NAN COMFOR",
+      "count": 1
+    },
+    {
+      "subCategory": "NINHO > NINHO INSTANTANEO LATA",
+      "count": 1
+    },
+    {
+      "subCategory": "NINHO > NINHO ADULTO",
+      "count": 1
+    },
+    {
+      "subCategory": "NINHO > NINHO INTEGRAL LATA",
+      "count": 1
+    },
+    {
+      "subCategory": "LEITES DE CRESCIMENTO > NESTONUTRI",
+      "count": 1
+    },
+    {
+      "subCategory": "BEBIDAS POS > NESCAU SACHET 900G+",
+      "count": 1
+    },
+    {
+      "subCategory": "BEBIDAS POS > NESCAU LATA 350G",
+      "count": 1
+    },
+    {
+      "subCategory": "CEREAIS FAMILIA > NESTLE AVEIAS PREMIUM",
+      "count": 1
+    },
+    {
+      "subCategory": "LEITES CULINARIOS > SPREADS",
+      "count": 1
+    },
+    {
+      "subCategory": "NINHO > NINHO FORTI+",
+      "count": 1
+    },
+    {
+      "subCategory": "CHOCOLATES NESTLE > KIT KAT 2 FINGERS",
+      "count": 1
+    },
+    {
+      "subCategory": "NINHO FASES > NINHO FASES",
+      "count": 1
+    },
+    {
+      "subCategory": "GAROTO > CAIXAS GAROTO",
+      "count": 1
+    }
+  ],
+  "detailedMissingList": [
+    {
+      "code": "411201",
+      "name": "NESTLE Creme de Leite Lata 48x300g BR",
+      "category": "LEITES CULINARIOS",
+      "subCategory": "CREME LATA"
+    },
+    {
+      "code": "411269",
+      "name": "NESTLE Creme de Leite Uht 27x200g BR",
+      "category": "LEITES CULINARIOS",
+      "subCategory": "CREME TP"
+    },
+    {
+      "code": "412340",
+      "name": "NUTREN ACTIVE PBIO1 Baunilha 12x400g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN ACTIVE"
+    },
+    {
+      "code": "412341",
+      "name": "NUTREN ACTIVE PBIO1 Chocolate 12x400g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN ACTIVE"
+    },
+    {
+      "code": "412681",
+      "name": "NESTON Vitamina MrgPB 24x400g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTON LATA"
+    },
+    {
+      "code": "412685",
+      "name": "NESTON Vitamina MamaoBM 24x400g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTON LATA"
+    },
+    {
+      "code": "413695",
+      "name": "SNOW FLAKES Cereal Matinal 14x620g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "SNOW 300G+"
+    },
+    {
+      "code": "414216",
+      "name": "CHOKITO Chocolate 18(30x32g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CANDY BARS NESTLE"
+    },
+    {
+      "code": "414513",
+      "name": "NESTLE Choc em Po Soluvel 25x200g XI",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "POS NESTLE"
+    },
+    {
+      "code": "414602",
+      "name": "PRESTIGIO Chocolate 30x33g BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CANDY BARS NESTLE"
+    },
+    {
+      "code": "414649",
+      "name": "CHARGE Chocolate 12(30x40g) XW",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CANDY BARS NESTLE"
+    },
+    {
+      "code": "415013",
+      "name": "MAGGI Amaciante Car c/ Tempero 30x120gBR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS FRASCO"
+    },
+    {
+      "code": "415084",
+      "name": "MAGGI MEU SEGREDO Temp Gran 42(7x7g)BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS CARTONADO"
+    },
+    {
+      "code": "415306",
+      "name": "MAGGI Sopa Cebola 12x68g BR",
+      "category": "MAGGI",
+      "subCategory": "DEMAIS SOPAS"
+    },
+    {
+      "code": "415385",
+      "name": "MAGGI Creme Cebola 12x68g BR",
+      "category": "MAGGI",
+      "subCategory": "DEMAIS SOPAS"
+    },
+    {
+      "code": "415400",
+      "name": "MAGGI Sopao Sp Costela 24x200g BR",
+      "category": "MAGGI",
+      "subCategory": "SOPAO"
+    },
+    {
+      "code": "415444",
+      "name": "MAGGI Sopa Carne&Conchinhas 10x63g BR",
+      "category": "MAGGI",
+      "subCategory": "DEMAIS SOPAS"
+    },
+    {
+      "code": "415446",
+      "name": "MAGGI Sopa Gl&Fidelini 12(10x60g BR",
+      "category": "MAGGI",
+      "subCategory": "DEMAIS SOPAS"
+    },
+    {
+      "code": "415820",
+      "name": "MAGGI Sopao Galinha 24x200g BR",
+      "category": "MAGGI",
+      "subCategory": "SOPAO"
+    },
+    {
+      "code": "415821",
+      "name": "MAGGI Sopao Sp Carne 24x200g BR",
+      "category": "MAGGI",
+      "subCategory": "SOPAO"
+    },
+    {
+      "code": "415823",
+      "name": "MAGGI SOPaO Sp Canja Galinha 24x200g BR",
+      "category": "MAGGI",
+      "subCategory": "SOPAO"
+    },
+    {
+      "code": "418817",
+      "name": "TOSTINES Bisc Cracker Agua 40x200g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS SALGADOS"
+    },
+    {
+      "code": "418872",
+      "name": "TOSTINES Biscoito Maisena 40x200g XI",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES TOSTINES"
+    },
+    {
+      "code": "418897",
+      "name": "CALIPSO Biscoito Coberto 40x130g XI",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COBERTOS"
+    },
+    {
+      "code": "6220411",
+      "name": "SBUX PIKE PLACE Rst SRP 12x53g B11",
+      "category": "COMPATIVEIS NESPRESSO",
+      "subCategory": "STARBUCKS CAPS NESPRESSO"
+    },
+    {
+      "code": "6220511",
+      "name": "SBUX COLOMBIA SO SRP 12x57g B11",
+      "category": "COMPATIVEIS NESPRESSO",
+      "subCategory": "STARBUCKS CAPS NESPRESSO"
+    },
+    {
+      "code": "6220711",
+      "name": "SBUX BLNDE ESPRS Rst SRP 12x53g B11",
+      "category": "COMPATIVEIS NESPRESSO",
+      "subCategory": "STARBUCKS CAPS NESPRESSO"
+    },
+    {
+      "code": "6223111",
+      "name": "SBUX ESPRS RST SRP 12x55g B11",
+      "category": "COMPATIVEIS NESPRESSO",
+      "subCategory": "STARBUCKS CAPS NESPRESSO"
+    },
+    {
+      "code": "6620911",
+      "name": "NESC ANDES SRP 12x44g R11",
+      "category": "COMPATIVEIS NESPRESSO",
+      "subCategory": "NESCAFE CAPS NESPRESSO"
+    },
+    {
+      "code": "6621011",
+      "name": "NESC COL SRP 12x44g R11",
+      "category": "COMPATIVEIS NESPRESSO",
+      "subCategory": "NESCAFE CAPS NESPRESSO"
+    },
+    {
+      "code": "6621211",
+      "name": "NESC BRAZIL SRP 12x44g R11",
+      "category": "COMPATIVEIS NESPRESSO",
+      "subCategory": "NESCAFE CAPS NESPRESSO"
+    },
+    {
+      "code": "6621311",
+      "name": "NESC INDIA SRP 12x44g R11",
+      "category": "COMPATIVEIS NESPRESSO",
+      "subCategory": "NESCAFE CAPS NESPRESSO"
+    },
+    {
+      "code": "6621411",
+      "name": "NESC AFRICAS SRP 12x44g R11",
+      "category": "COMPATIVEIS NESPRESSO",
+      "subCategory": "NESCAFE CAPS NESPRESSO"
+    },
+    {
+      "code": "6621511",
+      "name": "NESC SOUTH ASIA SRP 12x46g R11",
+      "category": "COMPATIVEIS NESPRESSO",
+      "subCategory": "NESCAFE CAPS NESPRESSO"
+    },
+    {
+      "code": "6621611",
+      "name": "NESC MEXICO SRP 12x44g R11",
+      "category": "COMPATIVEIS NESPRESSO",
+      "subCategory": "NESCAFE CAPS NESPRESSO"
+    },
+    {
+      "code": "11320040",
+      "name": "GAROTO Chocolate em Po 20x200g XI",
+      "category": "GAROTO",
+      "subCategory": "POS GAROTO"
+    },
+    {
+      "code": "11320042",
+      "name": "GAROTO Cacau em Po 20x200g XW",
+      "category": "GAROTO",
+      "subCategory": "POS GAROTO"
+    },
+    {
+      "code": "11320197",
+      "name": "TALENTO Tab Leite Amen Pas 18(15x25g) XW",
+      "category": "GAROTO",
+      "subCategory": "TABLETES GAROTO"
+    },
+    {
+      "code": "11320198",
+      "name": "TALENTO Tab Leite Cast Para 18(15x25g)XW",
+      "category": "GAROTO",
+      "subCategory": "TABLETES GAROTO"
+    },
+    {
+      "code": "11320199",
+      "name": "TALENTO Tab Choc Bco Cer 18(15x25g) XW",
+      "category": "GAROTO",
+      "subCategory": "TABLETES GAROTO"
+    },
+    {
+      "code": "11320209",
+      "name": "TALENTO Tab Leite Avelas 18(15x25g) XW",
+      "category": "GAROTO",
+      "subCategory": "TABLETES GAROTO"
+    },
+    {
+      "code": "11320331",
+      "name": "BATON Bastao Choc Branco 32(30x16g)XW",
+      "category": "GAROTO",
+      "subCategory": "BATON"
+    },
+    {
+      "code": "11320367",
+      "name": "BATON Bastao Choc Leite 32(30x16g)XW",
+      "category": "GAROTO",
+      "subCategory": "BATON"
+    },
+    {
+      "code": "11322004",
+      "name": "GAROTO Pastilha Hortela 24(40x17g) XW",
+      "category": "GAROTO",
+      "subCategory": "PASTILHAS"
+    },
+    {
+      "code": "11324001",
+      "name": "TALENTO Tab Diet Avelas 12(15x25g) XI",
+      "category": "GAROTO",
+      "subCategory": "TABLETES GAROTO"
+    },
+    {
+      "code": "12028625",
+      "name": "NESCAFE ORIGINAL 24x100g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "NESCAFE 100G"
+    },
+    {
+      "code": "12029252",
+      "name": "NESCAFE TRADICAO 24x100g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "NESCAFE 100G"
+    },
+    {
+      "code": "12029565",
+      "name": "NESCAFE MATINAL 24x100g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "NESCAFE 100G"
+    },
+    {
+      "code": "12041117",
+      "name": "MAGGI Sopao Galinha Caipira 24x200g BR",
+      "category": "MAGGI",
+      "subCategory": "SOPAO"
+    },
+    {
+      "code": "12045051",
+      "name": "PASSATEMPO Biscoito Leite 54x150g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES PASSATEMPO"
+    },
+    {
+      "code": "12091059",
+      "name": "MOCA Lei CondSemiDesnCaixinha 27x395g BR",
+      "category": "LEITES CULINARIOS",
+      "subCategory": "MOCA CAIXINHA"
+    },
+    {
+      "code": "12097176",
+      "name": "ALPINO Bebida Garrafa Plas 4(6x280ml) BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS REGULAR"
+    },
+    {
+      "code": "12099104",
+      "name": "ALPINO Chocolate Bag 24x195g BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CAIXAS ESPECIAIS NESTLE"
+    },
+    {
+      "code": "12105545",
+      "name": "MUCILON  Multicereais Lata 18x400g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON TRAD LATA"
+    },
+    {
+      "code": "12105548",
+      "name": "MUCILON Milho Lata 18x400g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON TRAD LATA"
+    },
+    {
+      "code": "12105550",
+      "name": "MUCILON Arroz Lata 18x400g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON TRAD LATA"
+    },
+    {
+      "code": "12106251",
+      "name": "MUCILON Arroz Aveia Lata 18x400g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON TRAD LATA"
+    },
+    {
+      "code": "12127625",
+      "name": "MUCILON Arroz e Aveia Sachet 9x600g N1BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SACHET 600G"
+    },
+    {
+      "code": "12136357",
+      "name": "PRESTIGIO Wafer 48x110g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS WAFER"
+    },
+    {
+      "code": "12136358",
+      "name": "CLASSIC Wafer 48x110g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS WAFER"
+    },
+    {
+      "code": "12136359",
+      "name": "NEGRESCO Wafer 48x110g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS WAFER"
+    },
+    {
+      "code": "12138557",
+      "name": "NESTLE Farinha Lactea Trdl Sac 9x600g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "FARINHA LACTEA SACHET 600G+"
+    },
+    {
+      "code": "12146794",
+      "name": "PASSATEMPO Mini Wfr Mrg 16(28x20g) BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS WAFER"
+    },
+    {
+      "code": "12146795",
+      "name": "PASSATEMPO MiniWfrChoc 16(28x20g)BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS WAFER"
+    },
+    {
+      "code": "12150285",
+      "name": "NESCAU Prontinho Bebida Lactea 12x1L BR",
+      "category": "RTD KIDS",
+      "subCategory": "RTD KIDS 1L"
+    },
+    {
+      "code": "12155337",
+      "name": "BATON Bastao Duo 32(30x16g) XW",
+      "category": "GAROTO",
+      "subCategory": "BATON"
+    },
+    {
+      "code": "12171055",
+      "name": "MUCILON Multicereais Sachet 9x600g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SACHET 600G"
+    },
+    {
+      "code": "12177187",
+      "name": "NUTREN KIDS Baunilha 12x350g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN KIDS"
+    },
+    {
+      "code": "12177188",
+      "name": "NUTREN KIDS Chocolate 12x350gBR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN KIDS"
+    },
+    {
+      "code": "12182407",
+      "name": "CLASSIC Biscoito Recheado 60x140g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS OUTROS"
+    },
+    {
+      "code": "12182408",
+      "name": "NESCAU Biscoito Recheado 60x140g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS OUTROS"
+    },
+    {
+      "code": "12182409",
+      "name": "MOCA Biscoito Recheado 60x140g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS OUTROS"
+    },
+    {
+      "code": "12182430",
+      "name": "PRESTIGIO Biscoito Recheado 60x140g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS OUTROS"
+    },
+    {
+      "code": "12187083",
+      "name": "NESTON Bebida Garrafa Plas 4(6x280ml) BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS REGULAR"
+    },
+    {
+      "code": "12196210",
+      "name": "LOLLO Chocolate 12(30x28g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CANDY BARS NESTLE"
+    },
+    {
+      "code": "12223291",
+      "name": "MAGGI Sopao Carne Panela 24x200g BR",
+      "category": "MAGGI",
+      "subCategory": "SOPAO"
+    },
+    {
+      "code": "12227748",
+      "name": "CLASSIC Diet Chocolate 12(22x25g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "TABLETES NESTLE"
+    },
+    {
+      "code": "12228413",
+      "name": "NESTON 3 Cereais Sachet 12x210g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTON SACHET"
+    },
+    {
+      "code": "12228529",
+      "name": "NESTLE Farlact Trdl Sachet 24x210g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "FARINHA LACTEA SACHET ATE 400G"
+    },
+    {
+      "code": "12234477",
+      "name": "NESCAU Cereal Matinal 14x770g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "NESCAU 300G+"
+    },
+    {
+      "code": "12240800",
+      "name": "MOLICO LepoDesnSac TotalCalcio 12x500gBR",
+      "category": "MOLICO",
+      "subCategory": "MOLICO SACHET"
+    },
+    {
+      "code": "12240801",
+      "name": "MOLICO Lepo Desn Total Calcio 24x280g BR",
+      "category": "MOLICO",
+      "subCategory": "MOLICO LATA "
+    },
+    {
+      "code": "12241562",
+      "name": "NESTON Vitamina Mamao Bna Mc 24x210g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTON SACHET"
+    },
+    {
+      "code": "12242943",
+      "name": "NESCAU Bebida Garrafa Plas 4(6x270ml) BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS REGULAR"
+    },
+    {
+      "code": "12243344",
+      "name": "MOCA LeiCondTradlLataAbreFacil 48x395gBR",
+      "category": "LEITES CULINARIOS",
+      "subCategory": "MOCA LATA"
+    },
+    {
+      "code": "12246308",
+      "name": "NESTLE Aveia Flocos 28x170g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTLE AVEIAS"
+    },
+    {
+      "code": "12246309",
+      "name": "NESTLE Aveia Flocos Finos 28x170g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTLE AVEIAS"
+    },
+    {
+      "code": "12248107",
+      "name": "NUTREN SENIOR Po 6x740g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN SENIOR LATA"
+    },
+    {
+      "code": "12250611",
+      "name": "NESQUIK Morango 24x380g BR",
+      "category": "BEBIDAS POS",
+      "subCategory": "NESQUIK"
+    },
+    {
+      "code": "12272482",
+      "name": "SUFLAIR Chocolate Leite 12(20x50g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "TABLETES NESTLE"
+    },
+    {
+      "code": "12273955",
+      "name": "BATON Bastao Recheado Leite 32(30x16g)XW",
+      "category": "GAROTO",
+      "subCategory": "BATON"
+    },
+    {
+      "code": "12277350",
+      "name": "TALENTO Tablete Meio Amargo 18(15x25g)BR",
+      "category": "GAROTO",
+      "subCategory": "TABLETES GAROTO"
+    },
+    {
+      "code": "12278536",
+      "name": "PASSATEMPO Cookie Gotas Choc 52x60g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12290967",
+      "name": "NESCAFE BebidaGarrafa Plas 4(6x270ml) BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS CAFES"
+    },
+    {
+      "code": "12301285",
+      "name": "NINHO 3+ PBIO3 Fases Lepo 24x400g N3 BR",
+      "category": "NINHO FASES",
+      "subCategory": "NINHO FASES OUTROS"
+    },
+    {
+      "code": "12303027",
+      "name": "MUCILON Ameixa e Aveia 12x180g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SACHET 180G"
+    },
+    {
+      "code": "12305178",
+      "name": "KANINA Filhotes 15kg N3 BR",
+      "category": "MAINSTREAM",
+      "subCategory": "KANINA LARGE BAGS"
+    },
+    {
+      "code": "12307594",
+      "name": "MOCA FLAKES Cereal Mat Sachet 20x120g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "DEMAIS CEREAIS MATINAIS"
+    },
+    {
+      "code": "12307595",
+      "name": "NESCAU Cereal Matinal Sachet 20x120g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "NESCAU ATE 300G"
+    },
+    {
+      "code": "12307596",
+      "name": "SNOW FLAKES Cer Mat Sachet 20x120g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "SNOW ATE 300G"
+    },
+    {
+      "code": "12310601",
+      "name": "BONZO Adultos Carne e Cereais 18kg BR",
+      "category": "MAINSTREAM",
+      "subCategory": "BONZO LARGE BAGS"
+    },
+    {
+      "code": "12313896",
+      "name": "BATON Bastao Rech Morango 32(30x16g) BR",
+      "category": "GAROTO",
+      "subCategory": "BATON"
+    },
+    {
+      "code": "12316706",
+      "name": "PRESTIGIO Dark Chocolate 18(30x33g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CANDY BARS NESTLE"
+    },
+    {
+      "code": "12321616",
+      "name": "NESTLE Cacau em Po Soluvel 25x200g BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "POS NESTLE"
+    },
+    {
+      "code": "12325104",
+      "name": "PASSATEMPO Bisc Recheado Mrg 70x130g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS PASSATEMPO"
+    },
+    {
+      "code": "12325231",
+      "name": "PASSATEMPO Bisc Recheado Choc 70x130g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS PASSATEMPO"
+    },
+    {
+      "code": "12325232",
+      "name": "PASSATEMPO Bisc Recheado Leite 70x130gBR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS PASSATEMPO"
+    },
+    {
+      "code": "12329921",
+      "name": "MAGGI Caldo Galinha Tira 35(24x19g) BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12329922",
+      "name": "MAGGI Caldo Carne Tira 35(24x19g) BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12340089",
+      "name": "NEGRESCO Cookie Choc Gotas Baun 52x60gBR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12340110",
+      "name": "CLASSIC Cookie Choc Gotas Choc 52x60gBR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12342557",
+      "name": "KIT KAT 4Fngr Leite 4(24x41.5g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "KIT KAT 4 FINGERS"
+    },
+    {
+      "code": "12342558",
+      "name": "KITKAT 4Fngr Dark 4(24x41,5g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "KIT KAT 4 FINGERS"
+    },
+    {
+      "code": "12343630",
+      "name": "KITKAT 4Fngr Branco 4(24x41,5g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "KIT KAT 4 FINGERS"
+    },
+    {
+      "code": "12343960",
+      "name": "MOLICOLepoDesnTotalCa24x280gPRAvestruzBR",
+      "category": "MOLICO",
+      "subCategory": "MOLICO LATA "
+    },
+    {
+      "code": "12344609",
+      "name": "MAGGI Caldo Galinha 15(10x57g) BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12344650",
+      "name": "MAGGI Caldo Carne Dspl 15(10x57g) BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12344651",
+      "name": "MAGGI Caldo Bacon Display 15(10x57g) BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12346031",
+      "name": "MAGGI Caldo de Legumes Dspl 15(10x57g)BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12349928",
+      "name": "MAGGI Caldo Bacon 100x114g BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12350064",
+      "name": "MAGGI Caldo Galinha 100x114g BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12350073",
+      "name": "MAGGI Caldo Carne 100x114g BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12350074",
+      "name": "MAGGI Caldo Galinha 76x152g BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12350100",
+      "name": "MAGGI Caldo Carne 76x152g BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12351488",
+      "name": "MOLICO Zero Lact CmptoLact Po 24x260g BR",
+      "category": "MOLICO",
+      "subCategory": "MOLICO ESPECIAIS"
+    },
+    {
+      "code": "12355348",
+      "name": "NESTLE Crmlt Zero Lact Uht 27x200g BR",
+      "category": "LEITES CULINARIOS",
+      "subCategory": "CREME TP"
+    },
+    {
+      "code": "12355785",
+      "name": "MAGGI Caldo Carne MenosSodio 100x114g BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12355788",
+      "name": "MAGGI Caldo Galinha MenosSodio 180x57gBR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12355789",
+      "name": "MAGGI Caldo Carne Menos Sodio 180x57g BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12355810",
+      "name": "MAGGI Caldo GalinhaMenosSodio 100x114gBR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12365022",
+      "name": "CRUNCH Cereal Matinal Sachet 20x120g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "DEMAIS CEREAIS MATINAIS"
+    },
+    {
+      "code": "12368428",
+      "name": "PRESTIGIO ao Leite Flowpack 30x114g BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CANDY BARS NESTLE"
+    },
+    {
+      "code": "12368980",
+      "name": "BATON Extra Milk 32(30x16g) XW",
+      "category": "GAROTO",
+      "subCategory": "BATON"
+    },
+    {
+      "code": "12370783",
+      "name": "NESCAU Cereal Matinal 24x210g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "NESCAU ATE 300G"
+    },
+    {
+      "code": "12377050",
+      "name": "NUTREN SENIOR semSabor6x740gPRGrts100gBR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN SENIOR LATA"
+    },
+    {
+      "code": "12377691",
+      "name": "CHARGE Flowpack 30x117g BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CANDY BARS NESTLE"
+    },
+    {
+      "code": "12378082",
+      "name": "DOGUITOS Bifinho Carne 20x65g BR",
+      "category": "SNACKS",
+      "subCategory": "DOGUITOS SNACKS"
+    },
+    {
+      "code": "12378083",
+      "name": "DOGUITOS Bifinho Frango 20x65g BR",
+      "category": "SNACKS",
+      "subCategory": "DOGUITOS SNACKS"
+    },
+    {
+      "code": "12378133",
+      "name": "NESCAU DUO Cereal Matinal 24x210g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "NESCAU ATE 300G"
+    },
+    {
+      "code": "12379167",
+      "name": "DOGUITOS Linguicinha 20x45g BR",
+      "category": "SNACKS",
+      "subCategory": "DOGUITOS SNACKS"
+    },
+    {
+      "code": "12379776",
+      "name": "PASSATEMPO Bisc RechChocChoc 70x130g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS PASSATEMPO"
+    },
+    {
+      "code": "12379785",
+      "name": "PASSATEMPO Bisc Rech Choc Mrg 70x130g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS PASSATEMPO"
+    },
+    {
+      "code": "12380253",
+      "name": "NESTLE Cob Choc Leite 20x500g BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "COBERTURAS NESTLE"
+    },
+    {
+      "code": "12384866",
+      "name": "DOG CHOW Oral Med Gde 20x80g BR",
+      "category": "ORAL CARE",
+      "subCategory": "DOG CHOW ORAL SNACKS"
+    },
+    {
+      "code": "12384867",
+      "name": "DOG CHOW Oral Pequeno 20x105g BR",
+      "category": "ORAL CARE",
+      "subCategory": "DOG CHOW ORAL SNACKS"
+    },
+    {
+      "code": "12384868",
+      "name": "DOG CHOW Oral Pequeno 20x45g BR",
+      "category": "ORAL CARE",
+      "subCategory": "DOG CHOW ORAL SNACKS"
+    },
+    {
+      "code": "12386036",
+      "name": "NDG Minime Antr1 127V BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "MAQUINAS E ACESSORIOS G1"
+    },
+    {
+      "code": "12386037",
+      "name": "NDG Minime Antr1 220V BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "MAQUINAS E ACESSORIOS G1"
+    },
+    {
+      "code": "12392354",
+      "name": "MAGGI Sopao Gl Menos Sodio 24x150g BR",
+      "category": "MAGGI",
+      "subCategory": "SOPAO"
+    },
+    {
+      "code": "12392355",
+      "name": "MAGGI Sopao Car Menos Sodio 24x150g BR",
+      "category": "MAGGI",
+      "subCategory": "SOPAO"
+    },
+    {
+      "code": "12394435",
+      "name": "MUCILON BL 5 Cereais Zero 12x180g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON ZERO"
+    },
+    {
+      "code": "12400662",
+      "name": "MAGGI Crm Ceb Menos Sodio 12(12x61g) BR",
+      "category": "MAGGI",
+      "subCategory": "DEMAIS SOPAS"
+    },
+    {
+      "code": "12405428",
+      "name": "DOG CHOW Adlt Mini Peq Carne 15x100g BR",
+      "category": "WET",
+      "subCategory": "DOG CHOW WET POUCH"
+    },
+    {
+      "code": "12405429",
+      "name": "DOGCHOW Adlt Mini Peq Salmao 15x100g BR",
+      "category": "WET",
+      "subCategory": "DOG CHOW WET POUCH"
+    },
+    {
+      "code": "12405432",
+      "name": "DOG CHOW Adlt TdTm Frango 15x100g BR",
+      "category": "WET",
+      "subCategory": "DOG CHOW WET POUCH"
+    },
+    {
+      "code": "12405471",
+      "name": "DOG CHOW Adlt Mini Peq Frango 15x100g BR",
+      "category": "WET",
+      "subCategory": "DOG CHOW WET POUCH"
+    },
+    {
+      "code": "12405472",
+      "name": "DOG CHOW Filh TdTm Carne 15x100g BR",
+      "category": "WET",
+      "subCategory": "DOG CHOW WET POUCH"
+    },
+    {
+      "code": "12405475",
+      "name": "DOG CHOW Adlt TdTm Carne 15x100g BR",
+      "category": "WET",
+      "subCategory": "DOG CHOW WET POUCH"
+    },
+    {
+      "code": "12405477",
+      "name": "DOG CHOW Adlt TdTm Cordeiro 15x100g BR",
+      "category": "WET",
+      "subCategory": "DOG CHOW WET POUCH"
+    },
+    {
+      "code": "12405478",
+      "name": "DOG CHOW Filh TdTm Frango 15x100g BR",
+      "category": "WET",
+      "subCategory": "DOG CHOW WET POUCH"
+    },
+    {
+      "code": "12406317",
+      "name": "NINHO 3+ PBIO3 Fases Lepo 6x800g BR",
+      "category": "NINHO FASES",
+      "subCategory": "NINHO FASES OUTROS"
+    },
+    {
+      "code": "12406967",
+      "name": "NESCAFE GOLD TorrMoidoSuaveSac 12x250gBR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "TORRADO E MOIDO PREMIUM"
+    },
+    {
+      "code": "12406968",
+      "name": "NESCAFE GOLDTorrMoidoIntensoSac12x250gBR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "TORRADO E MOIDO PREMIUM"
+    },
+    {
+      "code": "12406969",
+      "name": "NESC GOLD TorrMdoEquilibradoSac12x250gBR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "TORRADO E MOIDO PREMIUM"
+    },
+    {
+      "code": "12408826",
+      "name": "MOLICO LepoParcialDesn+Fibras24x260gBR",
+      "category": "MOLICO",
+      "subCategory": "MOLICO ESPECIAIS"
+    },
+    {
+      "code": "12410107",
+      "name": "MAGGI Caldo Po Carne 96x35g BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS PO"
+    },
+    {
+      "code": "12410129",
+      "name": "MAGGI Caldo Po Galinha 96x35g BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS PO"
+    },
+    {
+      "code": "12412175",
+      "name": "NDG Minime ArctGryBlk2 127V BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "MAQUINAS E ACESSORIOS G1"
+    },
+    {
+      "code": "12412520",
+      "name": "NDG Minime ArctGryBlk2 220V BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "MAQUINAS E ACESSORIOS G1"
+    },
+    {
+      "code": "12413903",
+      "name": "NESTLE Creme deLeiteUht 10%Gdr 27x200gBR",
+      "category": "LEITES CULINARIOS",
+      "subCategory": "CREME TP"
+    },
+    {
+      "code": "12414266",
+      "name": "BONZO Adultos Carne e Cereais 10,1kg BR",
+      "category": "MAINSTREAM",
+      "subCategory": "BONZO LARGE BAGS"
+    },
+    {
+      "code": "12416237",
+      "name": "SERENATA DE AMOR Wafer Cstn 10x825g XW",
+      "category": "GAROTO",
+      "subCategory": "BOMBONS GAROTO"
+    },
+    {
+      "code": "12416339",
+      "name": "NUTREN SENIOR Po Baunilha 6x740g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN SENIOR LATA"
+    },
+    {
+      "code": "12416364",
+      "name": "NUTREN SENIOR Po Cafe c/ Leite 6x740g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN SENIOR LATA"
+    },
+    {
+      "code": "12418204",
+      "name": "NESTON 3 Cereais Sachet 9x600g N2 BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTON SACHET"
+    },
+    {
+      "code": "12418415",
+      "name": "NESFIT CerMat 0%Adicao Acucar 24x220g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "DEMAIS CEREAIS MATINAIS"
+    },
+    {
+      "code": "12420220",
+      "name": "NESFIT Delice Bisc CacaueAvela 45x140gBR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES NESFIT"
+    },
+    {
+      "code": "12420221",
+      "name": "NESFIT DeliceBiscMacaeCanela 45x140g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES NESFIT"
+    },
+    {
+      "code": "12420288",
+      "name": "NEGRESCO Bisc Rech Coberto 36x120g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COBERTOS"
+    },
+    {
+      "code": "12429007",
+      "name": "NUTREN Protein Chocolate Po 12x400g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN PROTEIN LATA"
+    },
+    {
+      "code": "12432473",
+      "name": "NUTRENSENIOR PoZeroLact s/Sabor 6x740gBR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN SENIOR LATA"
+    },
+    {
+      "code": "12439442",
+      "name": "NESFIT Biscoito Cacau e Cereais48x160gBR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES NESFIT"
+    },
+    {
+      "code": "12439444",
+      "name": "NESFIT Bisc Laranja e Cenoura 48x160g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES NESFIT"
+    },
+    {
+      "code": "12439451",
+      "name": "NESFIT Biscoito Mrg e Cereais 48x160g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES NESFIT"
+    },
+    {
+      "code": "12439453",
+      "name": "NESFIT Biscoito LimaoeCereais 48x160g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES NESFIT"
+    },
+    {
+      "code": "12439496",
+      "name": "NESFIT Biscoito Coco 48x160g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES NESFIT"
+    },
+    {
+      "code": "12439508",
+      "name": "NESFIT Bisc Banana Ava e Canl 48x160g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES NESFIT"
+    },
+    {
+      "code": "12439521",
+      "name": "BONO Bisc Rech Fininho Choc 44x57g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS BONO"
+    },
+    {
+      "code": "12439770",
+      "name": "MOCA LeiCond Light Desn Cxnha 27x410g BR",
+      "category": "LEITES CULINARIOS",
+      "subCategory": "MOCA ESPECIAIS"
+    },
+    {
+      "code": "12440848",
+      "name": "MOCA Lei CondSemiDesn Caixinha 27x340gBR",
+      "category": "LEITES CULINARIOS",
+      "subCategory": "MOCA CAIXINHA"
+    },
+    {
+      "code": "12442206",
+      "name": "NESCAFE TRADICAO Forte Sachet 24x40g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "NESCAFE 40G"
+    },
+    {
+      "code": "12442213",
+      "name": "NESCAFEORGNL ExtraForte Sachet 24x40g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "NESCAFE 40G"
+    },
+    {
+      "code": "12442256",
+      "name": "NESCAFE MATINAL Suave Sachet 24x40g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "NESCAFE 40G"
+    },
+    {
+      "code": "12445411",
+      "name": "MAGGI Caldo Po Legumes 96x35g BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS PO"
+    },
+    {
+      "code": "12446238",
+      "name": "NUTREN SENIOR Po Sem Sabor 3(2x740g) BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN SENIOR LATA"
+    },
+    {
+      "code": "12447487",
+      "name": "SBUX Medium Pike Place RST R&G 12x250gUY",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "STARBUCKS T&M"
+    },
+    {
+      "code": "12447585",
+      "name": "SBUX Medium Colombia R&G 12X250g UY",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "STARBUCKS T&M"
+    },
+    {
+      "code": "12449862",
+      "name": "NESCIntensidadeMaxima Fco 12x160gBR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "SOLUVEL PREMIUM DEMAIS"
+    },
+    {
+      "code": "12451066",
+      "name": "MOCALeiCondParcDesnZrLactCxnha27x395gBR",
+      "category": "LEITES CULINARIOS",
+      "subCategory": "MOCA ZERO LACTOSE"
+    },
+    {
+      "code": "12453854",
+      "name": "MUCILON Multicereais Sachet 12x180g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SACHET 180G"
+    },
+    {
+      "code": "12453855",
+      "name": "MUCILON Milho Sachet 12x180g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SACHET 180G"
+    },
+    {
+      "code": "12453868",
+      "name": "MUCILON Arroz Aveia Sachet 12x180g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SACHET 180G"
+    },
+    {
+      "code": "12454108",
+      "name": "ONEAdltMiniPeqc/Frg&CarneDeVdd 11x700gBR",
+      "category": "SUPER PREMIUM DRY",
+      "subCategory": "ONE DRY DOG SMALL BAGS"
+    },
+    {
+      "code": "12454109",
+      "name": "ONE AdltMiniPeqc/Frgo&CarneDeVdd6x2kgBR",
+      "category": "SUPER PREMIUM DRY",
+      "subCategory": "ONE DRY DOG SMALL BAGS"
+    },
+    {
+      "code": "12454127",
+      "name": "ONEFilhTdTm c/Frango&CarneDeVdd11x700gBR",
+      "category": "SUPER PREMIUM DRY",
+      "subCategory": "ONE DRY DOG SMALL BAGS"
+    },
+    {
+      "code": "12454208",
+      "name": "ONEFilhTdTm c/Frango&CarneDeVdd6x2kgBR",
+      "category": "SUPER PREMIUM DRY",
+      "subCategory": "ONE DRY DOG SMALL BAGS"
+    },
+    {
+      "code": "12454355",
+      "name": "MUCILON Snack Tradicional 15x35g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SNACKS"
+    },
+    {
+      "code": "12454380",
+      "name": "MUCILON Snack Tomate 15x35g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SNACKS"
+    },
+    {
+      "code": "12454492",
+      "name": "ONEAdltMedGde c/Frango&CarneDeVdd6x2kgBR",
+      "category": "SUPER PREMIUM DRY",
+      "subCategory": "ONE DRY DOG SMALL BAGS"
+    },
+    {
+      "code": "12454676",
+      "name": "ONEGatoFilhc/Frango&CarneDeVdd6x2kgBR",
+      "category": "SUPER PREMIUM DRY",
+      "subCategory": "ONE DRY CAT SMALL BAGS"
+    },
+    {
+      "code": "12454893",
+      "name": "BONO Bisc Rech Choc Coberto 36x109g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COBERTOS"
+    },
+    {
+      "code": "12455021",
+      "name": "ONEGatEsterilizadosFrg&SlmDeVdd20x500gBR",
+      "category": "SUPER PREMIUM DRY",
+      "subCategory": "ONE DRY CAT SMALL BAGS"
+    },
+    {
+      "code": "12455098",
+      "name": "ONECatFilh c/Frango&CarneDeVdd20x500gBR",
+      "category": "SUPER PREMIUM DRY",
+      "subCategory": "ONE DRY CAT SMALL BAGS"
+    },
+    {
+      "code": "12455107",
+      "name": "ONECatAdultos c/Frg&CarneDeVdd20x500gBR",
+      "category": "SUPER PREMIUM DRY",
+      "subCategory": "ONE DRY CAT SMALL BAGS"
+    },
+    {
+      "code": "12455123",
+      "name": "ONECatEsterilizadosFrg&SlmDeVdd6x2kgBR",
+      "category": "SUPER PREMIUM DRY",
+      "subCategory": "ONE DRY CAT SMALL BAGS"
+    },
+    {
+      "code": "12455124",
+      "name": "ONECatAdulto c/Frango&CarneDeVdd6x2kgBR",
+      "category": "SUPER PREMIUM DRY",
+      "subCategory": "ONE DRY CAT SMALL BAGS"
+    },
+    {
+      "code": "12458810",
+      "name": "NESTLE ESPECIALIDADES Bombons 30x251g BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CAIXAS NESTLE"
+    },
+    {
+      "code": "12463773",
+      "name": "BONO Wafer Limao 48x110g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS WAFER"
+    },
+    {
+      "code": "12463859",
+      "name": "TOSTINES Maca&Canela 48x160g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES TOSTINES"
+    },
+    {
+      "code": "12463873",
+      "name": "TOSTINES Coco 48x160g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES TOSTINES"
+    },
+    {
+      "code": "12464177",
+      "name": "SUFLAIR Chocolate Duo 4(16x80g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS NESTLE"
+    },
+    {
+      "code": "12464249",
+      "name": "SUFLAIR Chocolate ao Leite 4(16x80g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS NESTLE"
+    },
+    {
+      "code": "12468787",
+      "name": "ONE Caes Superfoods Adlt e Filh 15x85gXI",
+      "category": "WET",
+      "subCategory": "ONE DOG WET POUCH"
+    },
+    {
+      "code": "12468794",
+      "name": "ONE Caes MultiProteinaAdlteFilh 15x85gXI",
+      "category": "WET",
+      "subCategory": "ONE DOG WET POUCH"
+    },
+    {
+      "code": "12468803",
+      "name": "ONEGatosSuperfoodsAdlteCastrado15x85gXI",
+      "category": "WET",
+      "subCategory": "ONE CAT WET POUCH"
+    },
+    {
+      "code": "12468816",
+      "name": "ONEGatSuperNutrientesAdlteCastr15x85gXI",
+      "category": "WET",
+      "subCategory": "ONE CAT WET POUCH"
+    },
+    {
+      "code": "12468817",
+      "name": "ONE GatosMultiProteina AdlteFilh15x85gXI",
+      "category": "WET",
+      "subCategory": "ONE CAT WET POUCH"
+    },
+    {
+      "code": "12468818",
+      "name": "ONECaesSuperNutrientesAdlteFilh15x85gXI",
+      "category": "WET",
+      "subCategory": "ONE DOG WET POUCH"
+    },
+    {
+      "code": "12469063",
+      "name": "NESFITCerMatCacau0%AdicaoAcu24x220gBR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "DEMAIS CEREAIS MATINAIS"
+    },
+    {
+      "code": "12470571",
+      "name": "NUTREN SENIOR Po Baunilha 3(2x740g) BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN SENIOR LATA"
+    },
+    {
+      "code": "12475946",
+      "name": "NUTREN SENIOR Po Baunilha 24x370g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN SENIOR LATA"
+    },
+    {
+      "code": "12475952",
+      "name": "NUTREN SENIOR Po 24x370g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN SENIOR LATA"
+    },
+    {
+      "code": "12476875",
+      "name": "NUTREN SENIOR Po Chocolate 24x370g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN SENIOR LATA"
+    },
+    {
+      "code": "12477866",
+      "name": "NESCAU ACTGO Achoc Po Sachet 12x550g BR",
+      "category": "BEBIDAS POS",
+      "subCategory": "NESCAU SACHET ATE 600G"
+    },
+    {
+      "code": "12477871",
+      "name": "NESCAU ACTGO Achoc Po Sachet 12x730g BR",
+      "category": "BEBIDAS POS",
+      "subCategory": "NESCAU SACHET 730G"
+    },
+    {
+      "code": "12478287",
+      "name": "NESCAU BALL Chocolate 4(12x75g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CONFEITOS NESTLE"
+    },
+    {
+      "code": "12479709",
+      "name": "PRESTIGIO CookieChoc GotasChoc 52x60g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12479850",
+      "name": "NESCAU Cookie Choc Gotas Duo 52x60g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12479852",
+      "name": "NESTLECLASSICCookieBaunGotasChoc52x60gBR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12480738",
+      "name": "MAGGI MEU SEGREDO AlhoCebola 42(7x7g)BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS CARTONADO"
+    },
+    {
+      "code": "12480745",
+      "name": "MAGGI MEU SEGREDO CheiroVerde 42(7x7g)BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS CARTONADO"
+    },
+    {
+      "code": "12480752",
+      "name": "MAGGI MEU SEGREDO Tomate 42(7x7g) BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS CARTONADO"
+    },
+    {
+      "code": "12489996",
+      "name": "ALPO Filhotes CarFrgCerVeg Lei 10x1kg BR",
+      "category": "MAINSTREAM",
+      "subCategory": "ALPO SMALL BAGS"
+    },
+    {
+      "code": "12492194",
+      "name": "ALPO Adulto Car Frg Cer Veg 18kg BR",
+      "category": "MAINSTREAM",
+      "subCategory": "ALPO LARGE BAGS"
+    },
+    {
+      "code": "12492195",
+      "name": "ALPO Adulto Car Frg Cer Veg 10,1kg BR",
+      "category": "MAINSTREAM",
+      "subCategory": "ALPO LARGE BAGS"
+    },
+    {
+      "code": "12492196",
+      "name": "ALPO Adulto Car Frg Cer Veg 10x1kg BR",
+      "category": "MAINSTREAM",
+      "subCategory": "ALPO SMALL BAGS"
+    },
+    {
+      "code": "12492197",
+      "name": "TALENTO ChocBrancoDocedeLeite8(12x85g)BR",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS TALENTO"
+    },
+    {
+      "code": "12492199",
+      "name": "TALENTO Tab Choc Branco Cer 8(12x85g) XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS TALENTO"
+    },
+    {
+      "code": "12492201",
+      "name": "ALPO Filhotes CarFrgCerVegLei 10,1kg BR",
+      "category": "MAINSTREAM",
+      "subCategory": "ALPO LARGE BAGS"
+    },
+    {
+      "code": "12492202",
+      "name": "TALENTO Tablete Meio Amargo 8(12x85g) BR",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS TALENTO"
+    },
+    {
+      "code": "12492203",
+      "name": "TALENTO Tab Leite Cstn Para 8(12x85g) XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS TALENTO"
+    },
+    {
+      "code": "12492209",
+      "name": "TALENTO Tab Choc Amendoa Pas 8(12x85g)XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS TALENTO"
+    },
+    {
+      "code": "12492210",
+      "name": "TALENTO Tab Leite Avelas 8(12x85g) XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS TALENTO"
+    },
+    {
+      "code": "12492216",
+      "name": "TALENTO Tab Rech Morango 8(12x85g) XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS TALENTO"
+    },
+    {
+      "code": "12494821",
+      "name": "NESLAC SUPREME CmptoLact 6x800g N1 BR",
+      "category": "LEITES DE CRESCIMENTO",
+      "subCategory": "NESLAC SUPREME"
+    },
+    {
+      "code": "12495822",
+      "name": "ALPINO Cookie Gotas Choc 52x60g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12495833",
+      "name": "GALAK CookieGotasChocBranco 52x60gBR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12501474",
+      "name": "DOGCHOWXLfeAdltMedioGdeCarFrgArz5x3kgBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY SMALL BAGS"
+    },
+    {
+      "code": "12501505",
+      "name": "DOGCHOWXLfeAdltMnPeqCarFrgArz5x3kgBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY SMALL BAGS"
+    },
+    {
+      "code": "12506651",
+      "name": "KANINA Carne e Cereais 15kg N4 BR",
+      "category": "MAINSTREAM",
+      "subCategory": "KANINA LARGE BAGS"
+    },
+    {
+      "code": "12510020",
+      "name": "CRUNCH Cereal Matinal 24x230g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "DEMAIS CEREAIS MATINAIS"
+    },
+    {
+      "code": "12510030",
+      "name": "MOCA FLAKES Cereal Matinal 24x230g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "DEMAIS CEREAIS MATINAIS"
+    },
+    {
+      "code": "12510167",
+      "name": "MUCILON Milho Sachet 9x360g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SACHET 360G"
+    },
+    {
+      "code": "12510168",
+      "name": "MUCILON Arroz e Aveia Sachet 9x360g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SACHET 360G"
+    },
+    {
+      "code": "12510173",
+      "name": "MUCILON Arroz Sachet 9x360g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SACHET 360G"
+    },
+    {
+      "code": "12510643",
+      "name": "SNOW FLAKES Cereal Matinal 24x230g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "SNOW ATE 300G"
+    },
+    {
+      "code": "12511794",
+      "name": "NESTLE CORN FLAKES Cer Mat 24x190g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "DEMAIS CEREAIS MATINAIS"
+    },
+    {
+      "code": "12511795",
+      "name": "NEGRESCO Bisc Rech Fininho 44x57g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS NEGRESCO"
+    },
+    {
+      "code": "12513225",
+      "name": "NESTLE Farinha Lactea Trdl 24x360g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "FARINHA LACTEA LATA"
+    },
+    {
+      "code": "12513226",
+      "name": "NESTON 3 Cereais 18x360g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTON LATA"
+    },
+    {
+      "code": "12513468",
+      "name": "NESTLE CLASSIC Duo Cookie 22x150g BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS FAMILIARES NESTLE"
+    },
+    {
+      "code": "12513483",
+      "name": "NESTLE CLASSIC Amendoim 22x150g BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS FAMILIARES NESTLE"
+    },
+    {
+      "code": "12514534",
+      "name": "NESCAU Prontinho Blactea 27x180ml BR",
+      "category": "RTD KIDS",
+      "subCategory": "RTD KIDS REGULAR"
+    },
+    {
+      "code": "12517524",
+      "name": "NESCAU+SNWFLAKE Cer Mat 12x440g PRM BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "NESCAU 300G+"
+    },
+    {
+      "code": "12517928",
+      "name": "NESTLE CLASSIC Choc Ao Leite 22x150g BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS FAMILIARES NESTLE"
+    },
+    {
+      "code": "12518098",
+      "name": "NESCAU Cereal Matinal 14x540g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "NESCAU 300G+"
+    },
+    {
+      "code": "12519758",
+      "name": "FRISKIES Megamix Adulto 10x1kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12519762",
+      "name": "FRISKIES Megamix Adulto 6x3kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12519867",
+      "name": "FRISKIES Mix Carne Castrados 6x3kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12519874",
+      "name": "FRISKIES Mix Carne Castrados 10x1kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12519987",
+      "name": "FRISKIES Megamix Castrado 6x3kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12519988",
+      "name": "FRISKIES Mar de Sabores 6x3kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12520001",
+      "name": "NESCAU Wafer Chocolate 48x110g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS WAFER"
+    },
+    {
+      "code": "12520004",
+      "name": "FRISKIES Delicias da Granja Frg 6x3kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12520011",
+      "name": "FRISKIES Filhotes Frango 10x1kg N1 BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12520012",
+      "name": "FRISKIES Mix Carne Adulto 10x1kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12520223",
+      "name": "FRISKIES Delicias daGranja Frg 10x1kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12520224",
+      "name": "FRISKIES Megamix Castrados 10x1kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12520229",
+      "name": "FRISKIES Mix Carne Adulto 10,1kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY LARGE BAGS"
+    },
+    {
+      "code": "12520234",
+      "name": "FRISKIES Filhotes Frango 12x500g N1 BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY SMALL BAGS"
+    },
+    {
+      "code": "12520236",
+      "name": "FRISKIES Mar de Sabores 10,1kg BR",
+      "category": "PREMIUM DRY CAT",
+      "subCategory": "FRISKIES DRY LARGE BAGS"
+    },
+    {
+      "code": "12521363",
+      "name": "PASSATEMPO Biscoito Maisena 40x170g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES PASSATEMPO"
+    },
+    {
+      "code": "12521371",
+      "name": "PASSATEMPO BiscoitoLeiteMaltado54x150gBR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES PASSATEMPO"
+    },
+    {
+      "code": "12521749",
+      "name": "NESCAFE CAPPUCCINO Trdl Lata 24x180g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "DEMAIS NESCAFE"
+    },
+    {
+      "code": "12521837",
+      "name": "NESCAFECAPPUCCINODoisFradesLata24x180gBR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "DEMAIS NESCAFE"
+    },
+    {
+      "code": "12522825",
+      "name": "GAROTO Tablete Choc Mamgo 4(16x80g) XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS GAROTO"
+    },
+    {
+      "code": "12522826",
+      "name": "GAROTO Crocante Tablete 4(16x80g) XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS GAROTO"
+    },
+    {
+      "code": "12522829",
+      "name": "GAROTO Tablete ChocBco Bisc 4(16x80g) XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS GAROTO"
+    },
+    {
+      "code": "12522832",
+      "name": "GAROTO Tablete Choc aoLeite 4(16x80g) XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS GAROTO"
+    },
+    {
+      "code": "12522835",
+      "name": "GAROTO Tablete Castanha Caju 4(16x80g)XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS GAROTO"
+    },
+    {
+      "code": "12523120",
+      "name": "NESQUIK Bebida Lactea Morango 27x180mlBR",
+      "category": "RTD KIDS",
+      "subCategory": "RTD KIDS ESPECIAIS"
+    },
+    {
+      "code": "12525293",
+      "name": "FANCY FEAST Petit Filet Carne 15x85gN1BR",
+      "category": "WET",
+      "subCategory": "FANCY FEAST WET POUCH"
+    },
+    {
+      "code": "12526276",
+      "name": "FANCY FEAST Cass Frango e Peru15x85gN1XI",
+      "category": "WET",
+      "subCategory": "FANCY FEAST WET POUCH"
+    },
+    {
+      "code": "12526286",
+      "name": "FANCY FEAST Cass Atum e Salmao15x85gN1XI",
+      "category": "WET",
+      "subCategory": "FANCY FEAST WET POUCH"
+    },
+    {
+      "code": "12526301",
+      "name": "FANCY FEAST Goulash Atum 15x85g N1 XI",
+      "category": "WET",
+      "subCategory": "FANCY FEAST WET POUCH"
+    },
+    {
+      "code": "12526303",
+      "name": "FANCY FEAST Goulash Peru 15x85g N1 XI",
+      "category": "WET",
+      "subCategory": "FANCY FEAST WET POUCH"
+    },
+    {
+      "code": "12526304",
+      "name": "CLASSIC Chocolate Mamgo 4(16x80g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS NESTLE"
+    },
+    {
+      "code": "12526310",
+      "name": "FANCY FEAST Petit Filet Salmao15x85gN1XI",
+      "category": "WET",
+      "subCategory": "FANCY FEAST WET POUCH"
+    },
+    {
+      "code": "12526311",
+      "name": "GAROTO Tab ChocLei CajuPas 4(16x80g) XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS GAROTO"
+    },
+    {
+      "code": "12526320",
+      "name": "GALAK Chocolate 4(16x80g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS NESTLE"
+    },
+    {
+      "code": "12526404",
+      "name": "FANCY FEAST Demi Glace Frango 15x85gN1XI",
+      "category": "WET",
+      "subCategory": "FANCY FEAST WET POUCH"
+    },
+    {
+      "code": "12527297",
+      "name": "DIPLOMATA Chocolate 4(16x80g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS NESTLE"
+    },
+    {
+      "code": "12527298",
+      "name": "CLASSIC Chocolate ao Leite 4(16x80g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS NESTLE"
+    },
+    {
+      "code": "12527302",
+      "name": "CLASSIC Duo Chocolate 4(16x80g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS NESTLE"
+    },
+    {
+      "code": "12527322",
+      "name": "CLASSIC Prestigio 4(16x80g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS NESTLE"
+    },
+    {
+      "code": "12527324",
+      "name": "MUCILON SNACKS Laranja &Banana 15x35g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SNACKS"
+    },
+    {
+      "code": "12527418",
+      "name": "NESTLE Farinha Lactea Trdl 24x160g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "FARINHA LACTEA SACHET ATE 400G"
+    },
+    {
+      "code": "12527434",
+      "name": "CRUNCH Chocolate 4(16x80g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS NESTLE"
+    },
+    {
+      "code": "12527435",
+      "name": "GAROTO Tablete Choc Bco 4(16x80g) N1 XW",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS GAROTO"
+    },
+    {
+      "code": "12528243",
+      "name": "SBUX Frappuccino Classic 4(6x280ml) BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS CAFES"
+    },
+    {
+      "code": "12528254",
+      "name": "STARBUCKS Frappuccino Crml 4(6x280ml) BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS CAFES"
+    },
+    {
+      "code": "12531949",
+      "name": "SBUX Frappuccino Mocha 4(6x280ml) BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS CAFES"
+    },
+    {
+      "code": "12533720",
+      "name": "GAROTO Tab Choc aoLei Amendi 22x150g XI",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS FAMILIARES GAROTO"
+    },
+    {
+      "code": "12534256",
+      "name": "GALAK Wafer 48x110g N1 BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS WAFER"
+    },
+    {
+      "code": "12534263",
+      "name": "BONO Wafer Chocolate 48x110g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS WAFER"
+    },
+    {
+      "code": "12534475",
+      "name": "FRISKIES Atum ao Molho 15x85g N1 BR",
+      "category": "WET",
+      "subCategory": "FRISKIES WET POUCH"
+    },
+    {
+      "code": "12534476",
+      "name": "FRISKIES Peru ao Molho 15x85g N1 BR",
+      "category": "WET",
+      "subCategory": "FRISKIES WET POUCH"
+    },
+    {
+      "code": "12534477",
+      "name": "FRISKIES Carne ao Molho 15x85g N1 BR",
+      "category": "WET",
+      "subCategory": "FRISKIES WET POUCH"
+    },
+    {
+      "code": "12534494",
+      "name": "FRISKIES Salmao ao Molho 15x85g N1 BR",
+      "category": "WET",
+      "subCategory": "FRISKIES WET POUCH"
+    },
+    {
+      "code": "12534495",
+      "name": "FRISKIES Frango ao Molho 15x85g N1 BR",
+      "category": "WET",
+      "subCategory": "FRISKIES WET POUCH"
+    },
+    {
+      "code": "12534514",
+      "name": "FRISKIES Cordeiro ao Molho 15x85g N1 BR",
+      "category": "WET",
+      "subCategory": "FRISKIES WET POUCH"
+    },
+    {
+      "code": "12534547",
+      "name": "BONO Wafer Morango 48x110g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS WAFER"
+    },
+    {
+      "code": "12535219",
+      "name": "NESCAFE GOLD ESPRS Intsd6 Lata 12x100gBR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "SOLUVEL PREMIUM DEMAIS"
+    },
+    {
+      "code": "12535260",
+      "name": "NESCAFE GOLD ESPRS Intsd9 Lata 12x100gBR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "SOLUVEL PREMIUM DEMAIS"
+    },
+    {
+      "code": "12535685",
+      "name": "FRISKIES FilhotesCarne aoMolho15x85gN1BR",
+      "category": "WET",
+      "subCategory": "FRISKIES WET POUCH"
+    },
+    {
+      "code": "12535692",
+      "name": "FRISKIES PeixeBranco aoMolho 15x85g N1BR",
+      "category": "WET",
+      "subCategory": "FRISKIES WET POUCH"
+    },
+    {
+      "code": "12537280",
+      "name": "NESLAC Zero Lactose 6x700g N1 BR",
+      "category": "LEITES DE CRESCIMENTO",
+      "subCategory": "NESLAC COMFOR"
+    },
+    {
+      "code": "12537601",
+      "name": "FANCY FEAST Demi Glace Carne 15x85g N2XI",
+      "category": "WET",
+      "subCategory": "FANCY FEAST WET POUCH"
+    },
+    {
+      "code": "12549968",
+      "name": "NEGRESCO Biscoito Recheado 66x90g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS NEGRESCO"
+    },
+    {
+      "code": "12549969",
+      "name": "NEGRESCO Biscoito Recheado Mrg 66x90g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS NEGRESCO"
+    },
+    {
+      "code": "12549982",
+      "name": "BONO Biscoito Recheado Morango 66x90g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS BONO"
+    },
+    {
+      "code": "12549995",
+      "name": "BONO Biscoito Recheado Limao 66x90g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS BONO"
+    },
+    {
+      "code": "12550001",
+      "name": "BONO Biscoito Recheado Choc 66x90g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS BONO"
+    },
+    {
+      "code": "12550004",
+      "name": "BONO Biscoito Recheado Ddl 66x90g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS BONO"
+    },
+    {
+      "code": "12550128",
+      "name": "BONO Biscoito Recheado Coco 66x90g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS BONO"
+    },
+    {
+      "code": "12550520",
+      "name": "NEGRESCO Bisc Rech LiSiciliano 66x90g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS NEGRESCO"
+    },
+    {
+      "code": "12550953",
+      "name": "NESTLE Chocotrio Leite 4(12x90g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CHOCOTRIO NESTLE"
+    },
+    {
+      "code": "12550965",
+      "name": "NESTLE Chocotrio PastaAmendi 4(12x90g)BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CHOCOTRIO NESTLE"
+    },
+    {
+      "code": "12550971",
+      "name": "NESTLE Chocotrio Choc 4(12x90g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CHOCOTRIO NESTLE"
+    },
+    {
+      "code": "12551154",
+      "name": "NESCAU Achocolatado Po 30% Ccu 24x180gBR",
+      "category": "BEBIDAS POS",
+      "subCategory": "NESCAU ESPECIAIS"
+    },
+    {
+      "code": "12551184",
+      "name": "NESCAU Achocolatado Po 60% Ccu 24x180gBR",
+      "category": "BEBIDAS POS",
+      "subCategory": "NESCAU ESPECIAIS"
+    },
+    {
+      "code": "12551246",
+      "name": "NDG MOCHACCINO Canl 10Caps 6x172g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "QUERIDINHOS BEBIDAS"
+    },
+    {
+      "code": "12551249",
+      "name": "NDG Cafe Caseiro 10Caps 6x80g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "DEMAIS CAFES"
+    },
+    {
+      "code": "12551257",
+      "name": "NDG Nescau 10Caps 6x170g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "BEBIDAS CHOCOS"
+    },
+    {
+      "code": "12551265",
+      "name": "NDG ESPRESSO 10Caps 6x60g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "QUERIDINHOS CAFES"
+    },
+    {
+      "code": "12551271",
+      "name": "NDG CAFE AU LAIT Baun 10Caps 6x110g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "DEMAIS BEBIDAS"
+    },
+    {
+      "code": "12551300",
+      "name": "NDG ESPRESSO Inso 10Caps 6x80g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "QUERIDINHOS CAFES"
+    },
+    {
+      "code": "12551301",
+      "name": "NDG CAPPUCCINO 10Caps 6x117g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "QUERIDINHOS BEBIDAS"
+    },
+    {
+      "code": "12551302",
+      "name": "NDG Caffe Matinal 10Caps 6x80g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "QUERIDINHOS CAFES"
+    },
+    {
+      "code": "12551448",
+      "name": "NDG LUNGO 10Caps 6x70g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "DEMAIS CAFES"
+    },
+    {
+      "code": "12551459",
+      "name": "NDG CAFE AU LAIT 10Caps 6x100g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "QUERIDINHOS BEBIDAS"
+    },
+    {
+      "code": "12551463",
+      "name": "NDG LATTE MACCHIATO 10Caps 6x112,5g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "DEMAIS BEBIDAS"
+    },
+    {
+      "code": "12551473",
+      "name": "NDG CAPPUCCINO Ddl 10Caps 6x170g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "DEMAIS BEBIDAS"
+    },
+    {
+      "code": "12552456",
+      "name": "NDG Origem Organico 10Caps 6x80g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "DEMAIS CAFES"
+    },
+    {
+      "code": "12555551",
+      "name": "NESCAU Achoc Po Cilindrico 24x200g BR",
+      "category": "BEBIDAS POS",
+      "subCategory": "NESCAU LATA 200G"
+    },
+    {
+      "code": "12556035",
+      "name": "NESCAU Achoc Po Cilindro 12x670g BR",
+      "category": "BEBIDAS POS",
+      "subCategory": "NESCAU LATA 670G"
+    },
+    {
+      "code": "12558286",
+      "name": "NESTLE Aveia Flocos Finos 18x450g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTLE AVEIAS"
+    },
+    {
+      "code": "12558441",
+      "name": "NESCAU Beb Menos Acucar ZrLact27x180mlBR",
+      "category": "RTD KIDS",
+      "subCategory": "RTD KIDS ESPECIAIS"
+    },
+    {
+      "code": "12559766",
+      "name": "NESTLE Aveia Farelo 28x170g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTLE AVEIAS"
+    },
+    {
+      "code": "12559794",
+      "name": "NESTLE Aveia Farinha 28x170g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTLE AVEIAS"
+    },
+    {
+      "code": "12560459",
+      "name": "SNOW FLAKES Cer Mat 14x620gPRL620P470BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "SNOW 300G+"
+    },
+    {
+      "code": "12561091",
+      "name": "MUCILON Snack Pipoquinha Milho 15x35g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SNACKS"
+    },
+    {
+      "code": "12561814",
+      "name": "NESCAFE Descafeinado Sachet 24x40g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "NESCAFE 40G"
+    },
+    {
+      "code": "12562153",
+      "name": "DCHOW XLfe Lact FilhMedGdeCarFrArz15kgBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY LARGE BAGS"
+    },
+    {
+      "code": "12562154",
+      "name": "DCHOWXLfeLactFilhMedGdeCarFrgArz10,1kgBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY LARGE BAGS"
+    },
+    {
+      "code": "12562164",
+      "name": "DOGCHOW PAPITA XLfe Lact CarFrArz 20kgBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY LARGE BAGS"
+    },
+    {
+      "code": "12562294",
+      "name": "DCHOW XLfeLactFilhMnPeqCarFrgArz10,1kgBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY LARGE BAGS"
+    },
+    {
+      "code": "12562302",
+      "name": "DCHOW XLfeLact FilhMnPeqCarFrgArz5x3kgBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY SMALL BAGS"
+    },
+    {
+      "code": "12562402",
+      "name": "DCHOWXLfeLactFilhMedGdeCarFrgArz10x1kgBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY SMALL BAGS"
+    },
+    {
+      "code": "12562410",
+      "name": "DOGCHOW XLfeLactFilhMnPeqCarFrgArz15kgBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY LARGE BAGS"
+    },
+    {
+      "code": "12562754",
+      "name": "NESCAFE GOLD Intsd 9 Sachet 24x40g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "SOLUVEL PREMIUM SACHET"
+    },
+    {
+      "code": "12562774",
+      "name": "NESCAFE GOLD Intsd 6 Sachet 24x40g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "SOLUVEL PREMIUM SACHET"
+    },
+    {
+      "code": "12566987",
+      "name": "NEGRESCO Cereal Matinal 24x200g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "DEMAIS CEREAIS MATINAIS"
+    },
+    {
+      "code": "12570879",
+      "name": "GAROTO Bombom CrocanteCaribe 30x215,2gBR",
+      "category": "GAROTO",
+      "subCategory": "CAIXAS ESPECIAIS GAROTO"
+    },
+    {
+      "code": "12571027",
+      "name": "PSTMP Fininho Bisc Rech Avela 44x57g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS PASSATEMPO"
+    },
+    {
+      "code": "12571139",
+      "name": "NESCAFE CAPPU CanelaBebGarr 4(6x270ml)BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS CAFES"
+    },
+    {
+      "code": "12571160",
+      "name": "NESCAFE LATTE BebGarrPlas 4(6x270ml) BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS CAFES"
+    },
+    {
+      "code": "12571161",
+      "name": "NESCAFEChocnoBebGarrafaPlas4(6x270ml)BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS CAFES"
+    },
+    {
+      "code": "12571519",
+      "name": "GATSY Carne 20kg N1 BR",
+      "category": "MAINSTREAM",
+      "subCategory": "GATSY DRY LARGE BAGS"
+    },
+    {
+      "code": "12571524",
+      "name": "GATSY Carne 10,1kg N1 BR",
+      "category": "MAINSTREAM",
+      "subCategory": "GATSY DRY LARGE BAGS"
+    },
+    {
+      "code": "12572613",
+      "name": "SBUX MEDIUM COLUMB 10Caps 6x55g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "STARBUCKS CAPS NDG"
+    },
+    {
+      "code": "12572694",
+      "name": "NCUAchocPo33%MenosAcuCilindro36x350gBR",
+      "category": "BEBIDAS POS",
+      "subCategory": "NESCAU ESPECIAIS"
+    },
+    {
+      "code": "12574653",
+      "name": "SBUX CAPPUCCINO Wht 10Caps 6x100g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "STARBUCKS CAPS NDG"
+    },
+    {
+      "code": "12574985",
+      "name": "NDG Alpino Tradicional 10Caps 6x178g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "BEBIDAS CHOCOS"
+    },
+    {
+      "code": "12576094",
+      "name": "NAN COMFOR 6-12Meses HMO 6x800g BR",
+      "category": "FORMULAS INFANTIS",
+      "subCategory": "FAMILIA NAN COMFOR"
+    },
+    {
+      "code": "12577865",
+      "name": "NINHO Leite Integral Inst Lata 24x380gBR",
+      "category": "NINHO",
+      "subCategory": "NINHO INSTANTANEO LATA"
+    },
+    {
+      "code": "12580999",
+      "name": "KIT KAT Cereal Matinal 24x210g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "KIT KAT"
+    },
+    {
+      "code": "12581678",
+      "name": "GAROTO Choco Trio Negresco 4(12x90g) BR",
+      "category": "GAROTO",
+      "subCategory": "CHOCOTRIO GAROTO"
+    },
+    {
+      "code": "12581976",
+      "name": "GAROTO TableteChocLeiNegresco 22x150gBR",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS FAMILIARES GAROTO"
+    },
+    {
+      "code": "12581977",
+      "name": "GAROTO TableteChocLeiCrocante 22x150gBR",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS FAMILIARES GAROTO"
+    },
+    {
+      "code": "12582848",
+      "name": "NINHO LeitePo Integral Sachet 12x575g BR",
+      "category": "NINHO",
+      "subCategory": "NINHO INTEGRAL SACHET"
+    },
+    {
+      "code": "12582856",
+      "name": "NINHO Leite Integral Inst Sac 12x575g BR",
+      "category": "NINHO",
+      "subCategory": "NINHO INSTANTANEO SACHET"
+    },
+    {
+      "code": "12582874",
+      "name": "NINHO Leite Integral Inst Sac 12x350g BR",
+      "category": "NINHO",
+      "subCategory": "NINHO INSTANTANEO SACHET"
+    },
+    {
+      "code": "12583426",
+      "name": "MAGGI Tempera & Amacia 48(10x5g) BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS PO SACHET"
+    },
+    {
+      "code": "12583436",
+      "name": "NINHO Leite Po Integral Sac 12x350g BR",
+      "category": "NINHO",
+      "subCategory": "NINHO INTEGRAL SACHET"
+    },
+    {
+      "code": "12584239",
+      "name": "KIT KAT Cereal Matinal 22x90g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "KIT KAT"
+    },
+    {
+      "code": "12584369",
+      "name": "NINHO Adulto Leite em Po 24x350g BR",
+      "category": "NINHO",
+      "subCategory": "NINHO ADULTO"
+    },
+    {
+      "code": "12584392",
+      "name": "GAROTO Tablete Crunch 4(16x80g) BR",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS GAROTO"
+    },
+    {
+      "code": "12586084",
+      "name": "TOSTINES Biscoito Especiarias 54x150g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES TOSTINES"
+    },
+    {
+      "code": "12586515",
+      "name": "NINHO Cmpto Lact Zero Lactose 6x700g BR",
+      "category": "NINHO",
+      "subCategory": "NINHO ZERO LACTOSE"
+    },
+    {
+      "code": "12586516",
+      "name": "NINHO Cmpto Lact Zero Lactose 24x380g BR",
+      "category": "NINHO",
+      "subCategory": "NINHO ZERO LACTOSE"
+    },
+    {
+      "code": "12586544",
+      "name": "NINHO Leite Po Integral Lata 24x380g BR",
+      "category": "NINHO",
+      "subCategory": "NINHO INTEGRAL LATA"
+    },
+    {
+      "code": "12589907",
+      "name": "NESTONUTRI 1+ FI 12x800g BR",
+      "category": "LEITES DE CRESCIMENTO",
+      "subCategory": "NESTONUTRI"
+    },
+    {
+      "code": "12590501",
+      "name": "DOG CHOW Biscoito Filh FrgLei 16x300g BR",
+      "category": "SNACKS",
+      "subCategory": "DOG CHOW BISCUITS SNACKS"
+    },
+    {
+      "code": "12591103",
+      "name": "NDG ESPRS Cerrado Mineiro 10Caps 6x60gBR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "DEMAIS CAFES"
+    },
+    {
+      "code": "12591179",
+      "name": "NESCAU ACT-GO BebExtraCacau 4(6x270ml)BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS REGULAR"
+    },
+    {
+      "code": "12591933",
+      "name": "NESTLE Chocobiscuit Choc aoLei 30x78g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS CHOCOBISCUIT"
+    },
+    {
+      "code": "12591944",
+      "name": "GAROTO Chocobiscuit Choc aoLei 30x78g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS CHOCOBISCUIT"
+    },
+    {
+      "code": "12591961",
+      "name": "GAROTO Crocante Cookie 52x60g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12591962",
+      "name": "CARIBE Cookie 52x60g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12592351",
+      "name": "DOG CHOW BiscoitosFrg MedGde 16x500gN1BR",
+      "category": "SNACKS",
+      "subCategory": "DOG CHOW BISCUITS SNACKS"
+    },
+    {
+      "code": "12592352",
+      "name": "DOGCHOW BiscoitosFrg MiniPeq 16x500gN1BR",
+      "category": "SNACKS",
+      "subCategory": "DOG CHOW BISCUITS SNACKS"
+    },
+    {
+      "code": "12592353",
+      "name": "NESCAU Achocolatado Po Sac 12x900g N1 BR",
+      "category": "BEBIDAS POS",
+      "subCategory": "NESCAU SACHET 900G+"
+    },
+    {
+      "code": "12592511",
+      "name": "GAROTO ChocoCookies Rech Choc 40x100g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS CHOCOCOOKIES"
+    },
+    {
+      "code": "12595377",
+      "name": "NUTREN Protein 15g RTD Choc 4(6x260ml)BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN PROTEIN RTD"
+    },
+    {
+      "code": "12595468",
+      "name": "NUTREN Protein 15g Baunilha 4(6x260ml)BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN PROTEIN RTD"
+    },
+    {
+      "code": "12598146",
+      "name": "FRISKIES Petiscos Salmao 15x40g BR",
+      "category": "SNACKS",
+      "subCategory": "FRISKIES TREATS"
+    },
+    {
+      "code": "12598254",
+      "name": "FRISKIES Petiscos Carne 15x40g N2 BR",
+      "category": "SNACKS",
+      "subCategory": "FRISKIES TREATS"
+    },
+    {
+      "code": "12598255",
+      "name": "FRISKIES Petiscos Frango 15x40g N1 BR",
+      "category": "SNACKS",
+      "subCategory": "FRISKIES TREATS"
+    },
+    {
+      "code": "12599819",
+      "name": "SURPRESA TableteChocAoLeite 12(22x20g)BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "TABLETES NESTLE"
+    },
+    {
+      "code": "12600478",
+      "name": "MAGGI Tempero Para Feijao 48(10x5g) BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS PO SACHET"
+    },
+    {
+      "code": "12600497",
+      "name": "MAGGI Tempero Para Frango 48(10x5g) BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS PO SACHET"
+    },
+    {
+      "code": "12600498",
+      "name": "MAGGI Tempero Para Legumes 48(10x5g) BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS PO SACHET"
+    },
+    {
+      "code": "12600499",
+      "name": "MAGGI Tempero Para Massas 48(10x5g) BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS PO SACHET"
+    },
+    {
+      "code": "12600503",
+      "name": "MAGGI Tempero Para Carnes 48(10x5g) BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS PO SACHET"
+    },
+    {
+      "code": "12601436",
+      "name": "GAROTO ChocoTrio Prestigio 4(12x90g) BR",
+      "category": "GAROTO",
+      "subCategory": "CHOCOTRIO GAROTO"
+    },
+    {
+      "code": "12602527",
+      "name": "ALPINO Chocolate 4(16x80g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS NESTLE"
+    },
+    {
+      "code": "12604954",
+      "name": "NESTLE ChocoCookiesRechPeanut 40x100g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS CHOCOCOOKIES"
+    },
+    {
+      "code": "12604964",
+      "name": "NESCAU Achoc Po Cilindrico 36x350g BR",
+      "category": "BEBIDAS POS",
+      "subCategory": "NESCAU LATA 350G"
+    },
+    {
+      "code": "12606771",
+      "name": "TOSTINES Leite Maltado 48x160g N1 BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES TOSTINES"
+    },
+    {
+      "code": "12609048",
+      "name": "NESTLE ChocoCookies Brownie 40x100g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS CHOCOCOOKIES"
+    },
+    {
+      "code": "12609059",
+      "name": "NESTLE ChocoCookies RechAvela 40x100g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS CHOCOCOOKIES"
+    },
+    {
+      "code": "12609061",
+      "name": "NESTLE ChocoCookies Rech Choc 40x100g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS CHOCOCOOKIES"
+    },
+    {
+      "code": "12609164",
+      "name": "SERENATA DE AMOR ChocoCookies 40x100g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS CHOCOCOOKIES"
+    },
+    {
+      "code": "12610012",
+      "name": "NESCAFETRADICAO ForteSac24x40gPR10%DesBR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "NESCAFE 40G"
+    },
+    {
+      "code": "12610213",
+      "name": "MUCILON Ameixa e Aveia 9x600g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON SACHET 600G"
+    },
+    {
+      "code": "12610403",
+      "name": "MUCILON BL 5 Cereais Zero 9x600g BR",
+      "category": "CEREAIS INFANTIS",
+      "subCategory": "MUCILON ZERO"
+    },
+    {
+      "code": "12610745",
+      "name": "NESCAFE CAPPU ProEnergy Canl4(6x270ml)BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS PROTEINADOS"
+    },
+    {
+      "code": "12610767",
+      "name": "NESCAFE CAPPU ClasProEnergy 4(6x270ml)BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS PROTEINADOS"
+    },
+    {
+      "code": "12610829",
+      "name": "NESCAFE ProEnergy Chocno 4(6x270ml) BR",
+      "category": "RTD ADULTOS",
+      "subCategory": "RTD ADULTOS PROTEINADOS"
+    },
+    {
+      "code": "12611501",
+      "name": "MAGGI Tempr Grnul p/ Frango 48(10x5g) BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS GRANULADO SACHET"
+    },
+    {
+      "code": "12611512",
+      "name": "MAGGI Tempr Grnl p/ Carne 48(10x5g) BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS GRANULADO SACHET"
+    },
+    {
+      "code": "12611772",
+      "name": "KITKAT+SNF CerMat 12(210+230)g PRBpak BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "KIT KAT"
+    },
+    {
+      "code": "12612400",
+      "name": "NESTLE ChocoCookies CobChoc 35x100g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS CHOCOCOOKIES"
+    },
+    {
+      "code": "12612574",
+      "name": "MAGGI Tempr Grnl p/ Legumes 48(10x5g) BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS GRANULADO SACHET"
+    },
+    {
+      "code": "12613072",
+      "name": "NESTOGENO 1 Formula Infantil 6x800g N4BR",
+      "category": "FORMULAS INFANTIS",
+      "subCategory": "FAMILIA NESTOGENO"
+    },
+    {
+      "code": "12613081",
+      "name": "NESTOGENO 2 Formula Infantil 12x400gN4BR",
+      "category": "FORMULAS INFANTIS",
+      "subCategory": "FAMILIA NESTOGENO"
+    },
+    {
+      "code": "12613109",
+      "name": "NESTOGENO 2 Formula Infantil 6x800g N4BR",
+      "category": "FORMULAS INFANTIS",
+      "subCategory": "FAMILIA NESTOGENO"
+    },
+    {
+      "code": "12613319",
+      "name": "MAGGI FONDOR Tempero 30x120g N1 BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS FRASCO"
+    },
+    {
+      "code": "12613348",
+      "name": "DOGCHOWXLfeAdltMedGdeCarFrgArz20kgN1BR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY LARGE BAGS"
+    },
+    {
+      "code": "12613349",
+      "name": "MAGGI Amaciante Car c/Tempero30x120gN1BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS FRASCO"
+    },
+    {
+      "code": "12613367",
+      "name": "CHARGE Cookie Gotas Choc 52x60g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12613375",
+      "name": "NDG Gold Espresso Intsd6 10Caps 6x60g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "DEMAIS CAFES"
+    },
+    {
+      "code": "12613380",
+      "name": "MAGGI GRIL Tempero 30x120g BR",
+      "category": "MAGGI",
+      "subCategory": "TEMPEROS FRASCO"
+    },
+    {
+      "code": "12613546",
+      "name": "DOGCHOWXLfeAdltMedioGdeCarFrgArz15kgN1BR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY LARGE BAGS"
+    },
+    {
+      "code": "12613548",
+      "name": "DOGCHOWXLfeAdltMnPeqCarFrgArz10,1kgN1BR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY LARGE BAGS"
+    },
+    {
+      "code": "12613559",
+      "name": "DOGCHOW ExtraLife 7+ CarFrgArz 15kg N1BR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY LARGE BAGS"
+    },
+    {
+      "code": "12613570",
+      "name": "DOGCHOWXLfeAdltMnPeqCarFrgArz20kgN1BR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY LARGE BAGS"
+    },
+    {
+      "code": "12613573",
+      "name": "DOGCHOWXLfeAdltMnPeqCarFrgArz15kgN1BR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY LARGE BAGS"
+    },
+    {
+      "code": "12614177",
+      "name": "NESTLE Chocotrio Avela 4(12x90g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CHOCOTRIO NESTLE"
+    },
+    {
+      "code": "12615562",
+      "name": "NDG ESPRESSO Kopenhagen 10Caps 6x60g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "DEMAIS CAFES"
+    },
+    {
+      "code": "12615567",
+      "name": "NDG CAPPUCCINO Kopng 10Caps 6x135g BR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "DEMAIS BEBIDAS"
+    },
+    {
+      "code": "12615709",
+      "name": "KIT KAT Cereal Mat Sachet 12(16x25g) BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "KIT KAT"
+    },
+    {
+      "code": "12615841",
+      "name": "MAGGI Caldo Picanha Tablete 100x114g BR",
+      "category": "MAGGI",
+      "subCategory": "CALDOS TABLETE"
+    },
+    {
+      "code": "12616029",
+      "name": "TOSTINES Espec Bisc Rech Cappu 66x93g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS OUTROS"
+    },
+    {
+      "code": "12616589",
+      "name": "NESTLE Aveia Proteinada 24x160g BR",
+      "category": "CEREAIS FAMILIA",
+      "subCategory": "NESTLE AVEIAS PREMIUM"
+    },
+    {
+      "code": "12616626",
+      "name": "NESC Chapada Torr Mdo Sachet 12x250g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "TORRADO E MOIDO PREMIUM"
+    },
+    {
+      "code": "12618462",
+      "name": "SNOW FLAKES CerMat Frutas 24x240g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "SNOW ATE 300G"
+    },
+    {
+      "code": "12618976",
+      "name": "KIT KAT Rech&Cob Chocolate 12x330g BR",
+      "category": "LEITES CULINARIOS",
+      "subCategory": "SPREADS"
+    },
+    {
+      "code": "12620125",
+      "name": "NINHO CmptoLact Fibras Lata 24x380g BR",
+      "category": "NINHO",
+      "subCategory": "NINHO FORTI+"
+    },
+    {
+      "code": "12623003",
+      "name": "KIT KAT 4Fngr Churros 4(24x41,5g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "KIT KAT 4 FINGERS"
+    },
+    {
+      "code": "12624035",
+      "name": "DOGCHOW XLfeAdlt MnPeq CarFrgArz8x900gBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY SMALL BAGS"
+    },
+    {
+      "code": "12624062",
+      "name": "DOGCHOW XLfeAdlt MdGd CarFrgArz 8x900gBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY SMALL BAGS"
+    },
+    {
+      "code": "12624098",
+      "name": "TOSTINES Cookie Especiarias 52x60g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COOKIES"
+    },
+    {
+      "code": "12624122",
+      "name": "NDG CHOCOCINO Nestle 10Caps6x150gBR",
+      "category": "SISTEMA DOLCE GUSTO",
+      "subCategory": "BEBIDAS CHOCOS"
+    },
+    {
+      "code": "12624153",
+      "name": "DOGCHOW XLfeAdltMedGdeCarFrgArz6x2,5kgBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY SMALL BAGS"
+    },
+    {
+      "code": "12624229",
+      "name": "DOGCHOW XLfeAdltMnPeq CarFrgArz6x2,5kgBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY SMALL BAGS"
+    },
+    {
+      "code": "12624355",
+      "name": "NESTLE Tab Rech Negresco 4(14x90g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS RECHEADOS NESTLE"
+    },
+    {
+      "code": "12624593",
+      "name": "PRESTIGIO Tablete Recheado 4(14x90g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS RECHEADOS NESTLE"
+    },
+    {
+      "code": "12625382",
+      "name": "TOSTINES Bisc Espec Gengibre 54x150g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS PLENOS DOCES TOSTINES"
+    },
+    {
+      "code": "12625733",
+      "name": "NESCAFEGOLD Intsd5SacLiofilizado24x40gBR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "SOLUVEL PREMIUM SACHET"
+    },
+    {
+      "code": "12627332",
+      "name": "NUTRENPrtn15g PpbBaun4(6x260ml)PRLMPMBR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN PROTEIN RTD"
+    },
+    {
+      "code": "12627341",
+      "name": "NUTRENPrtn15g PpbChoc4(6x260ml)PRLMPMBR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN PROTEIN RTD"
+    },
+    {
+      "code": "12627358",
+      "name": "TALENTO CstnCajuParaAmendoim 8(15x75g)BR",
+      "category": "GAROTO",
+      "subCategory": "JUMBOS TALENTO"
+    },
+    {
+      "code": "12628857",
+      "name": "NUTREN Prtn15gRTDChocoWafer 4(6x260ml)BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN PROTEIN RTD"
+    },
+    {
+      "code": "12629594",
+      "name": "NESTLE Chocopretzel ao Leite 40x80g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COBERTOS"
+    },
+    {
+      "code": "12629924",
+      "name": "NESCAU Achoc Po Protn Cilindro 36x330gBR",
+      "category": "BEBIDAS POS",
+      "subCategory": "NESCAU ESPECIAIS"
+    },
+    {
+      "code": "12630217",
+      "name": "GAROTO Chocopretzel ao Leite 40x80g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS COBERTOS"
+    },
+    {
+      "code": "12631039",
+      "name": "CHARGE Tablete Recheado 4(14x90g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "JUMBOS RECHEADOS NESTLE"
+    },
+    {
+      "code": "12655014",
+      "name": "DCHOW XLfeLactFilhMnPeqCarFrgArz8x900gBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY SMALL BAGS"
+    },
+    {
+      "code": "12655184",
+      "name": "DCHOWXLfeLactFilhMedGdeCarFrgArz8x900gBR",
+      "category": "PREMIUM DRY DOG",
+      "subCategory": "DOG CHOW DRY SMALL BAGS"
+    },
+    {
+      "code": "12664895",
+      "name": "KITKAT 2Fngr Leite Bag 10x417,6gPRLMPMBR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "KIT KAT 2 FINGERS"
+    },
+    {
+      "code": "12799262",
+      "name": "NUTREN ACTIVE Baun 12x400g PRL400P340gBR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN ACTIVE"
+    },
+    {
+      "code": "12804629",
+      "name": "NUTREN KIDS Choc 12x350g PRL350P300g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN KIDS"
+    },
+    {
+      "code": "13069775",
+      "name": "NINHO 1+ PBIO1 Fases Lepo 24x400g N5 BR",
+      "category": "NINHO FASES",
+      "subCategory": "NINHO FASES"
+    },
+    {
+      "code": "13320068",
+      "name": "NUTREN SENIOR Po 24x370g PRL370gP330g BR",
+      "category": "NHS ACTIVE NUTRITION",
+      "subCategory": "NUTREN SENIOR LATA"
+    },
+    {
+      "code": "13383314",
+      "name": "NESCAU Cookie Cereal Matinal 20x180g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "NESCAU ATE 300G"
+    },
+    {
+      "code": "13389256",
+      "name": "NESTLE Chocotrio aoLeite ST 4(12x90g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "CHOCOTRIO NESTLE"
+    },
+    {
+      "code": "13463462",
+      "name": "NESCAU Cookie Cereal Matinal 20x80g BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "NESCAU ATE 300G"
+    },
+    {
+      "code": "13466600",
+      "name": "NESCAFE ICE 24x40g BR",
+      "category": "NESCAFE SOLUVEL + T&M",
+      "subCategory": "DEMAIS NESCAFE"
+    },
+    {
+      "code": "13522061",
+      "name": "BONO Biscoito Recheado Choc 66x90g N1 BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS BONO"
+    },
+    {
+      "code": "13528301",
+      "name": "NEGRESCO Biscoito Rech Mrg 66x90g N1 BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS NEGRESCO"
+    },
+    {
+      "code": "13528866",
+      "name": "NEGRESCO Bisc Rech Choc 66x90g N1 BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS NEGRESCO"
+    },
+    {
+      "code": "13528867",
+      "name": "NEGRESCO Biscoito Recheado 66x90g N1 BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS NEGRESCO"
+    },
+    {
+      "code": "13597100",
+      "name": "NEGRES Nevado Recheado Baun 66x90g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS NEGRESCO"
+    },
+    {
+      "code": "13597926",
+      "name": "NEGRES Nevado Recheado Morango 66x90g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS NEGRESCO"
+    },
+    {
+      "code": "13720753",
+      "name": "SNWFLAKE CerMat 24x230g PR15%Grts BR",
+      "category": "CEREAIS MATINAIS",
+      "subCategory": "SNOW ATE 300G"
+    },
+    {
+      "code": "13926876",
+      "name": "NEST Chocobiscuit Choc Branco 30x78g BR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS CHOCOBISCUIT"
+    },
+    {
+      "code": "13945245",
+      "name": "GRT Bombons Sortidos Caixa 30x220g BR",
+      "category": "GAROTO",
+      "subCategory": "CAIXAS GAROTO"
+    },
+    {
+      "code": "13982513",
+      "name": "PSTMP Bisc Rech Choc 70x130g PR10%GrtsBR",
+      "category": "BISCOITOS",
+      "subCategory": "BISCOITOS RECHEADOS PASSATEMPO"
+    },
+    {
+      "code": "14024359",
+      "name": "KK 4Fngr Latte Macchiato 4(24x41,5g) BR",
+      "category": "CHOCOLATES NESTLE",
+      "subCategory": "KIT KAT 4 FINGERS"
+    }
+  ]
+}

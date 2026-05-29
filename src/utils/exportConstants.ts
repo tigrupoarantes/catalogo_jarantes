@@ -6,6 +6,8 @@ export interface ExportConfig {
   showCode: boolean;
   showBox: boolean;
   showEan: boolean;
+  showNcm?: boolean;
+  showDun?: boolean;
   sidebarColor?: string;
 }
 

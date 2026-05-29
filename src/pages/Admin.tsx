@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { supabaseService } from "@/services/supabaseService";
-import { Product, products as initialProducts } from "@/data/products";
+import { Product, products as initialProducts, parseProductTechnicalData, serializeProductTechnicalData } from "@/data/products";
 import { useFirebase } from "@/contexts/FirebaseContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -45,13 +45,16 @@ const Admin = () => {
   const [loading, setLoading] = useState(true);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<ProductWithId | null>(null);
-  const [formData, setFormData] = useState<Partial<Product>>({
+  const [formData, setFormData] = useState({
     code: "",
     name: "",
     brand: "",
     category: "",
     packSize: "",
     ean: "",
+    ncm: "",
+    dun: "",
+    isNew: false,
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
 
@@ -106,7 +109,18 @@ const Admin = () => {
         }
       }
 
-      const productDataToSave = { ...formData, imageUrl };
+      // Combine technical fields into delimited EAN string
+      const combinedEan = serializeProductTechnicalData(formData.ean, formData.ncm, formData.dun, formData.isNew);
+
+      const productDataToSave = {
+        code: formData.code,
+        name: formData.name,
+        brand: formData.brand,
+        category: formData.category,
+        packSize: formData.packSize,
+        ean: combinedEan,
+        imageUrl
+      };
 
       if (editingProduct) {
         await supabaseService.updateProduct(editingProduct.id, productDataToSave);
@@ -139,13 +153,17 @@ const Admin = () => {
 
   const openEdit = (product: ProductWithId) => {
     setEditingProduct(product);
+    const techData = parseProductTechnicalData(product);
     setFormData({
       code: product.code,
       name: product.name,
       brand: product.brand,
       category: product.category,
-      packSize: product.packSize,
-      ean: product.ean,
+      packSize: product.packSize || "",
+      ean: techData.ean,
+      ncm: techData.ncm,
+      dun: techData.dun,
+      isNew: !!product.isNew,
     });
     setIsDialogOpen(true);
   };
@@ -159,12 +177,22 @@ const Admin = () => {
       category: "",
       packSize: "",
       ean: "",
+      ncm: "",
+      dun: "",
+      isNew: false,
     });
     setImageFile(null);
   };
 
   if (authLoading || loading) {
-    return <div className="flex items-center justify-center h-screen">Carregando...</div>;
+    return (
+      <div className="flex flex-col items-center justify-center h-screen bg-[#FAFCFF]">
+        <div className="relative flex flex-col items-center justify-center p-8 bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-slate-100/50">
+          <img src="/loading.gif" alt="Carregando..." className="w-16 h-16 object-contain" />
+          <span className="mt-4 text-slate-600 font-extrabold text-xs uppercase tracking-[0.2em] animate-pulse">Carregando...</span>
+        </div>
+      </div>
+    );
   }
 
   // if (!isAdmin) {
@@ -178,7 +206,7 @@ const Admin = () => {
   // }
 
   return (
-    <div className="min-h-screen bg-[#606060]">
+    <div className="min-h-screen bg-[#FAFCFF]">
       <header className="bg-primary py-4 px-6 text-white shadow-md flex items-center justify-between">
         <div className="flex items-center gap-4">
           <h1 className="text-xl font-bold">Painel Administrativo</h1>
@@ -247,6 +275,14 @@ const Admin = () => {
                         <Input id="ean" value={formData.ean} onChange={e => setFormData({...formData, ean: e.target.value})} className="col-span-3" />
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="ncm" className="text-right">Class. Fiscal</Label>
+                        <Input id="ncm" value={formData.ncm} onChange={e => setFormData({...formData, ncm: e.target.value})} className="col-span-3" />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="dun" className="text-right">DUN</Label>
+                        <Input id="dun" value={formData.dun} onChange={e => setFormData({...formData, dun: e.target.value})} className="col-span-3" />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="image" className="text-right">Imagem</Label>
                         <Input 
                           id="image" 
@@ -259,6 +295,21 @@ const Admin = () => {
                           }} 
                           className="col-span-3" 
                         />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="isNew" className="text-right">Lançamento</Label>
+                        <div className="col-span-3 flex items-center">
+                          <input 
+                            id="isNew" 
+                            type="checkbox" 
+                            checked={formData.isNew} 
+                            onChange={e => setFormData({...formData, isNew: e.target.checked})}
+                            className="h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary cursor-pointer"
+                          />
+                          <span className="ml-2.5 text-sm text-slate-500 font-medium select-none cursor-pointer" onClick={() => setFormData({...formData, isNew: !formData.isNew})}>
+                            Este produto é um lançamento ("NOVO")
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <DialogFooter>
@@ -278,31 +329,47 @@ const Admin = () => {
                     <TableHead className="text-slate-500 font-bold">Nome</TableHead>
                     <TableHead className="text-slate-500 font-bold">Marca</TableHead>
                     <TableHead className="text-slate-500 font-bold">Categoria</TableHead>
+                    <TableHead className="text-slate-500 font-bold">Class. Fiscal</TableHead>
+                    <TableHead className="text-slate-500 font-bold">DUN</TableHead>
                     <TableHead className="text-right text-slate-500 font-bold">Ações</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {products.map((product) => (
-                    <TableRow key={product.id} className="border-slate-100 hover:bg-slate-50/50">
-                      <TableCell className="font-semibold text-slate-800">{product.code}</TableCell>
-                      <TableCell className="text-slate-700">{product.name}</TableCell>
-                      <TableCell className="text-slate-700">{product.brand}</TableCell>
-                      <TableCell className="text-slate-700">{product.category}</TableCell>
-                      <TableCell className="text-right">
-                        <div className="flex justify-end gap-2">
-                          <Button variant="ghost" size="icon" className="text-slate-500 hover:text-slate-900 hover:bg-slate-100" onClick={() => openEdit(product)}>
-                            <Pencil className="h-4 w-4" />
-                          </Button>
-                          <Button variant="ghost" size="icon" className="text-destructive hover:bg-destructive/10" onClick={() => handleDelete(product.id)}>
-                            <Trash2 className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      </TableCell>
-                    </TableRow>
-                  ))}
+                  {products.map((product) => {
+                    const techData = parseProductTechnicalData(product);
+                    return (
+                      <TableRow key={product.id} className="border-slate-100 hover:bg-slate-50/50">
+                        <TableCell className="font-semibold text-slate-800">
+                          <div className="flex items-center gap-2">
+                            {product.code}
+                            {product.isNew && (
+                              <span className="bg-[#426EA8]/10 text-[#426EA8] text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider shrink-0">
+                                Novo
+                              </span>
+                            )}
+                          </div>
+                        </TableCell>
+                        <TableCell className="text-slate-700">{product.name}</TableCell>
+                        <TableCell className="text-slate-700">{product.brand}</TableCell>
+                        <TableCell className="text-slate-700">{product.category}</TableCell>
+                        <TableCell className="text-slate-700">{techData.ncm || "-"}</TableCell>
+                        <TableCell className="text-slate-700">{techData.dun || "-"}</TableCell>
+                        <TableCell className="text-right">
+                          <div className="flex justify-end gap-2">
+                            <Button variant="ghost" size="icon" className="text-slate-500 hover:text-slate-900 hover:bg-slate-100" onClick={() => openEdit(product)}>
+                              <Pencil className="h-4 w-4" />
+                            </Button>
+                            <Button variant="ghost" size="icon" className="text-destructive hover:bg-destructive/10" onClick={() => handleDelete(product.id)}>
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
                   {products.length === 0 && (
                     <TableRow>
-                      <TableCell colSpan={5} className="text-center py-8 text-slate-400">
+                      <TableCell colSpan={7} className="text-center py-8 text-slate-400">
                         Nenhum produto cadastrado.
                       </TableCell>
                     </TableRow>

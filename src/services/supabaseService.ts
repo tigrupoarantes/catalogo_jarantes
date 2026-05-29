@@ -13,7 +13,14 @@ export const supabaseService = {
       console.error("Error fetching from Supabase:", error);
       throw error;
     }
-    return data as (Product & { id: string })[];
+    
+    return (data || []).map(fp => {
+      const parts = (fp.ean || "").split("|");
+      return {
+        ...fp,
+        isNew: parts[3] === "true" || !!fp.isNew
+      };
+    }) as (Product & { id: string })[];
   },
 
   async addProduct(product: Omit<Product, 'id'>) {
@@ -87,7 +94,10 @@ export const supabaseService = {
       const existing = existingProductsMap.get(product.code);
       
       if (!existing) {
-        toInsert.push(product);
+        toInsert.push({
+          ...product,
+          id: product.code
+        });
       } else {
         const updatedImageUrl = product.imageUrl || existing.imageUrl;
         toUpdate.push({

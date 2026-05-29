@@ -7,7 +7,7 @@ const SupportFab = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-20 right-4 z-50 flex flex-col items-end gap-2">
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
       {open && (
         <div className="bg-card border border-border rounded-xl shadow-xl p-4 w-72 animate-in fade-in-0 zoom-in-95 slide-in-from-bottom-2 relative">
           <button

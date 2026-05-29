@@ -41,8 +41,8 @@ const CatalogPreviewModal: React.FC<CatalogPreviewModalProps> = ({
   });
 
   const fields = [
-    { id: "showBrand", label: "Marca" },
-    { id: "showCategory", label: "Mix de Produtos (Categoria)" },
+    { id: "showBrand", label: "Categoria" },
+    { id: "showCategory", label: "Sub Categoria" },
     { id: "showName", label: "Descrição do Produto" },
     { id: "showCode", label: "Cód. (Código)" },
     { id: "showBox", label: "Caixa (Unidade)" },
@@ -296,7 +296,7 @@ const CatalogPreviewModal: React.FC<CatalogPreviewModalProps> = ({
                 
                 <div className="space-y-3">
                   <div className="space-y-2">
-                    <Label className="text-xs font-bold text-gray-400 uppercase">Marcas Disponíveis</Label>
+                    <Label className="text-xs font-bold text-gray-400 uppercase">Categorias Disponíveis</Label>
                     <div className="max-h-32 overflow-y-auto space-y-2 pr-1">
                       {uniqueBrands.map(brand => (
                         <div key={`brand-${brand}`} className="flex items-center space-x-3 p-1.5 rounded-lg hover:bg-gray-50 transition-colors">
@@ -318,7 +318,7 @@ const CatalogPreviewModal: React.FC<CatalogPreviewModalProps> = ({
                   </div>
 
                   <div className="space-y-2 border-t pt-2 border-gray-100">
-                    <Label className="text-xs font-bold text-gray-400 uppercase">Categorias de Mix</Label>
+                    <Label className="text-xs font-bold text-gray-400 uppercase">Sub Categorias de Mix</Label>
                     <div className="max-h-32 overflow-y-auto space-y-2 pr-1">
                       {visibleCategories.map(cat => (
                         <div key={`cat-${cat}`} className="flex items-center space-x-3 p-1.5 rounded-lg hover:bg-gray-50 transition-colors">

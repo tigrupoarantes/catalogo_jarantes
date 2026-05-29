@@ -1,0 +1,709 @@
+[
+  {
+    "code": "12519987",
+    "name": "FRISKIES Megamix Castrado 6x3kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12520004",
+    "name": "FRISKIES Delicias da Granja Frg 6x3kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12562154",
+    "name": "DCHOWXLfeLactFilhMedGdeCarFrgArz10,1kgBR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12562294",
+    "name": "DCHOW XLfeLactFilhMnPeqCarFrgArz10,1kgBR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12613548",
+    "name": "DOGCHOWXLfeAdltMnPeqCarFrgArz10,1kgN1BR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12613570",
+    "name": "DOGCHOWXLfeAdltMnPeqCarFrgArz20kgN1BR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "13383314",
+    "name": "NESCAU Cookie Cereal Matinal 20x180g BR",
+    "brand": "CEREAIS MATINAIS",
+    "category": "NESCAU ATE 300G",
+    "imageUrl": null
+  },
+  {
+    "code": "13463462",
+    "name": "NESCAU Cookie Cereal Matinal 20x80g BR",
+    "brand": "CEREAIS MATINAIS",
+    "category": "NESCAU ATE 300G",
+    "imageUrl": null
+  },
+  {
+    "code": "12106251",
+    "name": "MUCILON Arroz Aveia Lata 18x400g BR",
+    "brand": "CEREAIS INFANTIS",
+    "category": "MUCILON TRAD LATA",
+    "imageUrl": null
+  },
+  {
+    "code": "12378083",
+    "name": "DOGUITOS Bifinho Frango 20x65g BR",
+    "brand": "SNACKS",
+    "category": "DOGUITOS SNACKS",
+    "imageUrl": null
+  },
+  {
+    "code": "12243344",
+    "name": "MOCA LeiCondTradlLataAbreFacil 48x395gBR",
+    "brand": "LEITES CULINARIOS",
+    "category": "MOCA LATA",
+    "imageUrl": null
+  },
+  {
+    "code": "12379167",
+    "name": "DOGUITOS Linguicinha 20x45g BR",
+    "brand": "SNACKS",
+    "category": "DOGUITOS SNACKS",
+    "imageUrl": null
+  },
+  {
+    "code": "12384866",
+    "name": "DOG CHOW Oral Med Gde 20x80g BR",
+    "brand": "ORAL CARE",
+    "category": "DOG CHOW ORAL SNACKS",
+    "imageUrl": null
+  },
+  {
+    "code": "12384867",
+    "name": "DOG CHOW Oral Pequeno 20x105g BR",
+    "brand": "ORAL CARE",
+    "category": "DOG CHOW ORAL SNACKS",
+    "imageUrl": null
+  },
+  {
+    "code": "12386036",
+    "name": "NDG Minime Antr1 127V BR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "MAQUINAS E ACESSORIOS G1",
+    "imageUrl": null
+  },
+  {
+    "code": "12386037",
+    "name": "NDG Minime Antr1 220V BR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "MAQUINAS E ACESSORIOS G1",
+    "imageUrl": null
+  },
+  {
+    "code": "12405428",
+    "name": "DOG CHOW Adlt Mini Peq Carne 15x100g BR",
+    "brand": "WET",
+    "category": "DOG CHOW WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12405429",
+    "name": "DOGCHOW Adlt Mini Peq Salmao 15x100g BR",
+    "brand": "WET",
+    "category": "DOG CHOW WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12405432",
+    "name": "DOG CHOW Adlt TdTm Frango 15x100g BR",
+    "brand": "WET",
+    "category": "DOG CHOW WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12405471",
+    "name": "DOG CHOW Adlt Mini Peq Frango 15x100g BR",
+    "brand": "WET",
+    "category": "DOG CHOW WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12405472",
+    "name": "DOG CHOW Filh TdTm Carne 15x100g BR",
+    "brand": "WET",
+    "category": "DOG CHOW WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12405477",
+    "name": "DOG CHOW Adlt TdTm Cordeiro 15x100g BR",
+    "brand": "WET",
+    "category": "DOG CHOW WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12405478",
+    "name": "DOG CHOW Filh TdTm Frango 15x100g BR",
+    "brand": "WET",
+    "category": "DOG CHOW WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12412175",
+    "name": "NDG Minime ArctGryBlk2 127V BR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "MAQUINAS E ACESSORIOS G1",
+    "imageUrl": null
+  },
+  {
+    "code": "12412520",
+    "name": "NDG Minime ArctGryBlk2 220V BR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "MAQUINAS E ACESSORIOS G1",
+    "imageUrl": null
+  },
+  {
+    "code": "12454108",
+    "name": "ONEAdltMiniPeqc/Frg&CarneDeVdd 11x700gBR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "ONE DRY DOG SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12454109",
+    "name": "ONE AdltMiniPeqc/Frgo&CarneDeVdd6x2kgBR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "ONE DRY DOG SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12454127",
+    "name": "ONEFilhTdTm c/Frango&CarneDeVdd11x700gBR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "ONE DRY DOG SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12454208",
+    "name": "ONEFilhTdTm c/Frango&CarneDeVdd6x2kgBR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "ONE DRY DOG SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12454492",
+    "name": "ONEAdltMedGde c/Frango&CarneDeVdd6x2kgBR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "ONE DRY DOG SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12454676",
+    "name": "ONEGatoFilhc/Frango&CarneDeVdd6x2kgBR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "ONE DRY CAT SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12455098",
+    "name": "ONECatFilh c/Frango&CarneDeVdd20x500gBR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "ONE DRY CAT SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12455107",
+    "name": "ONECatAdultos c/Frg&CarneDeVdd20x500gBR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "ONE DRY CAT SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12489996",
+    "name": "ALPO Filhotes CarFrgCerVeg Lei 10x1kg BR",
+    "brand": "MAINSTREAM",
+    "category": "ALPO SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12429007",
+    "name": "NUTREN Protein Chocolate Po 12x400g BR",
+    "brand": "NHS ACTIVE NUTRITION",
+    "category": "NUTREN PROTEIN LATA",
+    "imageUrl": null
+  },
+  {
+    "code": "12455124",
+    "name": "ONECatAdulto c/Frango&CarneDeVdd6x2kgBR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "ONE DRY CAT SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12464177",
+    "name": "SUFLAIR Chocolate Duo 4(16x80g) BR",
+    "brand": "CHOCOLATES NESTLE",
+    "category": "JUMBOS NESTLE",
+    "imageUrl": null
+  },
+  {
+    "code": "12464249",
+    "name": "SUFLAIR Chocolate ao Leite 4(16x80g) BR",
+    "brand": "CHOCOLATES NESTLE",
+    "category": "JUMBOS NESTLE",
+    "imageUrl": null
+  },
+  {
+    "code": "12501474",
+    "name": "DOGCHOWXLfeAdltMedioGdeCarFrgArz5x3kgBR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12494821",
+    "name": "NESLAC SUPREME CmptoLact 6x800g N1 BR",
+    "brand": "LEITES DE CRESCIMENTO",
+    "category": "NESLAC SUPREME",
+    "imageUrl": null
+  },
+  {
+    "code": "12501505",
+    "name": "DOGCHOWXLfeAdltMnPeqCarFrgArz5x3kgBR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12506651",
+    "name": "KANINA Carne e Cereais 15kg N4 BR",
+    "brand": "MAINSTREAM",
+    "category": "KANINA LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12519762",
+    "name": "FRISKIES Megamix Adulto 6x3kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12526276",
+    "name": "FANCY FEAST Cass Frango e Peru15x85gN1XI",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12526286",
+    "name": "FANCY FEAST Cass Atum e Salmao15x85gN1XI",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12526301",
+    "name": "FANCY FEAST Goulash Atum 15x85g N1 XI",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12526303",
+    "name": "FANCY FEAST Goulash Peru 15x85g N1 XI",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12526310",
+    "name": "FANCY FEAST Petit Filet Salmao15x85gN1XI",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12519867",
+    "name": "FRISKIES Mix Carne Castrados 6x3kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12519874",
+    "name": "FRISKIES Mix Carne Castrados 10x1kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12520011",
+    "name": "FRISKIES Filhotes Frango 10x1kg N1 BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12520012",
+    "name": "FRISKIES Mix Carne Adulto 10x1kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12520223",
+    "name": "FRISKIES Delicias daGranja Frg 10x1kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12520224",
+    "name": "FRISKIES Megamix Castrados 10x1kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12520234",
+    "name": "FRISKIES Filhotes Frango 12x500g N1 BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "412340",
+    "name": "NUTREN ACTIVE PBIO1 Baunilha 12x400g BR",
+    "brand": "NHS ACTIVE NUTRITION",
+    "category": "NUTREN ACTIVE",
+    "imageUrl": null
+  },
+  {
+    "code": "412341",
+    "name": "NUTREN ACTIVE PBIO1 Chocolate 12x400g BR",
+    "brand": "NHS ACTIVE NUTRITION",
+    "category": "NUTREN ACTIVE",
+    "imageUrl": null
+  },
+  {
+    "code": "13466600",
+    "name": "NESCAFE ICE 24x40g BR",
+    "brand": "NESCAFE SOLUVEL + T&M",
+    "category": "DEMAIS NESCAFE",
+    "imageUrl": null
+  },
+  {
+    "code": "12534475",
+    "name": "FRISKIES Atum ao Molho 15x85g N1 BR",
+    "brand": "WET",
+    "category": "FRISKIES WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12534476",
+    "name": "FRISKIES Peru ao Molho 15x85g N1 BR",
+    "brand": "WET",
+    "category": "FRISKIES WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12534494",
+    "name": "FRISKIES Salmao ao Molho 15x85g N1 BR",
+    "brand": "WET",
+    "category": "FRISKIES WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12534514",
+    "name": "FRISKIES Cordeiro ao Molho 15x85g N1 BR",
+    "brand": "WET",
+    "category": "FRISKIES WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12590501",
+    "name": "DOG CHOW Biscoito Filh FrgLei 16x300g BR",
+    "brand": "SNACKS",
+    "category": "DOG CHOW BISCUITS SNACKS",
+    "imageUrl": null
+  },
+  {
+    "code": "12520229",
+    "name": "FRISKIES Mix Carne Adulto 10,1kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12520236",
+    "name": "FRISKIES Mar de Sabores 10,1kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12526404",
+    "name": "FANCY FEAST Demi Glace Frango 15x85gN1XI",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12535685",
+    "name": "FRISKIES FilhotesCarne aoMolho15x85gN1BR",
+    "brand": "WET",
+    "category": "FRISKIES WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12535692",
+    "name": "FRISKIES PeixeBranco aoMolho 15x85g N1BR",
+    "brand": "WET",
+    "category": "FRISKIES WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12537601",
+    "name": "FANCY FEAST Demi Glace Carne 15x85g N2XI",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12551257",
+    "name": "NDG Nescau 10Caps 6x170g BR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "BEBIDAS CHOCOS",
+    "imageUrl": null
+  },
+  {
+    "code": "418817",
+    "name": "TOSTINES Bisc Cracker Agua 40x200g BR",
+    "brand": "BISCOITOS",
+    "category": "BISCOITOS PLENOS SALGADOS",
+    "imageUrl": null
+  },
+  {
+    "code": "12571519",
+    "name": "GATSY Carne 20kg N1 BR",
+    "brand": "MAINSTREAM",
+    "category": "GATSY DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12310601",
+    "name": "BONZO Adultos Carne e Cereais 18kg BR",
+    "brand": "MAINSTREAM",
+    "category": "BONZO LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12613348",
+    "name": "DOGCHOWXLfeAdltMedGdeCarFrgArz20kgN1BR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12534495",
+    "name": "FRISKIES Frango ao Molho 15x85g N1 BR",
+    "brand": "WET",
+    "category": "FRISKIES WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12562302",
+    "name": "DCHOW XLfeLact FilhMnPeqCarFrgArz5x3kgBR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12562402",
+    "name": "DCHOWXLfeLactFilhMedGdeCarFrgArz10x1kgBR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12591103",
+    "name": "NDG ESPRS Cerrado Mineiro 10Caps 6x60gBR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "DEMAIS CAFES",
+    "imageUrl": null
+  },
+  {
+    "code": "12562164",
+    "name": "DOGCHOW PAPITA XLfe Lact CarFrArz 20kgBR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12562410",
+    "name": "DOGCHOW XLfeLactFilhMnPeqCarFrgArz15kgBR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12571524",
+    "name": "GATSY Carne 10,1kg N1 BR",
+    "brand": "MAINSTREAM",
+    "category": "GATSY DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12592351",
+    "name": "DOG CHOW BiscoitosFrg MedGde 16x500gN1BR",
+    "brand": "SNACKS",
+    "category": "DOG CHOW BISCUITS SNACKS",
+    "imageUrl": null
+  },
+  {
+    "code": "12592352",
+    "name": "DOGCHOW BiscoitosFrg MiniPeq 16x500gN1BR",
+    "brand": "SNACKS",
+    "category": "DOG CHOW BISCUITS SNACKS",
+    "imageUrl": null
+  },
+  {
+    "code": "12598146",
+    "name": "FRISKIES Petiscos Salmao 15x40g BR",
+    "brand": "SNACKS",
+    "category": "FRISKIES TREATS",
+    "imageUrl": null
+  },
+  {
+    "code": "12105545",
+    "name": "MUCILON  Multicereais Lata 18x400g BR",
+    "brand": "CEREAIS INFANTIS",
+    "category": "MUCILON TRAD LATA",
+    "imageUrl": null
+  },
+  {
+    "code": "12613559",
+    "name": "DOGCHOW ExtraLife 7+ CarFrgArz 15kg N1BR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12613573",
+    "name": "DOGCHOWXLfeAdltMnPeqCarFrgArz15kgN1BR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12624229",
+    "name": "DOGCHOW XLfeAdltMnPeq CarFrgArz6x2,5kgBR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12525293",
+    "name": "FANCY FEAST Petit Filet Carne 15x85gN1BR",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "imageUrl": null
+  },
+  {
+    "code": "12492195",
+    "name": "ALPO Adulto Car Frg Cer Veg 10,1kg BR",
+    "brand": "MAINSTREAM",
+    "category": "ALPO LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12519988",
+    "name": "FRISKIES Mar de Sabores 6x3kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12519758",
+    "name": "FRISKIES Megamix Adulto 10x1kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY SMALL BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "14024359",
+    "name": "KK 4Fngr Latte Macchiato 4(24x41,5g) BR",
+    "brand": "CHOCOLATES NESTLE",
+    "category": "KIT KAT 4 FINGERS",
+    "imageUrl": null
+  },
+  {
+    "code": "411201",
+    "name": "NESTLE Creme de Leite Lata 48x300g BR",
+    "brand": "LEITES CULINARIOS",
+    "category": "CREME LATA",
+    "imageUrl": null
+  },
+  {
+    "code": "12562153",
+    "name": "DCHOW XLfe Lact FilhMedGdeCarFrArz15kgBR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12598254",
+    "name": "FRISKIES Petiscos Carne 15x40g N2 BR",
+    "brand": "SNACKS",
+    "category": "FRISKIES TREATS",
+    "imageUrl": null
+  },
+  {
+    "code": "12598255",
+    "name": "FRISKIES Petiscos Frango 15x40g N1 BR",
+    "brand": "SNACKS",
+    "category": "FRISKIES TREATS",
+    "imageUrl": null
+  },
+  {
+    "code": "12600499",
+    "name": "MAGGI Tempero Para Massas 48(10x5g) BR",
+    "brand": "MAGGI",
+    "category": "TEMPEROS PO SACHET",
+    "imageUrl": null
+  },
+  {
+    "code": "12613546",
+    "name": "DOGCHOWXLfeAdltMedioGdeCarFrgArz15kgN1BR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY LARGE BAGS",
+    "imageUrl": null
+  },
+  {
+    "code": "12378082",
+    "name": "DOGUITOS Bifinho Carne 20x65g BR",
+    "brand": "SNACKS",
+    "category": "DOGUITOS SNACKS",
+    "imageUrl": null
+  },
+  {
+    "code": "12624153",
+    "name": "DOGCHOW XLfeAdltMedGdeCarFrgArz6x2,5kgBR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY SMALL BAGS",
+    "imageUrl": null
+  }
+]
