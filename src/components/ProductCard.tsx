@@ -53,9 +53,9 @@ const ProductCard = ({ product, priority = false, config }: ProductCardProps) =>
       lines.push(words.slice(i, i + 2));
     }
     return (
-      <div className="flex flex-col items-center justify-center h-full">
+      <div className="flex flex-col items-center justify-center h-full w-full min-w-0">
         {lines.slice(0, 3).map((line, idx) => (
-          <span key={idx} className="block truncate max-w-full">
+          <span key={idx} className="block truncate w-full text-center">
             {line.join(" ")}
           </span>
         ))}
@@ -108,7 +108,7 @@ const ProductCard = ({ product, priority = false, config }: ProductCardProps) =>
 
           {/* Descrição do Produto (Mapeado de name) */}
           {displayConfig.showName && (
-            <div className="text-center text-[#242525] font-extrabold text-[13px] leading-[1.2] h-[52px] overflow-hidden uppercase mt-1 px-1">
+            <div className="text-center text-[#242525] font-extrabold text-[13px] leading-[1.2] h-[52px] overflow-hidden uppercase mt-1 w-full px-4">
               {formatDescription(product.name)}
             </div>
           )}
