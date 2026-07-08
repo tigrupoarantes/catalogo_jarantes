@@ -6,6 +6,7 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
 import BotaoLancamentos from "./BotaoLancamentos";
+import BotaoCalendario from "./BotaoCalendario";
 
 interface ProductFiltersProps {
   search: string;
@@ -20,15 +21,18 @@ interface ProductFiltersProps {
   brands: string[];
   onClear: () => void;
   onExport: () => void;
+  activeSeasonalEvent: string | null;
+  onSelectSeasonalEvent: (eventName: string | null) => void;
   isExporting?: boolean;
   isDesktop?: boolean;
 }
 
 const ProductFilters = ({
   search, onSearchChange, category, onCategoryChange,
-  brand, onBrandChange, showNewOnly, onShowNewOnlyChange, categories, brands, onClear, onExport, isExporting, isDesktop,
+  brand, onBrandChange, showNewOnly, onShowNewOnlyChange, categories, brands, onClear, onExport,
+  activeSeasonalEvent, onSelectSeasonalEvent, isExporting, isDesktop,
 }: ProductFiltersProps) => {
-  const hasFilters = search || category !== "all" || brand !== "all";
+  const hasFilters = search || category !== "all" || brand !== "all" || activeSeasonalEvent !== null;
 
   return (
     <div className="rounded-2xl border border-slate-100/40 p-5 shadow-[0_10px_35px_rgba(0,0,0,0.03)] text-card-foreground bg-white">
@@ -46,8 +50,9 @@ const ProductFilters = ({
           </div>
         </div>
         
-        <div className="shrink-0">
+        <div className="shrink-0 flex gap-2 items-center w-full md:w-auto">
           <BotaoLancamentos showNewOnly={showNewOnly} onShowNewOnlyChange={onShowNewOnlyChange} disabled={isExporting} />
+          <BotaoCalendario activeEvent={activeSeasonalEvent} onSelectEvent={onSelectSeasonalEvent} disabled={isExporting} />
         </div>
         
         <div className="space-y-2 w-full">

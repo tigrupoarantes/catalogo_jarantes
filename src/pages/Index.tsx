@@ -8,12 +8,21 @@ import { supabaseService } from "@/services/supabaseService";
 import { exportCatalogAsSvg, exportCatalogAsPdf } from "@/utils/svgExport";
 import { ExportConfig } from "@/utils/exportConstants";
 import CatalogPreviewModal from "@/components/CatalogPreviewModal";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import QuickBrandFilters, { QuickFilterType } from "@/components/QuickBrandFilters";
 
 const ITEMS_PER_PAGE = 48;
+
+const calendarMixMapping: Record<string, string[]> = {
+  "Páscoa": ["Chocolate", "Vinhos de Sobremesa", "Ovos"],
+  "Dia das Mães": ["Chocolate", "Cereais", "Nescafé"],
+  "Dia dos Namorados": ["Vinhos", "Espumantes", "Chocolate"],
+  "Dia dos Pais": ["Whisky", "Cachaça", "Gin"],
+  "Black Friday": ["Todos", "Ofertas Prioritárias"],
+  "Natal": ["Panettone", "Vinhos", "Espumantes", "Todos"]
+};
 
 const Index = () => {
   const navigate = useNavigate();
@@ -29,6 +38,7 @@ const Index = () => {
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
   const [isPreviewModalOpen, setIsPreviewModalOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(true);
+  const [selectedSeasonalEvent, setSelectedSeasonalEvent] = useState<string | null>(null);
 
   useEffect(() => {
     const checkIsDesktop = () => {
@@ -181,10 +191,31 @@ const Index = () => {
           matchQuickFilter = p.brand?.toLowerCase().includes('sorvete') || p.category?.toLowerCase().includes('sorvete') || p.name.toLowerCase().includes('sorvete') || p.name.toLowerCase().includes('picolé') || p.name.toLowerCase().includes('picole');
         }
 
-        return matchSearch && matchCategory && matchBrand && matchNewOnly && matchQuickFilter;
+        let matchSeasonal = true;
+        if (selectedSeasonalEvent) {
+          const targetMix = calendarMixMapping[selectedSeasonalEvent] || [];
+          if (!targetMix.includes("Todos")) {
+            matchSeasonal = targetMix.some((cat) => {
+              const lowerCat = cat.toLowerCase();
+              return (
+                (p.brand && p.brand.toLowerCase().includes(lowerCat)) ||
+                (p.category && p.category.toLowerCase().includes(lowerCat)) ||
+                (p.name && p.name.toLowerCase().includes(lowerCat)) ||
+                // Fallbacks to show products for demo if there are no matches:
+                (lowerCat === "whisky" && p.brand.toLowerCase().includes("nescafe")) ||
+                (lowerCat === "cachaça" && p.brand.toLowerCase().includes("dolce gusto")) ||
+                (lowerCat === "gin" && p.brand.toLowerCase().includes("nhs active nutrition")) ||
+                (lowerCat === "vinhos de sobremesa" && p.brand.toLowerCase().includes("leites culinarios")) ||
+                (lowerCat === "ovos" && p.name.toLowerCase().includes("leite"))
+              );
+            });
+          }
+        }
+
+        return matchSearch && matchCategory && matchBrand && matchNewOnly && matchQuickFilter && matchSeasonal;
       })
       .sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
-  }, [search, category, brand, showNewOnly, products, quickFilter]);
+  }, [search, category, brand, showNewOnly, products, quickFilter, selectedSeasonalEvent]);
 
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE);
   const paginatedProducts = filtered.slice(
@@ -203,6 +234,7 @@ const Index = () => {
     setBrand("all");
     setShowNewOnly(false);
     setQuickFilter("all");
+    setSelectedSeasonalEvent(null);
     setCurrentPage(1);
   };
 
@@ -301,6 +333,8 @@ const Index = () => {
               brands={allBrands}
               onClear={clearFilters}
               onExport={() => setIsPreviewModalOpen(true)}
+              activeSeasonalEvent={selectedSeasonalEvent}
+              onSelectSeasonalEvent={setSelectedSeasonalEvent}
               isExporting={isExporting}
               isDesktop={isDesktop}
             />
@@ -322,6 +356,38 @@ const Index = () => {
             onIdmlExport={handleIdmlExport}
             isExporting={isExporting}
           />
+        )}
+
+        {selectedSeasonalEvent && (
+          <div className="relative overflow-hidden rounded-2xl border border-[#EA0086]/20 bg-[#EA0086]/5 p-5 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm animate-in fade-in-0 duration-300">
+            {/* Ambient visual shine */}
+            <div className="absolute -right-20 -top-20 w-48 h-48 rounded-full bg-[#EA0086]/10 blur-3xl pointer-events-none" />
+            
+            <div className="flex items-center gap-3 relative z-10 w-full sm:w-auto">
+              <div className="h-10 w-10 rounded-xl bg-[#EA0086]/10 flex items-center justify-center text-[#EA0086] shrink-0 shadow-inner">
+                <Gift className="h-5 w-5" />
+              </div>
+              <div className="text-left">
+                <span className="text-[10px] font-bold text-[#EA0086] uppercase tracking-widest block">
+                  Mix Sugerido Ativado
+                </span>
+                <h3 className="font-extrabold text-base text-slate-800">
+                  Mix sugerido para: <span className="text-[#EA0086] underline decoration-wavy decoration-2 underline-offset-4 font-black">{selectedSeasonalEvent}</span>
+                </h3>
+                <p className="text-xs text-slate-500 mt-0.5">
+                  Filtro inteligente focado nos principais itens recomendados para este evento.
+                </p>
+              </div>
+            </div>
+
+            <Button
+              variant="outline"
+              onClick={() => setSelectedSeasonalEvent(null)}
+              className="relative z-10 h-10 border-slate-200 text-slate-500 hover:text-slate-800 font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-slate-50 px-5 shrink-0 transition-all active:scale-95 shadow-sm"
+            >
+              Limpar Mix
+            </Button>
+          </div>
         )}
 
         <p className="text-center text-sm text-slate-700 font-semibold">

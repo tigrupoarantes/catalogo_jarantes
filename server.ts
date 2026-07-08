@@ -11,7 +11,6 @@ const PORT = 3000;
 
 app.use(express.json());
 
-import { getJob } from './src/utils/jobStore';
 import { idmlExportHandler } from './src/controllers/idmlExportController';
 
 // Set up Multer for Excel and Images upload
@@ -268,16 +267,6 @@ app.post(
 
 // IDML export endpoint
 app.post('/api/export/idml', idmlExportHandler);
-
-// Check job status
-app.get('/api/export/idml/:jobId', (req, res) => {
-  const { jobId } = req.params;
-  const job = getJob(jobId);
-  if (!job) {
-    return res.status(404).json({ error: 'Job not found' });
-  }
-  return res.json(job);
-});
 
 // Global error handler for API routes
 app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
