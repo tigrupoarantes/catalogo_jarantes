@@ -14,12 +14,14 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { ChevronLeft, ChevronRight, FileDown, ArrowLeft, Settings2, Image as ImageIcon, Trash2, Upload, Filter, X } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { Spinner } from "@/components/ui/spinner";
 
 interface CatalogPreviewModalProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
   products: Product[];
   onConfirm: (config: ExportConfig, banners: Record<number, string>, type: 'svg' | 'pdf', filteredProducts?: Product[]) => void;
+  onIdmlExport?: () => void;
   isExporting: boolean;
 }
 
@@ -28,6 +30,7 @@ const CatalogPreviewModal: React.FC<CatalogPreviewModalProps> = ({
   onOpenChange,
   products,
   onConfirm,
+  onIdmlExport,
   isExporting,
 }) => {
   const [config, setConfig] = useState<ExportConfig>({
@@ -495,6 +498,26 @@ const CatalogPreviewModal: React.FC<CatalogPreviewModalProps> = ({
             <ArrowLeft className="h-4 w-4 mr-2" /> Voltar
           </Button>
           <div className="flex gap-3 w-full sm:w-auto">
+            {onIdmlExport && (
+              <Button 
+                variant="outline"
+                onClick={onIdmlExport}
+                disabled={isExporting || pages.length === 0}
+                className="flex-grow sm:flex-none border-[#EA0086] text-[#EA0086] hover:bg-[#EA0086]/5 font-bold text-xs uppercase tracking-widest px-6 h-11"
+              >
+                {isExporting ? (
+                  <>
+                    <Spinner size="sm" className="mr-2 text-[#EA0086]" />
+                    Preparando arquivo para Adobe...
+                  </>
+                ) : (
+                  <>
+                    <FileDown className="h-4 w-4 mr-2" /> 
+                    Exportar IDML
+                  </>
+                )}
+              </Button>
+            )}
             <Button 
               variant="outline"
               onClick={() => onConfirm(config, pageBanners, 'svg', filteredProducts)}

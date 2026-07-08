@@ -206,6 +206,42 @@ const Index = () => {
     setCurrentPage(1);
   };
 
+  const handleIdmlExport = async () => {
+    setIsExporting(true);
+    const dataToExport = filtered;
+    const productIds = dataToExport.map(p => p.code);
+    try {
+      const res = await fetch('/api/export/idml', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ productIds }),
+      });
+      const { jobId } = await res.json();
+      const poll = async () => {
+        const jobRes = await fetch(`/api/export/idml/${jobId}`);
+        const job = await jobRes.json();
+        if (job.status === 'ready') {
+          const link = document.createElement('a');
+          link.href = job.filePath;
+          link.download = `${jobId}.idml`;
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          setIsExporting(false);
+        } else if (job.status === 'error') {
+          console.error('IDML export error:', job.error);
+          setIsExporting(false);
+        } else {
+          setTimeout(poll, 1000);
+        }
+      };
+      poll();
+    } catch (err) {
+      console.error('IDML export request failed:', err);
+      setIsExporting(false);
+    }
+  };
+
   const handleExport = async (config: ExportConfig, banners: Record<number, string>, type: 'svg' | 'pdf', exportProducts?: Product[]) => {
     setIsExporting(true);
     const dataToExport = exportProducts || filtered;
@@ -291,6 +327,7 @@ const Index = () => {
             onOpenChange={setIsPreviewModalOpen}
             products={filtered}
             onConfirm={handleExport}
+            onIdmlExport={handleIdmlExport}
             isExporting={isExporting}
           />
         )}
