@@ -3,6 +3,7 @@ import { Product, parseProductTechnicalData } from "@/data/products";
 import { Dialog, DialogContent, DialogTitle, DialogHeader } from "@/components/ui/dialog";
 import { ExportConfig } from "@/utils/exportConstants";
 import { resolveProductImageUrl, getOptimizedUrl } from "@/utils/imageUtils";
+import { Download } from "lucide-react";
 
 interface ProductCardProps {
   product: Product;
@@ -21,6 +22,27 @@ const ProductCard = ({ product, priority = false, config }: ProductCardProps) =>
   
   // Keep original untouched high-resolution image for zoom/lightbox and print/export
   const fullImageUrl = resolvedImageUrl;
+
+  const downloadImage = async (url: string, name: string) => {
+    try {
+      const response = await fetch(url);
+      const blob = await response.blob();
+      const extMatch = url.match(/\.([a-zA-Z0-9]+)(?:[\?#]|$)/);
+      const ext = extMatch ? extMatch[1] : "png";
+      
+      const blobUrl = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = `${name}.${ext}`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.remove();
+      URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error("Failed to download image:", error);
+      window.open(url, "_blank");
+    }
+  };
 
   // Default config if not provided (showing everything)
   const displayConfig = config || {
@@ -64,9 +86,21 @@ const ProductCard = ({ product, priority = false, config }: ProductCardProps) =>
           onClick={() => !imgError && setLightboxOpen(true)}
         >
           {product.isNew && (
-            <div className="absolute top-2 right-2 bg-[#426EA8] text-white text-[9px] font-black px-2.5 py-0.5 rounded-full z-10 uppercase tracking-wide shadow-[0_2px_8px_rgba(66,110,168,0.35)] select-none">
+            <div className="absolute top-2 left-2 bg-[#426EA8] text-white text-[9px] font-black px-2.5 py-0.5 rounded-full z-10 uppercase tracking-wide shadow-[0_2px_8px_rgba(66,110,168,0.35)] select-none">
               Novo
             </div>
+          )}
+          {!imgError && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                downloadImage(fullImageUrl, product.name);
+              }}
+              className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full shadow-md transition-transform hover:scale-110 active:scale-95 z-20 after:content-[''] after:absolute after:-inset-1.5 after:rounded-full"
+              title="Download rápido"
+            >
+              <Download className="w-4 h-4 text-gray-800" />
+            </button>
           )}
           {!imgError ? (
             <img
