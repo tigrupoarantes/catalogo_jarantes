@@ -112,7 +112,7 @@
   pointer-events: none; /* Garante que não bloqueie cliques em botões */
   width: 100px;
   height: 100px;
-  animation: voar 15s linear infinite; /* Tempo total do ciclo */
+  animation: voar 15s linear forwards; /* Executa apenas uma vez */
   animation-delay: 20s; /* Aparece apenas após 20 segundos */
 }
 

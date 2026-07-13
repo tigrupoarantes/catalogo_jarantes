@@ -1,19 +1,65 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function PassarinhoAnimado() {
+  const [showBird, setShowBird] = useState(false);
   const [birdTop, setBirdTop] = useState("20%");
 
-  const handleAnimationIteration = () => {
-    // Random height percentage between 10% and 60% to avoid headers/footers
-    const randomTop = Math.floor(Math.random() * 50) + 10;
-    setBirdTop(`${randomTop}%`);
+  useEffect(() => {
+    const checkFlightStatus = async () => {
+      const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+      
+      // 1. Check Session Storage (once per session/access to catalog)
+      const hasFlownSession = sessionStorage.getItem('bird_flown_session');
+      if (hasFlownSession) {
+        return; // Already flown during this browser session
+      }
+
+      // 2. Check Local Storage date (once per day per device/browser)
+      const lastFlownDate = localStorage.getItem('bird_flown_date');
+      if (lastFlownDate === today) {
+        return; // Already flown today on this browser/device
+      }
+
+      // 3. Check IP via public API (once per day per IP address)
+      try {
+        const response = await fetch('https://api.ipify.org?format=json');
+        const data = await response.json();
+        const currentIp = data.ip;
+        
+        const lastFlownIp = localStorage.getItem('bird_flown_ip');
+        if (lastFlownIp === currentIp && lastFlownDate === today) {
+          return; // Already flown today from this IP address
+        }
+        
+        // Save the IP address of this flight
+        localStorage.setItem('bird_flown_ip', currentIp);
+      } catch (error) {
+        console.error("Failed to fetch IP, falling back to local storage date checks:", error);
+      }
+
+      // If we pass all checks, set random height and let it fly
+      const randomTop = Math.floor(Math.random() * 50) + 10;
+      setBirdTop(`${randomTop}%`);
+      setShowBird(true);
+    };
+
+    checkFlightStatus();
+  }, []);
+
+  const handleAnimationEnd = () => {
+    const today = new Date().toISOString().split('T')[0];
+    sessionStorage.setItem('bird_flown_session', 'true');
+    localStorage.setItem('bird_flown_date', today);
+    setShowBird(false);
   };
+
+  if (!showBird) return null;
 
   return (
     <div 
       className="passarinho-animado"
       style={{ top: birdTop }}
-      onAnimationIteration={handleAnimationIteration}
+      onAnimationEnd={handleAnimationEnd}
     >
       <svg 
         viewBox="0 0 64 64" 
