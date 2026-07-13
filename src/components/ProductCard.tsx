@@ -2,9 +2,7 @@ import { useState } from "react";
 import { Product, parseProductTechnicalData } from "@/data/products";
 import { Dialog, DialogContent, DialogTitle, DialogHeader } from "@/components/ui/dialog";
 import { ExportConfig } from "@/utils/exportConstants";
-
-const STORAGE_BASE = import.meta.env.VITE_SUPABASE_URL;
-const STORAGE_URL = `${STORAGE_BASE}/storage/v1/object/public/product-images`;
+import { resolveProductImageUrl, getOptimizedUrl } from "@/utils/imageUtils";
 
 interface ProductCardProps {
   product: Product;
@@ -12,23 +10,17 @@ interface ProductCardProps {
   config?: ExportConfig;
 }
 
-const getOptimizedUrl = (url: string | null | undefined, width = 300) => {
-  if (!url) return "";
-  if (url.includes("supabase.co/storage/v1/object/public/")) {
-    return url.replace("/object/public/", "/render/image/public/") + `?width=${width}&height=${width}&resize=contain`;
-  }
-  return url;
-};
-
 const ProductCard = ({ product, priority = false, config }: ProductCardProps) => {
   const [imgError, setImgError] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   
+  const resolvedImageUrl = resolveProductImageUrl(product.imageUrl, product.code);
+  
   // Use the pre-mapped local image URL if it exists (Optimized thumbnail for grid)
-  const thumbnailUrl = getOptimizedUrl(product.imageUrl || `${STORAGE_URL}/${product.code}.png`, 300);
+  const thumbnailUrl = getOptimizedUrl(resolvedImageUrl, 300);
   
   // Keep original untouched high-resolution image for zoom/lightbox and print/export
-  const fullImageUrl = product.imageUrl || `${STORAGE_URL}/${product.code}.png`;
+  const fullImageUrl = resolvedImageUrl;
 
   // Default config if not provided (showing everything)
   const displayConfig = config || {

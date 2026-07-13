@@ -4,6 +4,7 @@ import JSZip from "jszip";
 import { jsPDF } from "jspdf";
 import { Canvg } from "canvg";
 import { ExportConfig, EXPORT_COLORS, EXPORT_DIM } from "./exportConstants";
+import { resolveProductImageUrl } from "@/utils/imageUtils";
 
 function escapeXml(unsafe: string): string {
   return unsafe.replace(/[<>&"']/g, (c) => {
@@ -110,10 +111,8 @@ export function generatePageSvg(
     const x = EXPORT_DIM.MARGIN + BINDER_OFFSET + col * colWidth;
     const y = headerHeight + EXPORT_DIM.MARGIN + row * rowHeight;
 
-    const STORAGE_BASE = import.meta.env.VITE_SUPABASE_URL || "";
-    const STORAGE_URL = `${STORAGE_BASE}/storage/v1/object/public/product-images`;
-    // Use the base64 mapping, then the pre-mapped local imageUrl, then fallback to Supabase
-    const imgUrl = imageMap[p.code] || (p.imageUrl ? escapeXml(p.imageUrl) : escapeXml(`${STORAGE_URL}/${p.code}.png`));
+    // Use the base64 mapping, then the pre-mapped resolved imageUrl
+    const imgUrl = imageMap[p.code] || escapeXml(resolveProductImageUrl(p.imageUrl, p.code));
     
     // Card Layout Internal Math (4x4 specific)
     const padding = 2.0;
@@ -340,9 +339,7 @@ export async function exportCatalogAsPdf(
       // Pre-fetch images as Base64 for the current page
       const imageMap: Record<string, string> = {};
       if (logoBase64) imageMap['logo'] = logoBase64;
-      const STORAGE_BASE = import.meta.env.VITE_SUPABASE_URL || "";
-      const STORAGE_URL = `${STORAGE_BASE}/storage/v1/object/public/product-images`;
-
+      
       // Fetch banner if it exists
       if (pageBanners[globalPageIndex]) {
         const base64 = await urlToBase64(pageBanners[globalPageIndex]);
@@ -351,7 +348,7 @@ export async function exportCatalogAsPdf(
 
       // Fetch all product images for the current page in parallel
       await Promise.all(pageProducts.map(async (p) => {
-        const fullUrl = p.imageUrl ? p.imageUrl : `${STORAGE_URL}/${p.code}.png`;
+        const fullUrl = resolveProductImageUrl(p.imageUrl, p.code);
         const base64 = await urlToBase64(fullUrl);
         if (base64) {
           imageMap[p.code] = base64;
@@ -453,12 +450,9 @@ export async function exportCatalogAsSvg(
         }
       }
 
-      const STORAGE_BASE = import.meta.env.VITE_SUPABASE_URL || "";
-      const STORAGE_URL = `${STORAGE_BASE}/storage/v1/object/public/product-images`;
-
       // Fetch all product images for the current page in parallel
       await Promise.all(pageProducts.map(async (p) => {
-        const fullUrl = p.imageUrl ? p.imageUrl : `${STORAGE_URL}/${p.code}.png`;
+        const fullUrl = resolveProductImageUrl(p.imageUrl, p.code);
         const base64 = await urlToBase64(fullUrl);
         if (base64) {
           imageMap[p.code] = base64;

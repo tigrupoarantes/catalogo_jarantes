@@ -63,7 +63,7 @@ const Index = () => {
               const staticProd = staticMap.get(fp.code);
               return {
                 ...fp,
-                imageUrl: staticProd?.imageUrl || fp.imageUrl
+                imageUrl: fp.imageUrl || staticProd?.imageUrl || null
               };
             }),
             ...staticProducts.filter(p => !data.some(fp => fp.code === p.code))
