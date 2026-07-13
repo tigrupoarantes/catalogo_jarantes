@@ -216,6 +216,16 @@ export default function BotaoCalendario({ activeEvent, onSelectEvent, disabled }
     ];
   }, [currentYear]);
 
+  const upcomingEvents = useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return retailEvents.filter((event) => {
+      const eventDate = new Date(event.date);
+      eventDate.setHours(0, 0, 0, 0);
+      return eventDate >= today;
+    });
+  }, [retailEvents]);
+
   return (
     <Popover open={isOpen} onOpenChange={setIsOpen}>
       <PopoverTrigger asChild>
@@ -236,7 +246,7 @@ export default function BotaoCalendario({ activeEvent, onSelectEvent, disabled }
         </button>
       </PopoverTrigger>
 
-      <PopoverContent className="w-80 p-4 rounded-2xl shadow-xl border-slate-100 bg-white z-50">
+      <PopoverContent className="w-[345px] p-4 rounded-2xl shadow-xl border-slate-100 bg-white z-50">
         <div className="space-y-4">
           <div className="flex items-center gap-2 border-b pb-2">
             <Gift className="h-4 w-4 text-[#EA0086]" />
@@ -246,7 +256,7 @@ export default function BotaoCalendario({ activeEvent, onSelectEvent, disabled }
           </div>
 
           <div className="grid grid-cols-2 gap-1.5 max-h-80 overflow-y-auto pr-1">
-            {retailEvents.map((event) => (
+            {upcomingEvents.map((event) => (
               <button
                 key={event.name}
                 type="button"
@@ -255,12 +265,12 @@ export default function BotaoCalendario({ activeEvent, onSelectEvent, disabled }
                   setIsOpen(false);
                 }}
                 className={cn(
-                  "flex flex-col items-start p-2 text-left rounded-lg border text-xs transition-all",
+                  "flex flex-col items-start p-2.5 text-left rounded-lg border text-xs transition-all justify-between min-h-[64px]",
                   event.colorClass,
                   activeEvent === event.name ? "ring-2 ring-[#EA0086]" : ""
                 )}
               >
-                <span className="font-extrabold block truncate w-full">{event.name}</span>
+                <span className="font-extrabold block w-full leading-tight break-words mb-1">{event.name}</span>
                 <span className="text-[9px] opacity-75">
                   {event.date.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short' })}
                 </span>
