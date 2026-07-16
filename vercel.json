@@ -1,7 +1,8 @@
 {
   "functions": {
     "api/**/*.ts": {
-      "excludeFiles": "{public/uploads,dist}/**"
+      "includeFiles": "public/catalogo-template/**",
+      "maxDuration": 30
     }
   },
   "rewrites": [

@@ -78,7 +78,7 @@ interface LayoutElement {
 
 export async function generateIdmlPackage(productsList: Product[], config: ExportConfig): Promise<Buffer> {
   // 1. Locate and load the reference IDML template
-  const templatePath = path.join(process.cwd(), 'public', 'catalogo layout padrão para exportação', 'catalogo layout padrão para exportação.idml');
+  const templatePath = path.join(process.cwd(), 'public', 'catalogo-template', 'template.idml');
   if (!fs.existsSync(templatePath)) {
     throw new Error(`InDesign layout template not found at path: ${templatePath}`);
   }
