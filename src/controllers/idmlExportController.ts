@@ -50,66 +50,57 @@ export async function idmlExportHandler(req: Request, res: Response) {
       outerZip.file('links/CHOK.png', logoBuffer);
     }
 
-    // 4. Add product images to links/ folder (with local read and HTTP fetch fallback)
+    // Supabase base configuration matching frontend for j.arantes
+    const SUPABASE_BASE = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || "https://bzdpgsfmbbhpqbyugrmg.supabase.co";
+    const STORAGE_URL = `${SUPABASE_BASE}/storage/v1/object/public/product-images`;
+
+    // 4. Add product images to links/ folder
     for (const p of selectedProducts) {
-      const imgName = p.imageUrl ? path.basename(p.imageUrl.split('?')[0]) : `${p.code}.png`;
+      // Resolve target absolute URL
+      let absoluteImageUrl = p.imageUrl || "";
+      if (!absoluteImageUrl) {
+        absoluteImageUrl = `${STORAGE_URL}/${p.code}.png`;
+      } else if (absoluteImageUrl.startsWith('/uploads/produtos/')) {
+        const filename = absoluteImageUrl.split('/uploads/produtos/').pop();
+        absoluteImageUrl = `${STORAGE_URL}/${filename}`;
+      } else if (absoluteImageUrl.includes('uploads/produtos/')) {
+        const filename = absoluteImageUrl.split('uploads/produtos/').pop();
+        absoluteImageUrl = `${STORAGE_URL}/${filename}`;
+      } else if (!absoluteImageUrl.startsWith('http://') && !absoluteImageUrl.startsWith('https://')) {
+        absoluteImageUrl = `${STORAGE_URL}/${p.code}.png`;
+      }
+
+      const imgName = path.basename(absoluteImageUrl.split('?')[0]);
       let imgBuffer: Buffer | null = null;
 
-      // Try reading locally if it's a relative path
+      // 1. Try reading locally first if Vercel has public files or if running locally
       if (p.imageUrl && !p.imageUrl.startsWith('http://') && !p.imageUrl.startsWith('https://')) {
         const localPath = path.join(publicDir, p.imageUrl);
         if (fs.existsSync(localPath)) {
           try {
             imgBuffer = fs.readFileSync(localPath);
-          } catch (err) {
-            console.error(`Failed to read local image ${localPath}:`, err);
-          }
-        }
-      } else if (!p.imageUrl) {
-        const localPathPng = path.join(publicDir, 'uploads', 'produtos', `${p.code}.png`);
-        const localPathJpg = path.join(publicDir, 'uploads', 'produtos', `${p.code}.jpg`);
-        if (fs.existsSync(localPathPng)) {
-          imgBuffer = fs.readFileSync(localPathPng);
-        } else if (fs.existsSync(localPathJpg)) {
-          imgBuffer = fs.readFileSync(localPathJpg);
+          } catch (err) {}
         }
       }
 
-      // If local read failed or it's a remote URL, fetch via HTTP
+      // 2. Fallback to Supabase Storage HTTP download
       if (!imgBuffer) {
-        const protocol = (req.headers['x-forwarded-proto'] as string) || 'http';
-        const host = req.headers.host || 'localhost:3000';
-        const baseUrl = `${protocol}://${host}`;
-
-        let fetchUrl = "";
-        if (p.imageUrl) {
-          if (p.imageUrl.startsWith('http://') || p.imageUrl.startsWith('https://')) {
-            fetchUrl = p.imageUrl;
-          } else {
-            fetchUrl = `${baseUrl}${p.imageUrl.startsWith('/') ? '' : '/'}${p.imageUrl}`;
-          }
-        } else {
-          fetchUrl = `${baseUrl}/uploads/produtos/${p.code}.png`;
-        }
-
         try {
-          const fetchRes = await fetch(fetchUrl);
+          const fetchRes = await fetch(absoluteImageUrl);
           if (fetchRes.ok) {
-            const arrayBuffer = await fetchRes.arrayBuffer();
-            imgBuffer = Buffer.from(arrayBuffer);
-          } else if (!p.imageUrl) {
-            // Try fallback to .jpg
-            const fetchResJpg = await fetch(`${baseUrl}/uploads/produtos/${p.code}.jpg`);
-            if (fetchResJpg.ok) {
-              const arrayBuffer = await fetchResJpg.arrayBuffer();
+            const contentType = fetchRes.headers.get('content-type') || '';
+            // ONLY accept binary images, reject HTML 404 redirections
+            if (!contentType.includes('text/html')) {
+              const arrayBuffer = await fetchRes.arrayBuffer();
               imgBuffer = Buffer.from(arrayBuffer);
             }
           }
         } catch (fetchErr) {
-          console.error(`Failed to fetch image from ${fetchUrl}:`, fetchErr);
+          console.error(`Failed to fetch image from Supabase ${absoluteImageUrl}:`, fetchErr);
         }
       }
 
+      // 3. Fallback to placeholder/empty image if completely failed
       if (imgBuffer) {
         outerZip.file(`links/${imgName}`, imgBuffer);
       }
