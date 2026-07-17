@@ -71,6 +71,12 @@ export async function idmlExportHandler(req: Request, res: Response) {
       }
 
       const imgName = path.basename(absoluteImageUrl.split('?')[0]);
+      
+      // Optimize image URL for resizing via Supabase to keep ZIP lightweight and fast (under Vercel timeout limits)
+      if (absoluteImageUrl.includes("supabase.co/storage/v1/object/public/")) {
+        absoluteImageUrl = absoluteImageUrl.replace("/object/public/", "/render/image/public/") + "?width=800&height=800&resize=contain";
+      }
+
       let imgBuffer: Buffer | null = null;
 
       // 1. Try reading locally first if Vercel has public files or if running locally
