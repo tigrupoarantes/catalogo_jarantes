@@ -54,8 +54,8 @@ export async function idmlExportHandler(req: Request, res: Response) {
     const SUPABASE_BASE = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL || "https://bzdpgsfmbbhpqbyugrmg.supabase.co";
     const STORAGE_URL = `${SUPABASE_BASE}/storage/v1/object/public/product-images`;
 
-    // 4. Add product images to links/ folder
-    for (const p of selectedProducts) {
+    // 4. Add product images to links/ folder (Parallelized to prevent Vercel 504 Timeout)
+    const imagePromises = selectedProducts.map(async (p) => {
       // Resolve target absolute URL
       let absoluteImageUrl = p.imageUrl || "";
       if (!absoluteImageUrl) {
@@ -100,9 +100,13 @@ export async function idmlExportHandler(req: Request, res: Response) {
         }
       }
 
-      // 3. Fallback to placeholder/empty image if completely failed
-      if (imgBuffer) {
-        outerZip.file(`links/${imgName}`, imgBuffer);
+      return { imgName, imgBuffer };
+    });
+
+    const downloadedImages = await Promise.all(imagePromises);
+    for (const img of downloadedImages) {
+      if (img.imgBuffer) {
+        outerZip.file(`links/${img.imgName}`, img.imgBuffer);
       }
     }
 
