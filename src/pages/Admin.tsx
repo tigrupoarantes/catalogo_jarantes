@@ -2,9 +2,10 @@ import { useState, useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { supabaseService } from "@/services/supabaseService";
 import { Product, products as initialProducts, parseProductTechnicalData, serializeProductTechnicalData } from "@/data/products";
-import { useFirebase } from "@/contexts/FirebaseContext";
+import { logoutAdmin } from "@/lib/adminAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Table,
   TableBody,
@@ -24,7 +25,6 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import { Plus, Pencil, Trash2, LogOut, RefreshCw, FileSpreadsheet, Images } from "lucide-react";
-import { auth } from "@/lib/firebase";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -43,9 +43,11 @@ interface ProductWithId extends Product {
 
 const Admin = () => {
   const navigate = useNavigate();
-  const { user, loading: authLoading, isAdmin } = useFirebase();
   const [products, setProducts] = useState<ProductWithId[]>([]);
   const [loading, setLoading] = useState(true);
+  const [loadingSheet, setLoadingSheet] = useState(false);
+  const [loadingImgs, setLoadingImgs] = useState(false);
+  const [replaceAll, setReplaceAll] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<ProductWithId | null>(null);
   const [formData, setFormData] = useState({
@@ -185,7 +187,131 @@ const Admin = () => {
     setImageFile(null);
   };
 
-  if (authLoading || loading) {
+  const extractCodeFromFilename = (filename: string): string => {
+    const nameWithoutExt = filename.substring(0, filename.lastIndexOf('.')) || filename;
+    if (nameWithoutExt.includes(" - ")) {
+      return nameWithoutExt.split(" - ")[0].trim();
+    }
+    const match = nameWithoutExt.match(/^([a-zA-Z0-9]+)/);
+    return match ? match[1].trim() : nameWithoutExt.trim();
+  };
+
+  // Botão 1: envia apenas a planilha (parse no backend + sync no Supabase).
+  const handleUploadSpreadsheet = async () => {
+    const fileInput = document.querySelector('#spreadsheet') as HTMLInputElement | null;
+    if (!fileInput?.files?.length) {
+      toast.error("Selecione uma planilha (.xlsx/.xls/.md).");
+      return;
+    }
+    setLoadingSheet(true);
+    try {
+      const uploadFormData = new FormData();
+      uploadFormData.append("spreadsheet", fileInput.files[0]);
+      const res = await fetch("/api/upload", { method: "POST", body: uploadFormData });
+      if (!res.ok) {
+        const text = await res.text();
+        try {
+          const json = JSON.parse(text);
+          toast.error(json.message || `Erro no servidor (${res.status})`);
+        } catch {
+          toast.error(`Erro na comunicação com o servidor (${res.status})`);
+        }
+        return;
+      }
+      const json = await res.json();
+      if (json.status !== "success") {
+        toast.error(json.message || "Erro ao processar a planilha");
+        return;
+      }
+      const parsedProducts: Product[] = json.products;
+
+      // Modo "substituir tudo": confirma antes de remover os produtos ausentes da planilha.
+      if (replaceAll) {
+        const parsedCodes = new Set(parsedProducts.map(p => String(p.code)));
+        const toRemove = products.filter(p => !parsedCodes.has(String(p.code)));
+        const ok = window.confirm(
+          `Modo "Substituir tudo" ativado.\n\nA planilha tem ${parsedProducts.length} produto(s). ` +
+          `Isto vai REMOVER ${toRemove.length} produto(s) que não estão na planilha e NÃO pode ser desfeito.\n\nContinuar?`
+        );
+        if (!ok) {
+          toast.info("Operação cancelada. Nada foi alterado.");
+          return;
+        }
+      }
+
+      toast.info("Sincronizando dados no banco...");
+      const result = await supabaseService.syncInitialData(parsedProducts, { deleteMissing: replaceAll });
+      const removedMsg = result?.deleted ? ` ${result.deleted} removido(s).` : "";
+      toast.success(`Planilha processada! ${parsedProducts.length} produtos importados.${removedMsg}`);
+      const data = await supabaseService.getProducts();
+      setProducts(data);
+      fileInput.value = "";
+    } catch (error: unknown) {
+      console.error("Spreadsheet upload error:", error);
+      const message = error instanceof Error ? error.message : "Erro desconhecido";
+      toast.error("Erro ao enviar planilha: " + message);
+    } finally {
+      setLoadingSheet(false);
+    }
+  };
+
+  // Botão 2: envia apenas as imagens em massa (casa por código, sobe original + derivados).
+  const handleUploadImages = async () => {
+    const imagesInput = document.querySelector('#images') as HTMLInputElement | null;
+    if (!imagesInput?.files?.length) {
+      toast.error("Selecione uma ou mais imagens.");
+      return;
+    }
+    setLoadingImgs(true);
+    try {
+      const matchedCodes = new Set<string>();
+      const unmatchedImages: string[] = [];
+      const finalProducts = [...products];
+      toast.info(`Processando ${imagesInput.files.length} imagem(ns) e enviando ao Supabase Storage...`);
+
+      for (let i = 0; i < imagesInput.files.length; i++) {
+        const file = imagesInput.files[i];
+        const extractedCode = extractCodeFromFilename(file.name);
+        const productIdx = finalProducts.findIndex(
+          p => String(p.code).trim().toLowerCase() === extractedCode.toLowerCase()
+        );
+        if (productIdx !== -1) {
+          const product = finalProducts[productIdx];
+          try {
+            const publicUrl = await supabaseService.uploadProductImage(product.code, file);
+            finalProducts[productIdx] = { ...product, imageUrl: publicUrl };
+            matchedCodes.add(product.code);
+          } catch (uploadErr) {
+            console.error(`Erro no upload da imagem ${file.name}:`, uploadErr);
+            unmatchedImages.push(`${file.name} (Erro de upload)`);
+          }
+        } else {
+          unmatchedImages.push(file.name);
+        }
+      }
+
+      if (matchedCodes.size > 0) {
+        toast.info("Sincronizando dados no banco...");
+        await supabaseService.syncInitialData(finalProducts);
+      }
+      toast.success(`${matchedCodes.size} imagem(ns) vinculada(s); ${unmatchedImages.length} ignorada(s).`);
+      if (unmatchedImages.length > 0) {
+        toast.warning("Algumas imagens não foram vinculadas (código não encontrado). Ver Console (F12).", { duration: 10000 });
+        console.warn("Imagens ignoradas (não vinculadas a produtos):", unmatchedImages);
+      }
+      const data = await supabaseService.getProducts();
+      setProducts(data);
+      imagesInput.value = "";
+    } catch (error: unknown) {
+      console.error("Image upload error:", error);
+      const message = error instanceof Error ? error.message : "Erro desconhecido";
+      toast.error("Erro ao enviar imagens: " + message);
+    } finally {
+      setLoadingImgs(false);
+    }
+  };
+
+  if (loading) {
     return (
       <div className="flex flex-col items-center justify-center h-screen bg-[#FAFCFF]">
         <div className="relative flex flex-col items-center justify-center p-8 bg-white rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-slate-100/50">
@@ -196,16 +322,6 @@ const Admin = () => {
     );
   }
 
-  // if (!isAdmin) {
-  //   return (
-  //     <div className="flex flex-col items-center justify-center h-screen space-y-4">
-  //       <h1 className="text-xl font-bold">Acesso Negado</h1>
-  //       <p>Você não tem permissão para acessar esta área.</p>
-  //       <Button onClick={() => auth.signOut()}>Sair</Button>
-  //     </div>
-  //   );
-  // }
-
   return (
     <div className="min-h-screen bg-[#FAFCFF]">
       <header className="bg-primary py-4 px-6 text-white shadow-md flex items-center justify-between">
@@ -214,7 +330,7 @@ const Admin = () => {
         </div>
         <div className="flex items-center gap-2">
           <Button variant="ghost" className="text-white hover:bg-white/10" onClick={() => navigate("/")}>Ver Site</Button>
-          <Button variant="ghost" className="text-white hover:bg-white/10" onClick={() => auth.signOut()}>
+          <Button variant="ghost" className="text-white hover:bg-white/10" onClick={() => { logoutAdmin(); navigate("/login"); }}>
             <LogOut className="h-4 w-4 mr-2" /> Sair
           </Button>
         </div>
@@ -392,138 +508,7 @@ const Admin = () => {
                   Selecione sua planilha (.xlsx/.md) do catálogo e/ou envie imagens em lote. As imagens são processadas e vinculadas de forma automática, sendo salvas diretamente na nuvem (Supabase Storage) para acesso persistente e seguro.
                 </p>
                 
-                <form 
-                  onSubmit={async (e) => {
-                    e.preventDefault();
-                    
-                    const formElement = e.target as HTMLFormElement;
-                    const fileInput = formElement.querySelector('#spreadsheet') as HTMLInputElement;
-                    const imagesInput = formElement.querySelector('#images') as HTMLInputElement;
-                    
-                    const hasSpreadsheet = fileInput.files && fileInput.files.length > 0;
-                    const hasImages = imagesInput.files && imagesInput.files.length > 0;
-
-                    if (!hasSpreadsheet && !hasImages) {
-                      toast.error("Por favor, selecione uma planilha XLSX/MD ou envie imagens em lote.");
-                      return;
-                    }
-
-                    setLoading(true);
-                    try {
-                      let parsedProducts: any[] = [];
-                      let isSpreadsheetUpload = false;
-
-                      if (hasSpreadsheet) {
-                        isSpreadsheetUpload = true;
-                        // Post spreadsheet to parse it on backend
-                        const uploadFormData = new FormData();
-                        uploadFormData.append("spreadsheet", fileInput.files[0]);
-                        
-                        const res = await fetch("/api/upload", {
-                          method: "POST",
-                          body: uploadFormData
-                        });
-
-                        if (!res.ok) {
-                          const text = await res.text();
-                          try {
-                            const json = JSON.parse(text);
-                            toast.error(json.message || `Erro no servidor (${res.status})`);
-                          } catch {
-                            toast.error(`Erro na comunicação com o servidor (${res.status})`);
-                          }
-                          setLoading(false);
-                          return;
-                        }
-
-                        const json = await res.json();
-                        if (json.status === "success") {
-                          parsedProducts = json.products;
-                        } else {
-                          toast.error(json.message || "Erro ao processar a planilha");
-                          setLoading(false);
-                          return;
-                        }
-                      } else {
-                        // If no spreadsheet, use current registered products list
-                        parsedProducts = [...products];
-                      }
-
-                      // Image-only batch matching & direct Supabase upload in frontend
-                      const matchedCodes = new Set<string>();
-                      const unmatchedImages: string[] = [];
-                      const finalProducts = [...parsedProducts];
-
-                      const extractCodeFromFilename = (filename: string): string => {
-                        const nameWithoutExt = filename.substring(0, filename.lastIndexOf('.')) || filename;
-                        if (nameWithoutExt.includes(" - ")) {
-                          return nameWithoutExt.split(" - ")[0].trim();
-                        }
-                        const match = nameWithoutExt.match(/^([a-zA-Z0-9]+)/);
-                        return match ? match[1].trim() : nameWithoutExt.trim();
-                      };
-
-                      if (hasImages && imagesInput.files) {
-                        toast.info(`Processando e fazendo upload de ${imagesInput.files.length} imagem(ns) diretamente para o Supabase Storage...`);
-                        
-                        for (let i = 0; i < imagesInput.files.length; i++) {
-                          const file = imagesInput.files[i];
-                          const extractedCode = extractCodeFromFilename(file.name);
-                          
-                          // Find match
-                          const productIdx = finalProducts.findIndex(
-                            p => String(p.code).trim().toLowerCase() === extractedCode.toLowerCase()
-                          );
-
-                          if (productIdx !== -1) {
-                            const product = finalProducts[productIdx];
-                            try {
-                              // Upload directly to Supabase Storage
-                              const publicUrl = await supabaseService.uploadProductImage(product.code, file);
-                              finalProducts[productIdx] = {
-                                ...product,
-                                imageUrl: publicUrl
-                              };
-                              matchedCodes.add(product.code);
-                            } catch (uploadErr) {
-                              console.error(`Erro no upload da imagem ${file.name}:`, uploadErr);
-                              unmatchedImages.push(`${file.name} (Erro de upload)`);
-                            }
-                          } else {
-                            unmatchedImages.push(file.name);
-                          }
-                        }
-                      }
-
-                      // Synchronize products to Supabase
-                      toast.info("Sincronizando dados no banco...");
-                      await supabaseService.syncInitialData(finalProducts);
-
-                      // Summary toast feedback
-                      if (isSpreadsheetUpload) {
-                        toast.success(`Planilha processada! ${finalProducts.length} produtos importados. ${matchedCodes.size} imagens vinculadas.`);
-                      } else {
-                        toast.success(`${matchedCodes.size} imagem(ns) vinculada(s) com sucesso, ${unmatchedImages.length} imagem(ns) ignorada(s) (código não encontrado).`);
-                      }
-
-                      if (unmatchedImages.length > 0) {
-                        toast.warning(`Algumas imagens não foram vinculadas. Veja a aba Console F12 para a lista de nomes ignorados.`, { duration: 10000 });
-                        console.warn("Imagens ignoradas (não vinculadas a produtos):", unmatchedImages);
-                      }
-
-                      // Recarrega lista
-                      const data = await supabaseService.getProducts();
-                      setProducts(data);
-
-                    } catch (error: any) {
-                      console.error("Batch processing error:", error);
-                      toast.error("Erro na comunicação ou processamento: " + (error.message || "Erro desconhecido"));
-                    } finally {
-                      setLoading(false);
-                    }
-                  }}
-                  className="space-y-4"
-                >
+                <div className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="border border-border/50 rounded-xl p-6 bg-card text-card-foreground shadow-sm relative overflow-hidden group hover:border-primary/50 transition-colors">
                       <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
@@ -533,15 +518,30 @@ const Admin = () => {
                         </div>
                         <div className="pt-1">
                           <h4 className="font-semibold text-base">1. Planilha de Dados</h4>
-                          <p className="text-sm text-muted-foreground mt-1">Opcional. Arquivo (.xlsx ou .md)</p>
+                          <p className="text-sm text-muted-foreground mt-1">Arquivo (.xlsx, .xls ou .md)</p>
                         </div>
                       </div>
-                      <div className="relative z-10">
+                      <div className="relative z-10 space-y-3">
                         <Label htmlFor="spreadsheet" className="sr-only">Upload de Planilha</Label>
                         <Input id="spreadsheet" type="file" accept=".xlsx,.xls,.md" className="cursor-pointer h-12 file:h-12 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary/90 text-[#474747] bg-white border-input" />
+                        <div className="flex items-start gap-2.5 rounded-lg border border-red-100 bg-red-50/60 p-2.5">
+                          <Checkbox
+                            id="replaceAll"
+                            checked={replaceAll}
+                            onCheckedChange={(v) => setReplaceAll(v === true)}
+                            className="mt-0.5 border-red-400 data-[state=checked]:bg-red-600 data-[state=checked]:border-red-600"
+                          />
+                          <Label htmlFor="replaceAll" className="text-xs leading-snug text-red-700 cursor-pointer select-none">
+                            <span className="font-bold">Substituir catálogo inteiro</span> — remove do banco os produtos que <b>não</b> estiverem nesta planilha. Ação destrutiva e irreversível.
+                          </Label>
+                        </div>
+                        <Button type="button" onClick={handleUploadSpreadsheet} disabled={loadingSheet} className="w-full">
+                          <FileSpreadsheet className="h-4 w-4 mr-2" />
+                          {loadingSheet ? "Enviando planilha..." : "Enviar Planilha"}
+                        </Button>
                       </div>
                     </div>
-                    
+
                     <div className="border border-border/50 rounded-xl p-6 bg-card text-card-foreground shadow-sm relative overflow-hidden group hover:border-primary/50 transition-colors">
                       <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                       <div className="relative z-10 flex items-start gap-4 mb-5">
@@ -559,14 +559,14 @@ const Admin = () => {
                         <p className="text-xs text-[#474747] leading-tight">
                           Nome esperado: [CÓDIGO] - [NOME].ext (ex: "418897 - TOSTINES.png"). Vinculação automática inteligente.
                         </p>
+                        <Button type="button" onClick={handleUploadImages} disabled={loadingImgs} className="w-full">
+                          <Images className="h-4 w-4 mr-2" />
+                          {loadingImgs ? "Enviando imagens..." : "Enviar Imagens"}
+                        </Button>
                       </div>
                     </div>
                   </div>
-
-                  <Button type="submit" disabled={loading}>
-                    {loading ? "Processando..." : "Enviar Arquivos"}
-                  </Button>
-                </form>
+                </div>
               </div>
             </div>
           </TabsContent>

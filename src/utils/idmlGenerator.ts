@@ -88,7 +88,17 @@ export async function generateIdmlPackage(productsList: Product[], config: Expor
 
   // 2. Load blueprint spread and stories
   const templateSpreadFile = Object.keys(templateZip.files).find(f => f.startsWith('Spreads/'))!;
-  const blueprintSpreadXml = await templateZip.files[templateSpreadFile].async('text');
+  let blueprintSpreadXml = await templateZip.files[templateSpreadFile].async('text');
+
+  // Normaliza o link do logo: o template carrega um caminho absoluto da máquina do
+  // autor original (".../600ppi/CHOK.png"). Reescreve para um link relativo ao pacote,
+  // empacotado em links/J.ARANTES.png pelo idmlExportController. Como o logo é um
+  // elemento global (não uma imagem de produto), ele não passa pela reescrita de
+  // link dos slots — por isso é normalizado aqui, na fonte, uma única vez.
+  blueprintSpreadXml = blueprintSpreadXml.replace(
+    /LinkResourceURI="[^"]*CHOK\.png"/gi,
+    'LinkResourceURI="file:links/J.ARANTES.png"'
+  );
 
   const blueprintStories: Record<string, string> = {};
   for (const filename of Object.keys(templateZip.files)) {
@@ -103,7 +113,8 @@ export async function generateIdmlPackage(productsList: Product[], config: Expor
 
   // 3. Parse Page geometries from the blueprint spread
   const pageTags = blueprintSpreadXml.match(/<Page\b[^>]*>/gi) || [];
-  const pagesList: any[] = [];
+  interface PageGeom { self: string; x1: number; y1: number; x2?: number; y2?: number; }
+  const pagesList: PageGeom[] = [];
   for (const pageTag of pageTags) {
     const self = (pageTag.match(/Self="([^"]+)"/) || [])[1];
     const boundsStr = (pageTag.match(/GeometricBounds="([^"]+)"/) || [])[1];
@@ -141,7 +152,7 @@ export async function generateIdmlPackage(productsList: Product[], config: Expor
     const absX2 = Math.max(...absXCoords) / MM_TO_PT;
     const absY1 = Math.min(...absYCoords) / MM_TO_PT;
     const absY2 = Math.max(...absYCoords) / MM_TO_PT;
-    let page = pagesList.find(p => absX1 >= p.x1 - 1 && absX2 <= p.x2 + 1) || pagesList[0];
+    const page = pagesList.find(p => absX1 >= p.x1 - 1 && absX2 <= p.x2 + 1) || pagesList[0];
     return {
       x1: absX1 - page.x1,
       y1: absY1 - page.y1,
@@ -219,7 +230,8 @@ export async function generateIdmlPackage(productsList: Product[], config: Expor
     const category = textFramesWithContent.find(tf => tf.originalText.toUpperCase() === 'CACHAÇA') || textFramesWithContent[1];
     const name = textFramesWithContent.find(tf => tf.originalText.toUpperCase().includes('YPIOCA')) || textFramesWithContent[2];
 
-    const labelValPairs: { labelKey: string; labelTf: any; valueTf: any }[] = [];
+    type TextFrame = typeof textFramesWithContent[number];
+    const labelValPairs: { labelKey: string; labelTf: TextFrame; valueTf: TextFrame }[] = [];
     const labels = ['Cód.', 'Caixa', 'Class. Fisc.', 'EAN', 'DUN'];
     for (const labelKey of labels) {
       const labelTf = textFramesWithContent.find(tf => tf.originalText.trim().replace(/\s+/g, ' ').includes(labelKey));

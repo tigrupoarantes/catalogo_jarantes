@@ -8,6 +8,12 @@ import fs from "fs/promises";
 const app = express();
 const PORT = 3000;
 
+// Na Vercel o filesystem é read-only (exceto /tmp), então gravar imagens em
+// public/uploads falha com EROFS. As imagens de produto são enviadas direto ao
+// Supabase Storage pelo frontend; as gravações em disco abaixo são apenas para
+// dev local. IS_SERVERLESS protege esses caminhos em produção.
+const IS_SERVERLESS = !!process.env.VERCEL;
+
 app.use(express.json({ limit: '50mb' }));
 import { idmlExportHandler } from './src/controllers/idmlExportController.js';
 
@@ -99,6 +105,12 @@ app.post(
   upload.single("image"),
   async (req: any, res: any) => {
     try {
+      if (IS_SERVERLESS) {
+        return res.status(501).json({
+          status: "error",
+          message: "Upload de imagem via servidor indisponível em produção (filesystem read-only). Envie a imagem direto ao Supabase Storage.",
+        });
+      }
       if (!req.file) {
         return res.status(400).json({ status: "error", message: "Nenhuma imagem enviada." });
       }
@@ -222,7 +234,7 @@ app.post(
 
       for (const img of uploadedImages) {
         const extractedCode = extractCodeFromFilename(img.originalname);
-        
+
         // Find index of matching product (case-insensitive)
         const productIdx = processedProducts.findIndex(
           p => String(p.code).trim().toLowerCase() === extractedCode.toLowerCase()
@@ -230,18 +242,31 @@ app.post(
 
         if (productIdx !== -1) {
           const product = processedProducts[productIdx];
+
+          // Em produção (Vercel) o disco é read-only. O frontend sobe imagens direto
+          // ao Supabase Storage; aqui apenas sinalizamos que a gravação server-side
+          // foi ignorada, sem derrubar o parsing da planilha.
+          if (IS_SERVERLESS) {
+            unmatchedImages.push(`${img.originalname} (upload de imagem via servidor indisponível em produção)`);
+            continue;
+          }
+
           const ext = path.extname(img.originalname).toLowerCase();
           const newImageName = `${product.code}${ext}`;
           const destPath = path.join(uploadDir, newImageName);
-          
-          await fs.writeFile(destPath, img.buffer);
-          
-          // Update imageUrl path
-          processedProducts[productIdx] = {
-            ...product,
-            imageUrl: `/uploads/produtos/${newImageName}`
-          };
-          matchedCodes.add(product.code);
+
+          try {
+            await fs.writeFile(destPath, img.buffer);
+            // Update imageUrl path
+            processedProducts[productIdx] = {
+              ...product,
+              imageUrl: `/uploads/produtos/${newImageName}`
+            };
+            matchedCodes.add(product.code);
+          } catch (writeErr) {
+            console.error(`Falha ao gravar imagem ${newImageName}:`, writeErr);
+            unmatchedImages.push(`${img.originalname} (erro ao gravar no servidor)`);
+          }
         } else {
           unmatchedImages.push(img.originalname);
         }

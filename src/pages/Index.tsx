@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import ProductFilters from "@/components/ProductFilters";
 import ProductCard from "@/components/ProductCard";
 import SupportFab from "@/components/SupportFab";
+import AdminAccessLink from "@/components/AdminAccessLink";
 import { Product, products as staticProducts, allCategories as staticCategories, allBrands as staticBrands } from "@/data/products";
 import { supabaseService } from "@/services/supabaseService";
 import { exportCatalogAsSvg, exportCatalogAsPdf } from "@/utils/svgExport";
@@ -497,6 +498,7 @@ const Index = () => {
         </div>
       )}
 
+      <AdminAccessLink />
     </div>
   );
 };

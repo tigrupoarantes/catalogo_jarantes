@@ -43,11 +43,15 @@ export async function idmlExportHandler(req: Request, res: Response) {
 
     const publicDir = path.join(process.cwd(), 'public');
 
-    // 3. Add Logo to links/ folder
-    const logoPath = path.join(publicDir, 'CHOK.png');
+    // 3. Add Logo to links/ folder.
+    // O generator normaliza o link do logo do template para file:links/J.ARANTES.png,
+    // então o nome no pacote precisa bater com esse basename.
+    const logoPath = path.join(publicDir, 'J.ARANTES.png');
     if (fs.existsSync(logoPath)) {
       const logoBuffer = fs.readFileSync(logoPath);
-      outerZip.file('links/CHOK.png', logoBuffer);
+      outerZip.file('links/J.ARANTES.png', logoBuffer);
+    } else {
+      console.warn(`Logo não encontrado em ${logoPath} — export seguirá sem logo.`);
     }
 
     // Supabase base configuration matching frontend for j.arantes
@@ -70,12 +74,18 @@ export async function idmlExportHandler(req: Request, res: Response) {
         absoluteImageUrl = `${STORAGE_URL}/${p.code}.png`;
       }
 
+      // Nome do arquivo dentro de links/ deve casar com o LinkResourceURI que o
+      // idmlGenerator gera para a imagem do produto — NÃO alterar aqui.
       const imgName = path.basename(absoluteImageUrl.split('?')[0]);
-      
-      // Optimize image URL for resizing via Supabase to keep ZIP lightweight and fast (under Vercel timeout limits)
+
+      // Em vez do transform on-the-fly do Supabase (cobrado por imagem/ciclo),
+      // baixa o derivado estático "full" (jpeg 1600px) já pré-gerado. Se ele
+      // ainda não existir, cai para o original {code}.{ext}.
+      const candidateUrls: string[] = [];
       if (absoluteImageUrl.includes("supabase.co/storage/v1/object/public/")) {
-        absoluteImageUrl = absoluteImageUrl.replace("/object/public/", "/render/image/public/") + "?width=800&height=800&resize=contain";
+        candidateUrls.push(`${STORAGE_URL}/${p.code}_full.jpg`);
       }
+      candidateUrls.push(absoluteImageUrl); // fallback: original estático
 
       let imgBuffer: Buffer | null = null;
 
@@ -85,14 +95,17 @@ export async function idmlExportHandler(req: Request, res: Response) {
         if (fs.existsSync(localPath)) {
           try {
             imgBuffer = fs.readFileSync(localPath);
-          } catch (err) {}
+          } catch (err) {
+            // Falha na leitura local: segue para o fallback via Supabase Storage
+          }
         }
       }
 
-      // 2. Fallback to Supabase Storage HTTP download
-      if (!imgBuffer) {
+      // 2. Fallback to Supabase Storage HTTP download (tenta o derivado full, depois o original)
+      for (const candidateUrl of candidateUrls) {
+        if (imgBuffer) break;
         try {
-          const fetchRes = await fetch(absoluteImageUrl);
+          const fetchRes = await fetch(candidateUrl);
           if (fetchRes.ok) {
             const contentType = fetchRes.headers.get('content-type') || '';
             // ONLY accept binary images, reject HTML 404 redirections
@@ -137,8 +150,9 @@ export async function idmlExportHandler(req: Request, res: Response) {
     res.setHeader('Content-Type', 'application/zip');
     res.setHeader('Content-Disposition', 'attachment; filename="catalogo_pacote.zip"');
     return res.send(finalZipBuffer);
-  } catch (e: any) {
+  } catch (e: unknown) {
     console.error('IDML export error:', e);
-    return res.status(500).json({ error: e.message || 'Internal server error' });
+    const message = e instanceof Error ? e.message : 'Internal server error';
+    return res.status(500).json({ error: message });
   }
 }

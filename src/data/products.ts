@@ -1731,7 +1731,7 @@ export const products: Product[] = [
     "category": "BONZO LARGE BAGS",
     "packSize": "1",
     "ean": "7891000287293|2309.10.00||false",
-    "imageUrl": "/uploads/produtos/12320782 - MAGGI Caldo de Carne NPro 6x1,01kg BR.png",
+    "imageUrl": "/uploads/produtos/12414266.png",
     "isNew": false
   },
   {

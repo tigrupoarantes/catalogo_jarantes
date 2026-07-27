@@ -33,6 +33,7 @@ const ProductFilters = ({
   activeSeasonalEvent, onSelectSeasonalEvent, isExporting, isDesktop,
 }: ProductFiltersProps) => {
   const hasFilters = search || category !== "all" || brand !== "all" || activeSeasonalEvent !== null;
+  const showSeasonalCalendarButton = false; // temporariamente desativado
 
   return (
     <div className="rounded-2xl border border-slate-100/40 p-5 shadow-[0_10px_35px_rgba(0,0,0,0.03)] text-card-foreground bg-white">
@@ -52,7 +53,9 @@ const ProductFilters = ({
         
         <div className="shrink-0 grid grid-cols-2 md:flex gap-2 items-center w-full md:w-auto">
           <BotaoLancamentos showNewOnly={showNewOnly} onShowNewOnlyChange={onShowNewOnlyChange} disabled={isExporting} />
-          <BotaoCalendario activeEvent={activeSeasonalEvent} onSelectEvent={onSelectSeasonalEvent} disabled={isExporting} />
+          {showSeasonalCalendarButton && (
+            <BotaoCalendario activeEvent={activeSeasonalEvent} onSelectEvent={onSelectSeasonalEvent} disabled={isExporting} />
+          )}
         </div>
         
         <div className="space-y-2 w-full">
@@ -98,8 +101,8 @@ const ProductFilters = ({
             )}
             
             {isDesktop ? (
-              <Button 
-                onClick={onExport} 
+              <Button
+                onClick={onExport}
                 className="gap-2 bg-[#1e1f1f] hover:bg-black text-white px-6 h-11 rounded-xl font-bold text-sm shadow-[0_4px_12px_rgba(0,0,0,0.1)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.16)] transition-all duration-300 shrink-0"
                 disabled={isExporting}
               >

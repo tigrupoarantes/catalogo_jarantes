@@ -1,6 +1,12 @@
 # Instruções para Integração do Backend e Deploy (Exportação IDML)
 
-Este documento detalha o status da implementação do fluxo de exportação IDML (Adobe InDesign) e o diagnóstico sobre o porquê de o recurso não estar respondendo no ambiente de produção. Ele serve de guia para que o desenvolvedor responsável pela infraestrutura decida o modelo de deploy do backend.
+Este documento detalha o status da implementação do fluxo de exportação IDML (Adobe InDesign).
+
+> ## ✅ STATUS ATUAL (2026-07-24) — RESOLVIDO
+> O `/api` em produção **funciona**. Domínio oficial: **https://catalogo.brkarantes.com.br/**.
+> O backend Express roda como **Vercel Serverless Function** (`api/index.ts` reexporta o app; `vercel.json` faz rewrite `/api/(.*)` → `/api/index`), e a exportação IDML foi refatorada para ser **síncrona** (sem `worker_threads`/polling).
+>
+> Verificação: `POST /api/export/idml` com produtos reais retorna `HTTP 200 application/zip` (~2,7s por produto), com o `.idml` e as imagens embutidas via Supabase Storage. **O diagnóstico "405 / nada acontece" abaixo é histórico e não se aplica mais** — mantido apenas como registro. As "Opções A/B" seguem válidas apenas se, no futuro, o volume de produtos por export estourar o limite de 30s da função serverless.
 
 ---
 
@@ -13,8 +19,10 @@ Toda a lógica de frontend e backend para a exportação IDML já está integrad
 
 ---
 
-## 2. O Diagnóstico: Por que "nada acontece" em produção?
-Ao monitorar as requisições de rede no ambiente de produção (`https://catalogo.chokdistribuidora.com.br/`), qualquer requisição enviada para rotas sob `/api/*` (como `/api/export/idml` ou `/api/upload`) está retornando **`405 Method Not Allowed`** ou o conteúdo HTML da página principal (`index.html`).
+## 2. O Diagnóstico (HISTÓRICO — já resolvido)
+> ⚠️ Esta seção descreve um problema **passado**, quando o domínio ainda apontava para uma configuração antiga sem as rotas serverless. Hoje o `/api` funciona (ver banner de status no topo). Mantido apenas como registro histórico.
+
+Ao monitorar as requisições de rede no ambiente de produção, qualquer requisição enviada para rotas sob `/api/*` (como `/api/export/idml` ou `/api/upload`) retornava **`405 Method Not Allowed`** ou o conteúdo HTML da página principal (`index.html`).
 
 ### Causa Raiz:
 O domínio está apontado para os servidores da **Vercel** (`vercel-dns-016.com`). O arquivo `vercel.json` na raiz do projeto está configurado para servir a aplicação apenas como um app estático SPA (Single Page Application):

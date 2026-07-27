@@ -30,7 +30,18 @@ export default function BotaoLancamentos({ showNewOnly, onShowNewOnlyChange, dis
 
     // Configuração das partículas dos fogos (aumentado para 120 para impacto massivo)
     const particleCount = 120;
-    const particles: any[] = [];
+    interface Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      radius: number;
+      color: string;
+      alpha: number;
+      decay: number;
+      sparkle: boolean;
+    }
+    const particles: Particle[] = [];
     const colors = ['#FFD700', '#FF4500', '#FF1493', '#00FFFF', '#32CD32', '#FFFFFF', '#FF8C00', '#9400D3'];
 
     for (let i = 0; i < particleCount; i++) {

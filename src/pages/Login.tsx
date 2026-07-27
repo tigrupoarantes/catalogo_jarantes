@@ -1,30 +1,33 @@
-import { useState } from "react";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { useState, useEffect, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { LogIn } from "lucide-react";
+import { toast } from "sonner";
+import { login, isAdminAuthenticated } from "@/lib/adminAuth";
 
 const Login = () => {
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
+  // Se já estiver logado, vai direto para o admin.
+  useEffect(() => {
+    if (isAdminAuthenticated()) {
+      navigate("/admin", { replace: true });
+    }
+  }, [navigate]);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
     setLoading(true);
-    try {
-      const provider = new GoogleAuthProvider();
-      await signInWithPopup(auth, provider);
-      navigate("/admin");
-    } catch (error) {
-      const err = error as { code?: string, message?: string };
-      console.error("Login failed:", err);
-      if (err.code === 'auth/unauthorized-domain') {
-        alert("O domínio atual não está autorizado no Firebase. Por favor, adicione os domínios da URL na seção 'Authorized domains' no Firebase Console (Authentication -> Settings).");
-      } else {
-        alert("Erro no login: " + (err.message || 'Erro desconhecido'));
-      }
-    } finally {
+    if (login(user, password)) {
+      navigate("/admin", { replace: true });
+    } else {
+      toast.error("Usuário ou senha inválidos.");
       setLoading(false);
     }
   };
@@ -32,21 +35,42 @@ const Login = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted/40 p-4">
       <Card className="w-full max-w-md">
-        <CardHeader className="text-center space-y-4">
+        <CardHeader className="text-center space-y-2">
           <CardTitle className="text-2xl">Acesso Administrativo</CardTitle>
           <CardDescription>
-            Entre com sua conta Google para gerenciar o catálogo.
+            Entre com seu usuário e senha para gerenciar o catálogo.
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Button 
-            className="w-full" 
-            onClick={handleLogin} 
-            disabled={loading}
-          >
-            <LogIn className="mr-2 h-4 w-4" />
-            {loading ? "Entrando..." : "Entrar com Google"}
-          </Button>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="user">Usuário</Label>
+              <Input
+                id="user"
+                type="text"
+                autoComplete="username"
+                value={user}
+                onChange={(e) => setUser(e.target.value)}
+                required
+                autoFocus
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password">Senha</Label>
+              <Input
+                id="password"
+                type="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <Button type="submit" className="w-full" disabled={loading}>
+              <LogIn className="mr-2 h-4 w-4" />
+              {loading ? "Entrando..." : "Entrar"}
+            </Button>
+          </form>
         </CardContent>
       </Card>
     </div>

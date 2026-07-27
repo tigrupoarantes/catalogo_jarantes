@@ -1,7 +1,9 @@
 import { supabase } from '../integrations/supabase/client';
 import { Product } from '../data/products';
+import { generateDerivatives } from '../utils/imageDerivatives';
 
 const PRODUCTS_TABLE = 'products_v2';
+const IMAGES_BUCKET = 'product-images';
 
 export const supabaseService = {
   async getProducts(): Promise<(Product & { id: string })[]> {
@@ -69,7 +71,7 @@ export const supabaseService = {
     return true;
   },
 
-  async syncInitialData(initialProducts: Product[]) {
+  async syncInitialData(initialProducts: Product[], options?: { deleteMissing?: boolean }) {
     console.log(`Checking ${initialProducts.length} products to sync...`);
     
     // Fetch all existing products to map by code
@@ -82,13 +84,14 @@ export const supabaseService = {
       throw fetchError;
     }
 
-    const existingProductsMap = new Map<string, any>();
+    type ProductRow = Product & { id: string };
+    const existingProductsMap = new Map<string, ProductRow>();
     (existingData || []).forEach(doc => {
-      existingProductsMap.set(doc.code, doc);
+      existingProductsMap.set(doc.code, doc as ProductRow);
     });
 
-    const toInsert: any[] = [];
-    const toUpdate: any[] = [];
+    const toInsert: ProductRow[] = [];
+    const toUpdate: ProductRow[] = [];
 
     for (const product of initialProducts) {
       const existing = existingProductsMap.get(product.code);
@@ -134,29 +137,79 @@ export const supabaseService = {
       }
     }
 
+    // Modo "substituir tudo": remove os produtos cujo código NÃO está na planilha.
+    // Destrutivo — só executa quando explicitamente solicitado (deleteMissing).
+    let deleted = 0;
+    if (options?.deleteMissing) {
+      const incomingCodes = new Set(initialProducts.map(p => String(p.code)));
+      const idsToDelete = (existingData || [])
+        .filter(row => !incomingCodes.has(String(row.code)))
+        .map(row => row.id);
+
+      const BATCH_SIZE = 500;
+      for (let i = 0; i < idsToDelete.length; i += BATCH_SIZE) {
+        const chunk = idsToDelete.slice(i, i + BATCH_SIZE);
+        const { error } = await supabase.from(PRODUCTS_TABLE).delete().in('id', chunk);
+        if (error) {
+          console.error("Error deleting missing products:", error);
+          throw error;
+        }
+      }
+      deleted = idsToDelete.length;
+    }
+
     console.log('Sync complete.');
+    return { inserted: toInsert.length, updated: toUpdate.length, deleted };
   },
 
   async uploadProductImage(code: string, file: File): Promise<string> {
     const fileExt = file.name.split('.').pop()?.toLowerCase() || 'png';
     const filePath = `${code}.${fileExt}`;
-    
-    const { data, error } = await supabase.storage
-      .from('product-images')
+
+    const { error } = await supabase.storage
+      .from(IMAGES_BUCKET)
       .upload(filePath, file, {
         upsert: true,
         cacheControl: '3600',
       });
-      
+
     if (error) {
       console.error("Error uploading image to Supabase:", error);
       throw error;
     }
-    
+
+    // Gera e sobe os derivados estáticos (thumb/card/full) para evitar o
+    // transform on-the-fly cobrado do Supabase. Falha aqui NÃO aborta o upload
+    // do original — o frontend cai no fallback ao original via onError.
+    await this.uploadImageDerivatives(code, file);
+
     const { data: publicUrlData } = supabase.storage
-      .from('product-images')
+      .from(IMAGES_BUCKET)
       .getPublicUrl(filePath);
-      
+
     return publicUrlData.publicUrl;
+  },
+
+  /** Gera os derivados no browser e faz upload de cada um (best-effort). */
+  async uploadImageDerivatives(code: string, file: File): Promise<void> {
+    try {
+      const derivatives = await generateDerivatives(file, code);
+      await Promise.all(
+        derivatives.map(async (d) => {
+          const { error } = await supabase.storage
+            .from(IMAGES_BUCKET)
+            .upload(d.fileName, d.blob, {
+              upsert: true,
+              cacheControl: '3600',
+              contentType: d.spec.mime,
+            });
+          if (error) {
+            console.error(`Erro ao subir derivado ${d.fileName}:`, error);
+          }
+        })
+      );
+    } catch (err) {
+      console.error(`Falha ao gerar derivados para ${code} (original mantido):`, err);
+    }
   }
 };

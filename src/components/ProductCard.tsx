@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Product, parseProductTechnicalData } from "@/data/products";
 import { Dialog, DialogContent, DialogTitle, DialogHeader } from "@/components/ui/dialog";
 import { ExportConfig } from "@/utils/exportConstants";
-import { resolveProductImageUrl, getOptimizedUrl } from "@/utils/imageUtils";
+import { resolveProductImageUrl, getDerivativeUrl } from "@/utils/imageUtils";
 import { Download } from "lucide-react";
 
 interface ProductCardProps {
@@ -14,20 +14,43 @@ interface ProductCardProps {
 const ProductCard = ({ product, priority = false, config }: ProductCardProps) => {
   const [imgError, setImgError] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
-  
-  const resolvedImageUrl = resolveProductImageUrl(product.imageUrl, product.code);
-  
-  // Use the pre-mapped local image URL if it exists (Optimized thumbnail for grid)
-  const thumbnailUrl = getOptimizedUrl(resolvedImageUrl, 300);
-  
-  // Keep original untouched high-resolution image for zoom/lightbox and print/export
-  const fullImageUrl = resolvedImageUrl;
+
+  // URL original (sem transform) — usada como fallback quando o derivado ainda não existe.
+  const originalImageUrl = resolveProductImageUrl(product.imageUrl, product.code);
+
+  // Derivados estáticos pré-gerados (sem transform on-the-fly cobrado):
+  // grid usa o "card" (webp 600px); zoom/download usam o "full" (jpeg 1600px).
+  const cardUrl = getDerivativeUrl(product.code, "card");
+  const fullUrl = getDerivativeUrl(product.code, "full");
+
+  // Fallback em cadeia: derivado -> original -> placeholder (letra).
+  const [thumbSrc, setThumbSrc] = useState(cardUrl || originalImageUrl);
+  const [fullSrc, setFullSrc] = useState(fullUrl || originalImageUrl);
+
+  const handleThumbError = () => {
+    if (thumbSrc !== originalImageUrl && originalImageUrl) {
+      setThumbSrc(originalImageUrl);
+    } else {
+      setImgError(true);
+    }
+  };
+
+  const handleFullError = () => {
+    if (fullSrc !== originalImageUrl && originalImageUrl) {
+      setFullSrc(originalImageUrl);
+    }
+  };
 
   const downloadImage = async (url: string, name: string) => {
     try {
-      const response = await fetch(url);
+      let response = await fetch(url);
+      // Se o derivado ainda não existe, cai para o original.
+      if (!response.ok && url !== originalImageUrl && originalImageUrl) {
+        response = await fetch(originalImageUrl);
+        url = originalImageUrl;
+      }
       const blob = await response.blob();
-      const extMatch = url.match(/\.([a-zA-Z0-9]+)(?:[\?#]|$)/);
+      const extMatch = url.match(/\.([a-zA-Z0-9]+)(?:[?#]|$)/);
       const ext = extMatch ? extMatch[1] : "png";
       
       const blobUrl = URL.createObjectURL(blob);
@@ -94,7 +117,7 @@ const ProductCard = ({ product, priority = false, config }: ProductCardProps) =>
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                downloadImage(fullImageUrl, product.name);
+                downloadImage(fullSrc, product.name);
               }}
               className="absolute top-2 right-2 w-8 h-8 flex items-center justify-center bg-white/80 rounded-full shadow-md transition-transform hover:scale-110 active:scale-95 z-20 after:content-[''] after:absolute after:-inset-1.5 after:rounded-full"
               title="Download rápido"
@@ -104,10 +127,10 @@ const ProductCard = ({ product, priority = false, config }: ProductCardProps) =>
           )}
           {!imgError ? (
             <img
-              src={thumbnailUrl}
+              src={thumbSrc}
               alt={product.name}
               className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
-              onError={() => setImgError(true)}
+              onError={handleThumbError}
               loading={priority ? "eager" : "lazy"}
               {...(priority ? { "fetchpriority": "high" } : {})}
             />
@@ -212,8 +235,9 @@ const ProductCard = ({ product, priority = false, config }: ProductCardProps) =>
           </DialogHeader>
           <div className="w-full h-full overflow-auto flex items-center justify-center">
             <img
-              src={fullImageUrl}
+              src={fullSrc}
               alt={product.name}
+              onError={handleFullError}
               className="max-w-full max-h-[80vh] object-contain cursor-zoom-in hover:scale-150 transition-transform duration-300 origin-center"
               style={{ touchAction: "pinch-zoom" }}
             />

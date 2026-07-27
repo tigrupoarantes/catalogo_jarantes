@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build)",
+      "Bash(npm run build:prod)",
+      "Bash(npm run build:server)",
+      "Bash(npm run test)",
+      "Bash(npm run test:watch)",
+      "Bash(npm run lint)",
+      "Bash(npm run preview)",
+      "Bash(npm ci)",
+      "Bash(npm install)",
+      "Bash(npm audit)",
+      "Bash(npm audit --audit-level=high)",
+      "Bash(npx vitest)",
+      "Bash(npx vitest run)",
+      "Bash(npx tsc --noEmit)",
+      "Bash(git status)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git check-ignore:*)",
+      "Bash(git grep:*)"
+    ],
+    "deny": []
+  }
+}
