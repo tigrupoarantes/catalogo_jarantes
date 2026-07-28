@@ -104,7 +104,7 @@ const Admin = () => {
       let imageUrl = editingProduct?.imageUrl || null;
 
       if (imageFile) {
-        if (!isAllowedImageFile(imageFile.name)) {
+        if (!isAllowedImageFile(imageFile)) {
           toast.error("Formato de imagem não permitido. Use PNG, JPG ou JPEG.");
           return;
         }
@@ -270,8 +270,8 @@ const Admin = () => {
 
     // Restrição de formato: só PNG/JPG/JPEG (os derivados gerados seguem webp/jpg).
     const allFiles = Array.from(imagesInput.files);
-    const rejected = allFiles.filter(f => !isAllowedImageFile(f.name));
-    const allowed = allFiles.filter(f => isAllowedImageFile(f.name));
+    const rejected = allFiles.filter(f => !isAllowedImageFile(f));
+    const allowed = allFiles.filter(f => isAllowedImageFile(f));
     if (rejected.length > 0) {
       toast.warning(`${rejected.length} arquivo(s) ignorado(s) — formato não permitido (use PNG, JPG ou JPEG): ${rejected.slice(0, 5).map(f => f.name).join(', ')}${rejected.length > 5 ? '…' : ''}`, { duration: 10000 });
     }

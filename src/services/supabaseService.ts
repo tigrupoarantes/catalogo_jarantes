@@ -7,6 +7,7 @@ const IMAGES_BUCKET = 'product-images';
 
 // Formatos aceitos para a imagem ORIGINAL enviada (os derivados gerados seguem webp/jpg).
 export const ALLOWED_UPLOAD_EXT = ['png', 'jpg', 'jpeg'];
+const ALLOWED_UPLOAD_MIME = ['image/png', 'image/jpeg'];
 
 /** Extensão (minúscula) do arquivo, ou "" se não houver. */
 export function getFileExt(fileName: string): string {
@@ -14,9 +15,26 @@ export function getFileExt(fileName: string): string {
   return parts.length > 1 ? (parts.pop() as string).toLowerCase() : '';
 }
 
-/** true se o arquivo tem uma extensão de imagem permitida para upload. */
-export function isAllowedImageFile(fileName: string): boolean {
-  return ALLOWED_UPLOAD_EXT.includes(getFileExt(fileName));
+/**
+ * Aceita o arquivo se o TIPO real (MIME) for png/jpeg; se o navegador não
+ * informar o MIME, usa a extensão do nome como fallback. Assim um JPEG sem
+ * extensão no nome (ex.: "13392684") é aceito, mas webp/avif seguem rejeitados.
+ */
+export function isAllowedImageFile(file: File): boolean {
+  const mime = (file.type || '').toLowerCase();
+  if (ALLOWED_UPLOAD_MIME.includes(mime)) return true;
+  if (mime) return false; // MIME conhecido e não permitido (ex.: image/webp)
+  return ALLOWED_UPLOAD_EXT.includes(getFileExt(file.name)); // sem MIME → usa extensão
+}
+
+/** Extensão de armazenamento: extensão válida do nome, senão derivada do MIME. */
+export function resolveUploadExt(file: File): string {
+  const ext = getFileExt(file.name);
+  if (ALLOWED_UPLOAD_EXT.includes(ext)) return ext;
+  const mime = (file.type || '').toLowerCase();
+  if (mime === 'image/png') return 'png';
+  if (mime === 'image/jpeg') return 'jpg';
+  return 'jpg';
 }
 
 export const supabaseService = {
@@ -177,10 +195,10 @@ export const supabaseService = {
   },
 
   async uploadProductImage(code: string, file: File): Promise<string> {
-    const fileExt = getFileExt(file.name) || 'png';
-    if (!ALLOWED_UPLOAD_EXT.includes(fileExt)) {
-      throw new Error(`Formato não permitido (.${fileExt}). Use PNG, JPG ou JPEG.`);
+    if (!isAllowedImageFile(file)) {
+      throw new Error(`Formato não permitido. Use PNG, JPG ou JPEG.`);
     }
+    const fileExt = resolveUploadExt(file);
     const filePath = `${code}.${fileExt}`;
 
     const { error } = await supabase.storage
@@ -188,6 +206,7 @@ export const supabaseService = {
       .upload(filePath, file, {
         upsert: true,
         cacheControl: '3600',
+        contentType: file.type || undefined,
       });
 
     if (error) {
