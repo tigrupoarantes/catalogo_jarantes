@@ -287,11 +287,14 @@ const Admin = () => {
       const finalProducts = [...products];
       toast.info(`Processando ${allowed.length} imagem(ns) e enviando ao Supabase Storage...`);
 
+      // Normaliza o código para o match (remove espaços e zeros à esquerda).
+      const norm = (c: string) => String(c ?? "").trim().replace(/^0+/, "").toLowerCase();
+
       for (let i = 0; i < allowed.length; i++) {
         const file = allowed[i];
         const extractedCode = extractCodeFromFilename(file.name);
         const productIdx = finalProducts.findIndex(
-          p => String(p.code).trim().toLowerCase() === extractedCode.toLowerCase()
+          p => norm(p.code) === norm(extractedCode)
         );
         if (productIdx !== -1) {
           const product = finalProducts[productIdx];
@@ -314,7 +317,9 @@ const Admin = () => {
       }
       toast.success(`${matchedCodes.size} imagem(ns) vinculada(s); ${unmatchedImages.length} ignorada(s).`);
       if (unmatchedImages.length > 0) {
-        toast.warning("Algumas imagens não foram vinculadas (código não encontrado). Ver Console (F12).", { duration: 10000 });
+        const amostra = unmatchedImages.slice(0, 8).join(', ');
+        const extra = unmatchedImages.length > 8 ? ` … (+${unmatchedImages.length - 8})` : '';
+        toast.warning(`${unmatchedImages.length} imagem(ns) não vinculada(s) — código não está no catálogo: ${amostra}${extra}`, { duration: 12000 });
         console.warn("Imagens ignoradas (não vinculadas a produtos):", unmatchedImages);
       }
       const data = await supabaseService.getProducts();
@@ -575,7 +580,7 @@ const Admin = () => {
                         <Label htmlFor="images" className="sr-only">Upload de Imagens</Label>
                         <Input id="images" type="file" accept=".png,.jpg,.jpeg,image/png,image/jpeg" multiple className="cursor-pointer h-12 file:h-12 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary/90 text-[#474747] bg-white border-input" />
                         <p className="text-xs text-[#474747] leading-tight">
-                          Nome esperado: [CÓDIGO] - [NOME].ext (ex: "418897 - TOSTINES.png"). Vinculação automática inteligente.
+                          Nomeie o arquivo com o <b>código do produto</b> — ex.: <b>418897.png</b>. Também aceita "418897 - Nome.png". Só o código já basta; a vinculação é automática.
                         </p>
                         <Button type="button" onClick={handleUploadImages} disabled={loadingImgs} className="w-full">
                           <Images className="h-4 w-4 mr-2" />
