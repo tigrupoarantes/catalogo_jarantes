@@ -19,7 +19,19 @@ import { idmlExportHandler } from './src/controllers/idmlExportController.js';
 
 // Set up Multer for Excel and Images upload
 const storage = multer.memoryStorage(); // Keep files in memory temporarily
-const upload = multer({ storage });
+// Imagens: só PNG/JPG/JPEG. Planilhas (.xlsx/.xls/.md) passam livremente.
+const ALLOWED_IMAGE_MIME = new Set(["image/png", "image/jpeg", "image/jpg"]);
+const upload = multer({
+  storage,
+  fileFilter: (_req, file, cb) => {
+    const isImageField = file.fieldname === "image" || file.fieldname === "images";
+    if (isImageField && !ALLOWED_IMAGE_MIME.has(file.mimetype)) {
+      cb(new Error(`Formato de imagem não permitido (${file.mimetype}). Use PNG, JPG ou JPEG.`));
+      return;
+    }
+    cb(null, true);
+  },
+});
 
 const extractFileToJSON = (file: Express.Multer.File) => {
   const ext = path.extname(file.originalname).toLowerCase();

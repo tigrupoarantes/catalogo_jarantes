@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
-import { supabaseService } from "@/services/supabaseService";
+import { supabaseService, isAllowedImageFile } from "@/services/supabaseService";
 import { Product, products as initialProducts, parseProductTechnicalData, serializeProductTechnicalData } from "@/data/products";
 import { logoutAdmin } from "@/lib/adminAuth";
 import { Button } from "@/components/ui/button";
@@ -104,10 +104,15 @@ const Admin = () => {
       let imageUrl = editingProduct?.imageUrl || null;
 
       if (imageFile) {
+        if (!isAllowedImageFile(imageFile.name)) {
+          toast.error("Formato de imagem não permitido. Use PNG, JPG ou JPEG.");
+          return;
+        }
         try {
           imageUrl = await supabaseService.uploadProductImage(formData.code || "", imageFile);
         } catch (error) {
-          toast.error("Erro ao fazer upload da imagem para o Supabase Storage");
+          const msg = error instanceof Error ? error.message : "Erro ao fazer upload da imagem para o Supabase Storage";
+          toast.error(msg);
           return;
         }
       }
@@ -262,15 +267,28 @@ const Admin = () => {
       toast.error("Selecione uma ou mais imagens.");
       return;
     }
+
+    // Restrição de formato: só PNG/JPG/JPEG (os derivados gerados seguem webp/jpg).
+    const allFiles = Array.from(imagesInput.files);
+    const rejected = allFiles.filter(f => !isAllowedImageFile(f.name));
+    const allowed = allFiles.filter(f => isAllowedImageFile(f.name));
+    if (rejected.length > 0) {
+      toast.warning(`${rejected.length} arquivo(s) ignorado(s) — formato não permitido (use PNG, JPG ou JPEG): ${rejected.slice(0, 5).map(f => f.name).join(', ')}${rejected.length > 5 ? '…' : ''}`, { duration: 10000 });
+    }
+    if (allowed.length === 0) {
+      toast.error("Nenhuma imagem em formato válido (PNG, JPG ou JPEG).");
+      return;
+    }
+
     setLoadingImgs(true);
     try {
       const matchedCodes = new Set<string>();
       const unmatchedImages: string[] = [];
       const finalProducts = [...products];
-      toast.info(`Processando ${imagesInput.files.length} imagem(ns) e enviando ao Supabase Storage...`);
+      toast.info(`Processando ${allowed.length} imagem(ns) e enviando ao Supabase Storage...`);
 
-      for (let i = 0; i < imagesInput.files.length; i++) {
-        const file = imagesInput.files[i];
+      for (let i = 0; i < allowed.length; i++) {
+        const file = allowed[i];
         const extractedCode = extractCodeFromFilename(file.name);
         const productIdx = finalProducts.findIndex(
           p => String(p.code).trim().toLowerCase() === extractedCode.toLowerCase()
@@ -404,7 +422,7 @@ const Admin = () => {
                         <Input 
                           id="image" 
                           type="file" 
-                          accept="image/png, image/jpeg" 
+                          accept=".png,.jpg,.jpeg,image/png,image/jpeg" 
                           onChange={e => {
                             if (e.target.files && e.target.files.length > 0) {
                               setImageFile(e.target.files[0]);
@@ -555,7 +573,7 @@ const Admin = () => {
                       </div>
                       <div className="relative z-10 space-y-3">
                         <Label htmlFor="images" className="sr-only">Upload de Imagens</Label>
-                        <Input id="images" type="file" accept="image/png, image/jpeg" multiple className="cursor-pointer h-12 file:h-12 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary/90 text-[#474747] bg-white border-input" />
+                        <Input id="images" type="file" accept=".png,.jpg,.jpeg,image/png,image/jpeg" multiple className="cursor-pointer h-12 file:h-12 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-primary/90 text-[#474747] bg-white border-input" />
                         <p className="text-xs text-[#474747] leading-tight">
                           Nome esperado: [CÓDIGO] - [NOME].ext (ex: "418897 - TOSTINES.png"). Vinculação automática inteligente.
                         </p>

@@ -5,6 +5,20 @@ import { generateDerivatives } from '../utils/imageDerivatives';
 const PRODUCTS_TABLE = 'products_v2';
 const IMAGES_BUCKET = 'product-images';
 
+// Formatos aceitos para a imagem ORIGINAL enviada (os derivados gerados seguem webp/jpg).
+export const ALLOWED_UPLOAD_EXT = ['png', 'jpg', 'jpeg'];
+
+/** Extensão (minúscula) do arquivo, ou "" se não houver. */
+export function getFileExt(fileName: string): string {
+  const parts = fileName.split('.');
+  return parts.length > 1 ? (parts.pop() as string).toLowerCase() : '';
+}
+
+/** true se o arquivo tem uma extensão de imagem permitida para upload. */
+export function isAllowedImageFile(fileName: string): boolean {
+  return ALLOWED_UPLOAD_EXT.includes(getFileExt(fileName));
+}
+
 export const supabaseService = {
   async getProducts(): Promise<(Product & { id: string })[]> {
     const { data, error } = await supabase
@@ -163,7 +177,10 @@ export const supabaseService = {
   },
 
   async uploadProductImage(code: string, file: File): Promise<string> {
-    const fileExt = file.name.split('.').pop()?.toLowerCase() || 'png';
+    const fileExt = getFileExt(file.name) || 'png';
+    if (!ALLOWED_UPLOAD_EXT.includes(fileExt)) {
+      throw new Error(`Formato não permitido (.${fileExt}). Use PNG, JPG ou JPEG.`);
+    }
     const filePath = `${code}.${fileExt}`;
 
     const { error } = await supabase.storage
