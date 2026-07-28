@@ -23,6 +23,9 @@ import { createClient } from "@supabase/supabase-js";
 
 const XLSX_PATH = process.argv[2];
 const APPLY = process.argv.includes("--apply");
+// --sets-only: NÃO toca no banco nem no products.ts; só regenera os Sets de
+// categoria (Seca/Purina/Food/Bebidas) + lançamentos em categoryMappings.ts.
+const SETS_ONLY = process.argv.includes("--sets-only");
 const SHEET = "CATÁLOGO";
 const TABLE = "products_v2";
 
@@ -30,11 +33,35 @@ const SUPABASE_URL = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
 const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
 if (!XLSX_PATH) { console.error("Informe o caminho do .xlsx como 1º argumento."); process.exit(1); }
-if (!SUPABASE_URL || !SERVICE_KEY) { console.error("Defina SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY no .env."); process.exit(1); }
+if (!SETS_ONLY && (!SUPABASE_URL || !SERVICE_KEY)) { console.error("Defina SUPABASE_URL e SUPABASE_SERVICE_ROLE_KEY no .env."); process.exit(1); }
 
-const supabase = createClient(SUPABASE_URL, SERVICE_KEY, { auth: { persistSession: false } });
+const supabase = SETS_ONLY ? null : createClient(SUPABASE_URL, SERVICE_KEY, { auth: { persistSession: false } });
 
 const s = (v) => String(v ?? "").trim();
+
+// Regenera uma declaração `export const <name> = new Set([...])` no arquivo.
+function patchSet(content, name, codes) {
+  const quoted = codes.map((c) => `"${c}"`);
+  const lines = [];
+  for (let i = 0; i < quoted.length; i += 8) lines.push("  " + quoted.slice(i, i + 8).join(", "));
+  const body = lines.length ? `\n${lines.join(",\n")}\n` : "";
+  const decl = `export const ${name} = new Set<string>([${body}]);`;
+  const re = new RegExp(`export const ${name} = new Set(?:<string>)?\\(\\[[\\s\\S]*?\\]\\);`);
+  if (!re.test(content)) throw new Error(`Não achei ${name} em categoryMappings.ts`);
+  return content.replace(re, decl);
+}
+
+// Regenera os 4 Sets de categoria (ORGANIZAÇÃO) + lançamentos.
+function regenerateCategoryMappings(orgGroups, launchCodes) {
+  const mapPath = path.join(process.cwd(), "src", "data", "categoryMappings.ts");
+  let c = fs.readFileSync(mapPath, "utf-8");
+  c = patchSet(c, "secaProductCodes", orgGroups.Seca);
+  c = patchSet(c, "purinaProductCodes", orgGroups.Purina);
+  c = patchSet(c, "foodProductCodes", orgGroups.Food);
+  c = patchSet(c, "bebidasProductCodes", orgGroups.Bebidas);
+  c = patchSet(c, "lancamentosProductCodes", launchCodes);
+  fs.writeFileSync(mapPath, c);
+}
 
 // --- 1. Ler planilha ---
 const wb = XLSX.readFile(XLSX_PATH);
@@ -60,10 +87,33 @@ for (const r of rawRows) {
     packSize: s(r["FATOR"]),
     ean: `${ean}|${ncm}|${dun}|${isNew ? "true" : "false"}`,
     isNew,
+    org: s(r["ORGANIZAÇÃO"]),
   });
 }
 const sheetCodes = new Set(sheetProducts.map(p => p.code));
 const launchCodes = sheetProducts.filter(p => p.isNew).map(p => p.code);
+
+// Agrupa por ORGANIZAÇÃO (coluna A) — fonte autoritativa dos filtros do catálogo.
+const orgGroups = { Seca: [], Purina: [], Food: [], Bebidas: [] };
+const orgOutros = [];
+for (const p of sheetProducts) {
+  const key = p.org.toLowerCase();
+  if (key === "seca") orgGroups.Seca.push(p.code);
+  else if (key === "purina") orgGroups.Purina.push(p.code);
+  else if (key === "food") orgGroups.Food.push(p.code);
+  else if (key === "bebidas") orgGroups.Bebidas.push(p.code);
+  else orgOutros.push(`${p.code}:${p.org || "(vazio)"}`);
+}
+if (orgOutros.length) console.warn(`ATENÇÃO: ${orgOutros.length} produto(s) com ORGANIZAÇÃO fora de Seca/Purina/Food/Bebidas:`, orgOutros.slice(0, 10));
+
+// Modo --sets-only: só regenera categoryMappings.ts (sem DB, sem products.ts).
+if (SETS_ONLY) {
+  regenerateCategoryMappings(orgGroups, launchCodes);
+  console.log("=== --sets-only: categoryMappings.ts regenerado ===");
+  console.log(`Seca ${orgGroups.Seca.length} · Purina ${orgGroups.Purina.length} · Food ${orgGroups.Food.length} · Bebidas ${orgGroups.Bebidas.length} · Lançamentos ${launchCodes.length}`);
+  console.log(`(soma categorias = ${orgGroups.Seca.length + orgGroups.Purina.length + orgGroups.Food.length + orgGroups.Bebidas.length}; produtos = ${sheetProducts.length})`);
+  process.exit(0);
+}
 
 // --- 2. Estado atual do DB ---
 const { data: dbRows, error: fetchErr } = await supabase.from(TABLE).select("code, imageUrl");
@@ -147,17 +197,7 @@ fs.writeFileSync(productsPath, newProductsTs);
 console.log(`products.ts regenerado com ${seedProducts.length} produtos.`);
 
 // --- 6. Atualizar lancamentosProductCodes em categoryMappings.ts ---
-const mapPath = path.join(process.cwd(), "src", "data", "categoryMappings.ts");
-let mapContent = fs.readFileSync(mapPath, "utf-8");
-const quoted = launchCodes.map(c => `"${c}"`);
-// 8 códigos por linha para legibilidade
-const lines = [];
-for (let i = 0; i < quoted.length; i += 8) lines.push("  " + quoted.slice(i, i + 8).join(", "));
-const newSet = `export const lancamentosProductCodes = new Set<string>([\n${lines.join(",\n")}\n]);`;
-const re = /export const lancamentosProductCodes = new Set<string>\(\[[\s\S]*?\]\);/;
-if (!re.test(mapContent)) { console.error("Não achei lancamentosProductCodes em categoryMappings.ts"); process.exit(1); }
-mapContent = mapContent.replace(re, newSet);
-fs.writeFileSync(mapPath, mapContent);
-console.log(`categoryMappings.ts: lancamentosProductCodes atualizado com ${launchCodes.length} códigos.`);
+regenerateCategoryMappings(orgGroups, launchCodes);
+console.log(`categoryMappings.ts: Sets regenerados — Seca ${orgGroups.Seca.length} · Purina ${orgGroups.Purina.length} · Food ${orgGroups.Food.length} · Bebidas ${orgGroups.Bebidas.length} · Lançamentos ${launchCodes.length}.`);
 
 console.log("\n✅ Sync concluído.");
