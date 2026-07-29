@@ -60,7 +60,8 @@ export const supabaseService = {
   async addProduct(product: Omit<Product, 'id'>) {
     const productWithId = {
       ...product,
-      id: product.code // Use code as primary key ID
+      id: product.code, // Use code as primary key ID
+      adminCreatedAt: new Date().toISOString(), // marca origem-formulário (destaque verde 7d)
     };
     const { data, error } = await supabase
       .from(PRODUCTS_TABLE)

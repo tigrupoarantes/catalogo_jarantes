@@ -7,6 +7,9 @@ export interface Product {
   ean: string;
   imageUrl?: string | null;
   isNew?: boolean;
+  organizacao?: string | null;
+  createdAt?: string;
+  adminCreatedAt?: string | null;
 }
 
 export function parseProductTechnicalData(product: Product) {

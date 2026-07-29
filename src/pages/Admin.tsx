@@ -24,7 +24,9 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { Plus, Pencil, Trash2, LogOut, RefreshCw, FileSpreadsheet, Images } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Plus, Pencil, Trash2, LogOut, RefreshCw, FileSpreadsheet, Images, Search, ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -51,6 +53,7 @@ const Admin = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<ProductWithId | null>(null);
   const [formData, setFormData] = useState({
+    organizacao: "",
     code: "",
     name: "",
     brand: "",
@@ -62,6 +65,9 @@ const Admin = () => {
     isNew: false,
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [search, setSearch] = useState("");
+  const [page, setPage] = useState(1);
+  const PAGE_SIZE = 10;
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -101,6 +107,10 @@ const Admin = () => {
 
   const handleSave = async () => {
     try {
+      if (!formData.code.trim() || !formData.name.trim()) {
+        toast.error("Preencha ao menos Código e Descrição.");
+        return;
+      }
       let imageUrl = editingProduct?.imageUrl || null;
 
       if (imageFile) {
@@ -121,12 +131,14 @@ const Admin = () => {
       const combinedEan = serializeProductTechnicalData(formData.ean, formData.ncm, formData.dun, formData.isNew);
 
       const productDataToSave = {
+        organizacao: formData.organizacao || null,
         code: formData.code,
         name: formData.name,
         brand: formData.brand,
         category: formData.category,
         packSize: formData.packSize,
         ean: combinedEan,
+        isNew: formData.isNew,
         imageUrl
       };
 
@@ -163,6 +175,7 @@ const Admin = () => {
     setEditingProduct(product);
     const techData = parseProductTechnicalData(product);
     setFormData({
+      organizacao: product.organizacao || "",
       code: product.code,
       name: product.name,
       brand: product.brand,
@@ -179,6 +192,7 @@ const Admin = () => {
   const resetForm = () => {
     setEditingProduct(null);
     setFormData({
+      organizacao: "",
       code: "",
       name: "",
       brand: "",
@@ -191,6 +205,29 @@ const Admin = () => {
     });
     setImageFile(null);
   };
+
+  // Produto cadastrado pelo formulário há menos de 7 dias (destaque verde).
+  const isRecentlyAdded = (p: ProductWithId) => {
+    if (!p.adminCreatedAt) return false;
+    const t = new Date(p.adminCreatedAt).getTime();
+    return !Number.isNaN(t) && (Date.now() - t) < 7 * 24 * 60 * 60 * 1000;
+  };
+
+  const filteredProducts = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return products;
+    return products.filter(p => {
+      const ean = parseProductTechnicalData(p).ean || "";
+      return String(p.code).toLowerCase().includes(q)
+        || String(p.name).toLowerCase().includes(q)
+        || ean.toLowerCase().includes(q);
+    });
+  }, [products, search]);
+
+  const totalPages = Math.max(1, Math.ceil(filteredProducts.length / PAGE_SIZE));
+  useEffect(() => { setPage(1); }, [search]);
+  useEffect(() => { if (page > totalPages) setPage(totalPages); }, [page, totalPages]);
+  const pageProducts = filteredProducts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
   const extractCodeFromFilename = (filename: string): string => {
     const nameWithoutExt = filename.substring(0, filename.lastIndexOf('.')) || filename;
@@ -389,66 +426,84 @@ const Admin = () => {
                         Preencha os detalhes do produto abaixo.
                       </DialogDescription>
                     </DialogHeader>
-                    <div className="grid gap-4 py-4">
+                    <div className="grid gap-4 py-4 max-h-[70vh] overflow-y-auto pr-1">
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="organizacao" className="text-right">Organização</Label>
+                        <div className="col-span-3">
+                          <Select value={formData.organizacao} onValueChange={v => setFormData({...formData, organizacao: v})}>
+                            <SelectTrigger id="organizacao"><SelectValue placeholder="Selecione..." /></SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="Seca">Seca</SelectItem>
+                              <SelectItem value="Purina">Purina</SelectItem>
+                              <SelectItem value="Food">Food</SelectItem>
+                              <SelectItem value="Bebidas">Bebidas</SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="brand" className="text-right">Categoria</Label>
+                        <Input id="brand" value={formData.brand} onChange={e => setFormData({...formData, brand: e.target.value})} className="col-span-3" />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="category" className="text-right">Sub Categoria</Label>
+                        <Input id="category" value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} className="col-span-3" />
+                      </div>
                       <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="code" className="text-right">Código</Label>
                         <Input id="code" value={formData.code} onChange={e => setFormData({...formData, code: e.target.value})} className="col-span-3" />
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="name" className="text-right">Nome</Label>
+                        <Label htmlFor="name" className="text-right">Descrição</Label>
                         <Input id="name" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="col-span-3" />
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="brand" className="text-right">Marca</Label>
-                        <Input id="brand" value={formData.brand} onChange={e => setFormData({...formData, brand: e.target.value})} className="col-span-3" />
-                      </div>
-                      <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="category" className="text-right">Categoria</Label>
-                        <Input id="category" value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})} className="col-span-3" />
-                      </div>
-                      <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="packSize" className="text-right">Embalagem</Label>
+                        <Label htmlFor="packSize" className="text-right">Fator</Label>
                         <Input id="packSize" value={formData.packSize} onChange={e => setFormData({...formData, packSize: e.target.value})} className="col-span-3" />
+                      </div>
+                      <div className="grid grid-cols-4 items-center gap-4">
+                        <Label htmlFor="ncm" className="text-right">Classificação Fiscal</Label>
+                        <Input id="ncm" value={formData.ncm} onChange={e => setFormData({...formData, ncm: e.target.value})} className="col-span-3" />
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="ean" className="text-right">EAN</Label>
                         <Input id="ean" value={formData.ean} onChange={e => setFormData({...formData, ean: e.target.value})} className="col-span-3" />
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="ncm" className="text-right">Class. Fiscal</Label>
-                        <Input id="ncm" value={formData.ncm} onChange={e => setFormData({...formData, ncm: e.target.value})} className="col-span-3" />
-                      </div>
-                      <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="dun" className="text-right">DUN</Label>
                         <Input id="dun" value={formData.dun} onChange={e => setFormData({...formData, dun: e.target.value})} className="col-span-3" />
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="image" className="text-right">Imagem</Label>
-                        <Input 
-                          id="image" 
-                          type="file" 
-                          accept=".png,.jpg,.jpeg,image/png,image/jpeg" 
-                          onChange={e => {
-                            if (e.target.files && e.target.files.length > 0) {
-                              setImageFile(e.target.files[0]);
-                            }
-                          }} 
-                          className="col-span-3" 
-                        />
+                        <Label className="text-right">Lançamento</Label>
+                        <RadioGroup
+                          className="col-span-3 flex items-center gap-6"
+                          value={formData.isNew ? "sim" : "nao"}
+                          onValueChange={v => setFormData({...formData, isNew: v === "sim"})}
+                        >
+                          <div className="flex items-center gap-2">
+                            <RadioGroupItem value="sim" id="lanc-sim" />
+                            <Label htmlFor="lanc-sim" className="font-medium cursor-pointer">Sim</Label>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <RadioGroupItem value="nao" id="lanc-nao" />
+                            <Label htmlFor="lanc-nao" className="font-medium cursor-pointer">Não</Label>
+                          </div>
+                        </RadioGroup>
                       </div>
                       <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="isNew" className="text-right">Lançamento</Label>
-                        <div className="col-span-3 flex items-center">
-                          <input 
-                            id="isNew" 
-                            type="checkbox" 
-                            checked={formData.isNew} 
-                            onChange={e => setFormData({...formData, isNew: e.target.checked})}
-                            className="h-5 w-5 rounded border-slate-300 text-primary focus:ring-primary cursor-pointer"
+                        <Label htmlFor="image" className="text-right">Enviar imagem</Label>
+                        <div className="col-span-3">
+                          <Input
+                            id="image"
+                            type="file"
+                            accept=".png,.jpg,.jpeg,image/png,image/jpeg"
+                            onChange={e => {
+                              if (e.target.files && e.target.files.length > 0) {
+                                setImageFile(e.target.files[0]);
+                              }
+                            }}
                           />
-                          <span className="ml-2.5 text-sm text-slate-500 font-medium select-none cursor-pointer" onClick={() => setFormData({...formData, isNew: !formData.isNew})}>
-                            Este produto é um lançamento ("NOVO")
-                          </span>
+                          <p className="text-xs text-slate-400 mt-1">Opcional — pode finalizar o cadastro sem imagem.</p>
                         </div>
                       </div>
                     </div>
@@ -459,6 +514,16 @@ const Admin = () => {
                   </DialogContent>
                 </Dialog>
               </div>
+            </div>
+
+            <div className="relative max-w-md">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+              <Input
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                placeholder="Pesquisar por código, descrição ou EAN..."
+                className="pl-9"
+              />
             </div>
 
             <div className="bg-white rounded-lg border shadow-sm text-slate-900">
@@ -475,11 +540,12 @@ const Admin = () => {
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {products.map((product) => {
+                  {pageProducts.map((product) => {
                     const techData = parseProductTechnicalData(product);
+                    const recent = isRecentlyAdded(product);
                     return (
-                      <TableRow key={product.id} className="border-slate-100 hover:bg-slate-50/50">
-                        <TableCell className="font-semibold text-slate-800">
+                      <TableRow key={product.id} className={cn("border-slate-100 hover:bg-slate-50/50", recent && "text-green-600")}>
+                        <TableCell className={cn("font-semibold", recent ? "text-green-600" : "text-slate-800")}>
                           <div className="flex items-center gap-2">
                             {product.code}
                             {product.isNew && (
@@ -489,11 +555,11 @@ const Admin = () => {
                             )}
                           </div>
                         </TableCell>
-                        <TableCell className="text-slate-700">{product.name}</TableCell>
-                        <TableCell className="text-slate-700">{product.brand}</TableCell>
-                        <TableCell className="text-slate-700">{product.category}</TableCell>
-                        <TableCell className="text-slate-700">{techData.ncm || "-"}</TableCell>
-                        <TableCell className="text-slate-700">{techData.dun || "-"}</TableCell>
+                        <TableCell className={recent ? "text-green-600" : "text-slate-700"}>{product.name}</TableCell>
+                        <TableCell className={recent ? "text-green-600" : "text-slate-700"}>{product.brand}</TableCell>
+                        <TableCell className={recent ? "text-green-600" : "text-slate-700"}>{product.category}</TableCell>
+                        <TableCell className={recent ? "text-green-600" : "text-slate-700"}>{techData.ncm || "-"}</TableCell>
+                        <TableCell className={recent ? "text-green-600" : "text-slate-700"}>{techData.dun || "-"}</TableCell>
                         <TableCell className="text-right">
                           <div className="flex justify-end gap-2">
                             <Button variant="ghost" size="icon" className="text-slate-500 hover:text-slate-900 hover:bg-slate-100" onClick={() => openEdit(product)}>
@@ -507,16 +573,32 @@ const Admin = () => {
                       </TableRow>
                     );
                   })}
-                  {products.length === 0 && (
+                  {filteredProducts.length === 0 && (
                     <TableRow>
                       <TableCell colSpan={7} className="text-center py-8 text-slate-400">
-                        Nenhum produto cadastrado.
+                        {search ? "Nenhum produto encontrado para a busca." : "Nenhum produto cadastrado."}
                       </TableCell>
                     </TableRow>
                   )}
                 </TableBody>
               </Table>
             </div>
+
+            {filteredProducts.length > 0 && (
+              <div className="flex items-center justify-between text-sm text-slate-500">
+                <span>
+                  {filteredProducts.length} produto(s) · página {page} de {totalPages}
+                </span>
+                <div className="flex items-center gap-2">
+                  <Button variant="outline" size="sm" onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page <= 1}>
+                    <ChevronLeft className="h-4 w-4 mr-1" /> Anterior
+                  </Button>
+                  <Button variant="outline" size="sm" onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={page >= totalPages}>
+                    Próxima <ChevronRight className="h-4 w-4 ml-1" />
+                  </Button>
+                </div>
+              </div>
+            )}
           </TabsContent>
 
           <TabsContent value="settings" className="space-y-6">

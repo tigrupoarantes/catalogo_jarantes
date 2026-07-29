@@ -122,19 +122,28 @@ export function isCodeInCategory(code: string | number, categorySet: Set<string>
 // scripts/sync-catalog-from-xlsx.mjs). Cada produto do catálogo está em
 // exatamente um Set, então os predicados usam só o Set (sem marca/keyword).
 
-export function isPurinaProduct(p: { code: string; brand?: string; category?: string; name?: string }): boolean {
+// Classificação híbrida: se o produto tem `organizacao` (cadastros novos via
+// admin), ela é autoritativa; senão, usa o Set de código (produtos vindos da
+// planilha). Assim um produto cadastrado no admin cai no filtro certo na hora.
+export function isPurinaProduct(p: { code: string; organizacao?: string | null }): boolean {
+  const org = (p.organizacao || '').toLowerCase();
+  if (org) return org === 'purina';
   return isCodeInCategory(p.code, purinaProductCodes);
 }
 
-export function isFoodProduct(p: { code: string; brand?: string; category?: string; name?: string }): boolean {
+export function isFoodProduct(p: { code: string; organizacao?: string | null }): boolean {
+  const org = (p.organizacao || '').toLowerCase();
+  if (org) return org === 'food';
   return isCodeInCategory(p.code, foodProductCodes);
 }
 
-export function isBebidasProduct(p: { code: string; brand?: string; category?: string; name?: string }): boolean {
+export function isBebidasProduct(p: { code: string; organizacao?: string | null }): boolean {
+  const org = (p.organizacao || '').toLowerCase();
+  if (org) return org === 'bebidas';
   return isCodeInCategory(p.code, bebidasProductCodes);
 }
 
-export function isSecaProduct(p: { code: string; brand?: string; category?: string; name?: string }): boolean {
+export function isSecaProduct(p: { code: string; organizacao?: string | null }): boolean {
   if (isPurinaProduct(p)) return false;
   if (isFoodProduct(p)) return false;
   if (isBebidasProduct(p)) return false;

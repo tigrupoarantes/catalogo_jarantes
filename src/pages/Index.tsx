@@ -87,7 +87,9 @@ const Index = () => {
               const staticProd = staticMap.get(fp.code);
               return {
                 ...fp,
-                isNew: isLancamento(fp.code),
+                // Lançamento: pelo Set (planilha) para produtos do seed; para
+                // cadastros novos (fora do seed), respeita o isNew do banco.
+                isNew: isLancamento(fp.code) || (!staticMap.has(fp.code) && !!fp.isNew),
                 imageUrl: fp.imageUrl || staticProd?.imageUrl || null
               };
             }),
