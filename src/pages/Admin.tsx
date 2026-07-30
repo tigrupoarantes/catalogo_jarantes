@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { supabaseService, isAllowedImageFile } from "@/services/supabaseService";
 import { Product, products as initialProducts, parseProductTechnicalData, serializeProductTechnicalData } from "@/data/products";
-import { getDerivativeUrl, resolveProductImageUrl } from "@/utils/imageUtils";
+import { getDerivativeUrl, resolveProductImageUrl, imageVersion } from "@/utils/imageUtils";
 import { logoutAdmin } from "@/lib/adminAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -143,7 +143,9 @@ const Admin = () => {
         packSize: formData.packSize,
         ean: combinedEan,
         isNew: formData.isNew,
-        imageUrl
+        imageUrl,
+        // Carimba a versão da imagem só quando um arquivo novo foi enviado (busta o cache).
+        ...(imageFile ? { imageUpdatedAt: new Date().toISOString() } : {}),
       };
 
       if (editingProduct) {
@@ -183,7 +185,7 @@ const Admin = () => {
     setRemovingImage(true);
     try {
       const removed = await supabaseService.deleteProductImage(editingProduct.code);
-      await supabaseService.updateProduct(editingProduct.id, { imageUrl: null });
+      await supabaseService.updateProduct(editingProduct.id, { imageUrl: null, imageUpdatedAt: new Date().toISOString() });
       const data = await supabaseService.getProducts();
       setProducts(data);
       setEditingProduct(prev => (prev ? { ...prev, imageUrl: null } : prev));
@@ -369,7 +371,7 @@ const Admin = () => {
           const product = finalProducts[productIdx];
           try {
             const publicUrl = await supabaseService.uploadProductImage(product.code, file);
-            finalProducts[productIdx] = { ...product, imageUrl: publicUrl };
+            finalProducts[productIdx] = { ...product, imageUrl: publicUrl, imageUpdatedAt: new Date().toISOString() };
             matchedCodes.add(product.code);
           } catch (uploadErr) {
             const msg = uploadErr instanceof Error ? uploadErr.message : "erro desconhecido";
@@ -534,8 +536,8 @@ const Admin = () => {
                             <img
                               src={
                                 imgPreviewFallback
-                                  ? resolveProductImageUrl(editingProduct.imageUrl, editingProduct.code)
-                                  : getDerivativeUrl(editingProduct.code, "card")
+                                  ? resolveProductImageUrl(editingProduct.imageUrl, editingProduct.code, imageVersion(editingProduct))
+                                  : getDerivativeUrl(editingProduct.code, "card", imageVersion(editingProduct))
                               }
                               alt={`Imagem do produto ${editingProduct.code}`}
                               className="h-16 w-16 rounded border object-contain bg-white"

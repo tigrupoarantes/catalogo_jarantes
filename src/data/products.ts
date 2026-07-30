@@ -10,6 +10,7 @@ export interface Product {
   organizacao?: string | null;
   createdAt?: string;
   adminCreatedAt?: string | null;
+  imageUpdatedAt?: string | null;
 }
 
 export function parseProductTechnicalData(product: Product) {

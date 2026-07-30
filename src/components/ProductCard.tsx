@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Product, parseProductTechnicalData } from "@/data/products";
 import { Dialog, DialogContent, DialogTitle, DialogHeader } from "@/components/ui/dialog";
 import { ExportConfig } from "@/utils/exportConstants";
-import { resolveProductImageUrl, getDerivativeUrl } from "@/utils/imageUtils";
+import { resolveProductImageUrl, getDerivativeUrl, imageVersion } from "@/utils/imageUtils";
 import { Download } from "lucide-react";
 
 interface ProductCardProps {
@@ -15,13 +15,16 @@ const ProductCard = ({ product, priority = false, config }: ProductCardProps) =>
   const [imgError, setImgError] = useState(false);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
+  // Versão da imagem (busta o cache quando a imagem é trocada/removida no /admin).
+  const version = imageVersion(product);
+
   // URL original (sem transform) — usada como fallback quando o derivado ainda não existe.
-  const originalImageUrl = resolveProductImageUrl(product.imageUrl, product.code);
+  const originalImageUrl = resolveProductImageUrl(product.imageUrl, product.code, version);
 
   // Derivados estáticos pré-gerados (sem transform on-the-fly cobrado):
   // grid usa o "card" (webp 600px); zoom/download usam o "full" (jpeg 1600px).
-  const cardUrl = getDerivativeUrl(product.code, "card");
-  const fullUrl = getDerivativeUrl(product.code, "full");
+  const cardUrl = getDerivativeUrl(product.code, "card", version);
+  const fullUrl = getDerivativeUrl(product.code, "full", version);
 
   // Fallback em cadeia: derivado -> original -> placeholder (letra).
   const [thumbSrc, setThumbSrc] = useState(cardUrl || originalImageUrl);

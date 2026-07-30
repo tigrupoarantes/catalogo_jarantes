@@ -4,7 +4,7 @@ import JSZip from "jszip";
 import { jsPDF } from "jspdf";
 import { Canvg } from "canvg";
 import { ExportConfig, EXPORT_COLORS, EXPORT_DIM } from "./exportConstants";
-import { resolveProductImageUrl } from "@/utils/imageUtils";
+import { resolveProductImageUrl, imageVersion } from "@/utils/imageUtils";
 
 function escapeXml(unsafe: string): string {
   return unsafe.replace(/[<>&"']/g, (c) => {
@@ -112,7 +112,7 @@ export function generatePageSvg(
     const y = headerHeight + EXPORT_DIM.MARGIN + row * rowHeight;
 
     // Use the base64 mapping, then the pre-mapped resolved imageUrl
-    const imgUrl = imageMap[p.code] || escapeXml(resolveProductImageUrl(p.imageUrl, p.code));
+    const imgUrl = imageMap[p.code] || escapeXml(resolveProductImageUrl(p.imageUrl, p.code, imageVersion(p)));
     
     // Card Layout Internal Math (4x4 specific)
     const padding = 2.0;
@@ -348,7 +348,7 @@ export async function exportCatalogAsPdf(
 
       // Fetch all product images for the current page in parallel
       await Promise.all(pageProducts.map(async (p) => {
-        const fullUrl = resolveProductImageUrl(p.imageUrl, p.code);
+        const fullUrl = resolveProductImageUrl(p.imageUrl, p.code, imageVersion(p));
         const base64 = await urlToBase64(fullUrl);
         if (base64) {
           imageMap[p.code] = base64;
@@ -452,7 +452,7 @@ export async function exportCatalogAsSvg(
 
       // Fetch all product images for the current page in parallel
       await Promise.all(pageProducts.map(async (p) => {
-        const fullUrl = resolveProductImageUrl(p.imageUrl, p.code);
+        const fullUrl = resolveProductImageUrl(p.imageUrl, p.code, imageVersion(p));
         const base64 = await urlToBase64(fullUrl);
         if (base64) {
           imageMap[p.code] = base64;
