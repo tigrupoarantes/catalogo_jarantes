@@ -320,7 +320,8 @@ const Admin = () => {
     setLoadingImgs(true);
     try {
       const matchedCodes = new Set<string>();
-      const unmatchedImages: string[] = [];
+      const unmatchedImages: string[] = []; // código não está no catálogo
+      const uploadErrors: string[] = [];    // código encontrado, mas o upload falhou
       const finalProducts = [...products];
       toast.info(`Processando ${allowed.length} imagem(ns) e enviando ao Supabase Storage...`);
 
@@ -340,8 +341,9 @@ const Admin = () => {
             finalProducts[productIdx] = { ...product, imageUrl: publicUrl };
             matchedCodes.add(product.code);
           } catch (uploadErr) {
+            const msg = uploadErr instanceof Error ? uploadErr.message : "erro desconhecido";
             console.error(`Erro no upload da imagem ${file.name}:`, uploadErr);
-            unmatchedImages.push(`${file.name} (Erro de upload)`);
+            uploadErrors.push(`${file.name}: ${msg}`);
           }
         } else {
           unmatchedImages.push(file.name);
@@ -352,12 +354,16 @@ const Admin = () => {
         toast.info("Sincronizando dados no banco...");
         await supabaseService.syncInitialData(finalProducts);
       }
-      toast.success(`${matchedCodes.size} imagem(ns) vinculada(s); ${unmatchedImages.length} ignorada(s).`);
+      toast.success(`${matchedCodes.size} imagem(ns) vinculada(s).`);
       if (unmatchedImages.length > 0) {
         const amostra = unmatchedImages.slice(0, 8).join(', ');
         const extra = unmatchedImages.length > 8 ? ` … (+${unmatchedImages.length - 8})` : '';
-        toast.warning(`${unmatchedImages.length} imagem(ns) não vinculada(s) — código não está no catálogo: ${amostra}${extra}`, { duration: 12000 });
-        console.warn("Imagens ignoradas (não vinculadas a produtos):", unmatchedImages);
+        toast.warning(`${unmatchedImages.length} não vinculada(s) — código não está no catálogo: ${amostra}${extra}`, { duration: 12000 });
+        console.warn("Imagens sem produto correspondente:", unmatchedImages);
+      }
+      if (uploadErrors.length > 0) {
+        toast.error(`${uploadErrors.length} falha(s) ao enviar (código existe, mas o upload deu erro): ${uploadErrors.slice(0, 4).join(' | ')}`, { duration: 15000 });
+        console.error("Falhas de upload:", uploadErrors);
       }
       const data = await supabaseService.getProducts();
       setProducts(data);
