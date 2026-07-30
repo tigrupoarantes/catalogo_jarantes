@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { supabaseService, isAllowedImageFile } from "@/services/supabaseService";
 import { Product, products as initialProducts, parseProductTechnicalData, serializeProductTechnicalData } from "@/data/products";
+import { getDerivativeUrl, resolveProductImageUrl } from "@/utils/imageUtils";
 import { logoutAdmin } from "@/lib/adminAuth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -65,6 +66,9 @@ const Admin = () => {
     isNew: false,
   });
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [hasImage, setHasImage] = useState(false); // produto em edição tem imagem no bucket
+  const [removingImage, setRemovingImage] = useState(false);
+  const [imgPreviewFallback, setImgPreviewFallback] = useState(false); // derivado falhou → tenta original
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const PAGE_SIZE = 10;
@@ -171,8 +175,33 @@ const Admin = () => {
     }
   };
 
+  const handleRemoveImage = async () => {
+    if (!editingProduct) return;
+    if (!window.confirm(`Remover a imagem do produto ${editingProduct.code}? Os 4 arquivos (original + derivados) serão apagados do Storage. Não pode ser desfeito.`)) {
+      return;
+    }
+    setRemovingImage(true);
+    try {
+      const removed = await supabaseService.deleteProductImage(editingProduct.code);
+      await supabaseService.updateProduct(editingProduct.id, { imageUrl: null });
+      const data = await supabaseService.getProducts();
+      setProducts(data);
+      setEditingProduct(prev => (prev ? { ...prev, imageUrl: null } : prev));
+      setHasImage(false);
+      toast.success(removed > 0 ? `Imagem removida (${removed} arquivo(s)).` : "Nenhum arquivo de imagem encontrado; vínculo limpo.");
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : "erro desconhecido";
+      console.error("Erro ao remover imagem:", error);
+      toast.error(`Falha ao remover imagem: ${msg}`);
+    } finally {
+      setRemovingImage(false);
+    }
+  };
+
   const openEdit = (product: ProductWithId) => {
     setEditingProduct(product);
+    setHasImage(true);          // otimista; o onError do preview desliga se não houver imagem
+    setImgPreviewFallback(false);
     const techData = parseProductTechnicalData(product);
     setFormData({
       organizacao: product.organizacao || "",
@@ -204,6 +233,8 @@ const Admin = () => {
       isNew: false,
     });
     setImageFile(null);
+    setHasImage(false);
+    setImgPreviewFallback(false);
   };
 
   // Produto cadastrado pelo formulário há menos de 7 dias (destaque verde).
@@ -496,6 +527,36 @@ const Admin = () => {
                           </div>
                         </RadioGroup>
                       </div>
+                      {editingProduct && hasImage && (
+                        <div className="grid grid-cols-4 items-center gap-4">
+                          <Label className="text-right">Imagem atual</Label>
+                          <div className="col-span-3 flex items-center gap-3">
+                            <img
+                              src={
+                                imgPreviewFallback
+                                  ? resolveProductImageUrl(editingProduct.imageUrl, editingProduct.code)
+                                  : getDerivativeUrl(editingProduct.code, "card")
+                              }
+                              alt={`Imagem do produto ${editingProduct.code}`}
+                              className="h-16 w-16 rounded border object-contain bg-white"
+                              onError={() => {
+                                if (!imgPreviewFallback) setImgPreviewFallback(true);
+                                else setHasImage(false);
+                              }}
+                            />
+                            <Button
+                              type="button"
+                              variant="destructive"
+                              size="sm"
+                              onClick={handleRemoveImage}
+                              disabled={removingImage}
+                            >
+                              <Trash2 className="h-4 w-4 mr-1.5" />
+                              {removingImage ? "Removendo..." : "Remover imagem"}
+                            </Button>
+                          </div>
+                        </div>
+                      )}
                       <div className="grid grid-cols-4 items-center gap-4">
                         <Label htmlFor="image" className="text-right">Enviar imagem</Label>
                         <div className="col-span-3">

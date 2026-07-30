@@ -227,6 +227,45 @@ export const supabaseService = {
     return publicUrlData.publicUrl;
   },
 
+  /**
+   * Remove do bucket a imagem de um produto por completo: o original ({code}.{ext})
+   * e os 3 derivados ({code}_thumb.webp, {code}_card.webp, {code}_full.jpg).
+   * Robusto a qualquer extensão histórica (.png/.jpg/.jpeg/.webp/.avif): lista o
+   * bucket filtrando pelo código e casa os nomes por regex EXATA (evita apagar
+   * {code}12345 quando o código é {code}1234). Retorna quantos arquivos foram removidos.
+   */
+  async deleteProductImage(code: string): Promise<number> {
+    const c = String(code || '').trim();
+    if (!c) throw new Error('Código do produto ausente.');
+
+    const { data: objects, error: listError } = await supabase.storage
+      .from(IMAGES_BUCKET)
+      .list('', { limit: 1000, search: c });
+
+    if (listError) {
+      console.error('Erro ao listar imagens para exclusão:', listError);
+      throw listError;
+    }
+
+    // Casa só {code}.ext e {code}_(thumb|card|full).ext — nada de códigos que contêm este como prefixo.
+    const escaped = c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const exact = new RegExp(`^${escaped}(_thumb|_card|_full)?\\.[a-z0-9]+$`, 'i');
+    const toRemove = (objects || []).map(o => o.name).filter(name => exact.test(name));
+
+    if (toRemove.length === 0) return 0;
+
+    const { error: removeError } = await supabase.storage
+      .from(IMAGES_BUCKET)
+      .remove(toRemove);
+
+    if (removeError) {
+      console.error('Erro ao remover imagens do Storage:', removeError);
+      throw removeError;
+    }
+
+    return toRemove.length;
+  },
+
   /** Gera os derivados no browser e faz upload de cada um (best-effort). */
   async uploadImageDerivatives(code: string, file: File): Promise<void> {
     try {
