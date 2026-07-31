@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import QuickBrandFilters, { QuickFilterType } from "@/components/QuickBrandFilters";
 import PassarinhoAnimado from "@/components/PassarinhoAnimado";
-import { isSecaProduct, isPurinaProduct, isFoodProduct, isBebidasProduct, isLancamento } from "@/data/categoryMappings";
+import { isSecaProduct, isPurinaProduct, isFoodProduct, isBebidasProduct } from "@/data/categoryMappings";
 
 const ITEMS_PER_PAGE = 48;
 
@@ -88,9 +88,9 @@ const Index = () => {
             const staticProd = staticMap.get(fp.code);
             return {
               ...fp,
-              // Lançamento: pelo Set (planilha) para produtos do seed; para
-              // cadastros novos (fora do seed), respeita o isNew do banco.
-              isNew: isLancamento(fp.code) || (!staticMap.has(fp.code) && !!fp.isNew),
+              // Lançamento é 100% controlado pelo banco (toggle do /admin).
+              // getProducts já resolve isNew de ean|...|isNew OU da coluna isNew.
+              isNew: !!fp.isNew,
               imageUrl: fp.imageUrl || staticProd?.imageUrl || null
             };
           });
