@@ -79,28 +79,25 @@ const Index = () => {
       try {
         const data = await supabaseService.getProducts();
         
-        if (data.length > 0 || staticProducts.length > 0) {
-          // Merge firebase products with static ones
+        if (data.length > 0) {
+          // products_v2 é a FONTE DE VERDADE do catálogo público: não
+          // ressuscitar produtos do seed excluídos no /admin. O seed serve só
+          // de fallback (bootstrap com banco vazio, abaixo, ou erro no catch).
           const staticMap = new Map(staticProducts.map(p => [p.code, p]));
-          const combined = [
-            ...data.map(fp => {
-              const staticProd = staticMap.get(fp.code);
-              return {
-                ...fp,
-                // Lançamento: pelo Set (planilha) para produtos do seed; para
-                // cadastros novos (fora do seed), respeita o isNew do banco.
-                isNew: isLancamento(fp.code) || (!staticMap.has(fp.code) && !!fp.isNew),
-                imageUrl: fp.imageUrl || staticProd?.imageUrl || null
-              };
-            }),
-            ...staticProducts.filter(p => !data.some(fp => fp.code === p.code)).map(p => ({
-              ...p,
-              isNew: isLancamento(p.code)
-            }))
-          ];
+          const combined = data.map(fp => {
+            const staticProd = staticMap.get(fp.code);
+            return {
+              ...fp,
+              // Lançamento: pelo Set (planilha) para produtos do seed; para
+              // cadastros novos (fora do seed), respeita o isNew do banco.
+              isNew: isLancamento(fp.code) || (!staticMap.has(fp.code) && !!fp.isNew),
+              imageUrl: fp.imageUrl || staticProd?.imageUrl || null
+            };
+          });
           setProducts(combined);
         } else {
-          setProducts([]);
+          // Banco vazio (não-erro) → bootstrap pelo seed estático.
+          setProducts(staticProducts);
         }
       } catch (error) {
         const err = error as { code?: string };
