@@ -34,9 +34,9 @@ export const products: Product[] = [
     "brand": "01-NP LACTEOS",
     "category": "01E-CONDENSADOS INTEGRAL LATA",
     "packSize": "6",
-    "ean": "7891000004180|0402.99.00|17891000003579|false",
+    "ean": "7891000004180|0402.99.00|17891000003579|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "411201",
@@ -64,9 +64,9 @@ export const products: Product[] = [
     "brand": "01-NP LACTEOS",
     "category": "01B-TOP LACTEOS LATA E BAG",
     "packSize": "6",
-    "ean": "7891000004197|1901.90.90|17891000003586|false",
+    "ean": "7891000004197|1901.90.90|17891000003586|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "411524",
@@ -84,9 +84,20 @@ export const products: Product[] = [
     "brand": "01-NP LACTEOS",
     "category": "01B-TOP LACTEOS LATA E BAG",
     "packSize": "6",
-    "ean": "7891000004234|1806.20.00|17891000003623|false",
+    "ean": "7891000004234|1806.20.00|17891000003623|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
+  },
+  {
+    "code": "412234",
+    "name": "NESTLE Cob Chocolate Diet NPro 500g XR",
+    "brand": "02-NP CHOCOLATES",
+    "category": "02A-COBERTURA REGULAR NESTLE 500G - 1KG",
+    "packSize": "20",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Food"
   },
   {
     "code": "412340",
@@ -139,6 +150,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "413522",
+    "name": "NESTLE Chocolate Mousse NPro 8x500g BR",
+    "brand": "04-NP SOBREMESAS",
+    "category": "04A-SOBREMESAS",
+    "packSize": "8",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Food"
+  },
+  {
     "code": "413695",
     "name": "SNOW FLAKES Cereal Matinal 14x620g BR",
     "brand": "CEREAIS MATINAIS",
@@ -167,6 +189,17 @@ export const products: Product[] = [
     "ean": "7891000451304|1806.10.00|17891000045135|false",
     "imageUrl": "/uploads/produtos/414513 - NESTLE Choc em Po Soluvel 25x200g XI.png",
     "isNew": false
+  },
+  {
+    "code": "414530",
+    "name": "Chocolate Po 50% NPro 25kg BR",
+    "brand": "02-NP CHOCOLATES",
+    "category": "02D-CHOCOLATE PO",
+    "packSize": "1",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Food"
   },
   {
     "code": "414602",
@@ -224,9 +257,9 @@ export const products: Product[] = [
     "brand": "03-NP CULINARIOS",
     "category": "03C-MAGGI MOLHOS E CREMES",
     "packSize": "6",
-    "ean": "7891000532805|2104.10.11|17891000053284|false",
+    "ean": "7891000532805|2104.10.11|17891000053284|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "415385",
@@ -384,9 +417,9 @@ export const products: Product[] = [
     "brand": "COMPATIVEIS NESPRESSO",
     "category": "STARBUCKS CAPS NESPRESSO",
     "packSize": "12",
-    "ean": "7613287855282|0901.21.00|7613287855664|false",
+    "ean": "7613287855282|0901.21.00|7613287855664|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "6222911",
@@ -394,9 +427,9 @@ export const products: Product[] = [
     "brand": "COMPATIVEIS NESPRESSO",
     "category": "STARBUCKS CAPS NESPRESSO",
     "packSize": "12",
-    "ean": "8445291363656|0901.21.00|8445291362994|false",
+    "ean": "8445291363656|0901.21.00|8445291362994|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "6223111",
@@ -634,9 +667,9 @@ export const products: Product[] = [
     "brand": "02-NP CHOCOLATES",
     "category": "02G-COBERTURA REGULAR GAROTO 500G - 1KG",
     "packSize": "12",
-    "ean": "7891008085105|1806.32.10|17891008085133|false",
+    "ean": "7891008085105|1806.32.10|17891008085133|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "11322004",
@@ -707,6 +740,17 @@ export const products: Product[] = [
     "ean": "7891000051436|1905.31.00|7891000051443|false",
     "imageUrl": "/uploads/produtos/12045051 - PASSATEMPO Biscoito Leite 54x150g BR.png",
     "isNew": false
+  },
+  {
+    "code": "12073778",
+    "name": "NESTLE NPro Cob Rech Ganache 6x2,330kgBR",
+    "brand": "02-NP CHOCOLATES",
+    "category": "02H-GANACHE",
+    "packSize": "6",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Food"
   },
   {
     "code": "12091059",
@@ -804,9 +848,9 @@ export const products: Product[] = [
     "brand": "01-NP LACTEOS",
     "category": "01C-CREMES",
     "packSize": "12",
-    "ean": "7891000027448|0401.50.21|7891000027455|false",
+    "ean": "7891000027448|0401.50.21|7891000027455|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12133134",
@@ -1549,6 +1593,39 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12339526",
+    "name": "DENTALIFE Caes Racas Medias 7x119g BR",
+    "brand": "ORAL CARE",
+    "category": "DENTALIFE DOG SNACKS",
+    "packSize": "7",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12339560",
+    "name": "DENTALIFE Caes Racas Pequenas 7x42g BR",
+    "brand": "ORAL CARE",
+    "category": "DENTALIFE DOG SNACKS",
+    "packSize": "7",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12339674",
+    "name": "DENTALIFE Caes Racas Grandes 7x196g BR",
+    "brand": "ORAL CARE",
+    "category": "DENTALIFE DOG SNACKS",
+    "packSize": "7",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Purina"
+  },
+  {
     "code": "12340089",
     "name": "NEGRESCO Cookie Choc Gotas Baun 52x60gBR",
     "brand": "BISCOITOS",
@@ -1567,6 +1644,39 @@ export const products: Product[] = [
     "ean": "7891000247648|1905.31.00|7891000247655|false",
     "imageUrl": "/uploads/produtos/12340110 - CLASSIC Cookie Choc Gotas Choc 52x60gBR.png",
     "isNew": false
+  },
+  {
+    "code": "12341820",
+    "name": "PRO PLAN Adulto Carne 15x100g XI",
+    "brand": "WET",
+    "category": "PRO PLAN DOG WET POUCH",
+    "packSize": "15",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12341823",
+    "name": "PRO PLAN Adulto Pollo/Frango 15x100g XI",
+    "brand": "WET",
+    "category": "PRO PLAN DOG WET POUCH",
+    "packSize": "15",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12341824",
+    "name": "PRO PLAN KITTEN Pollo/Frango 15x85g XI",
+    "brand": "WET",
+    "category": "PRO PLAN CAT WET POUCH",
+    "packSize": "15",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Purina"
   },
   {
     "code": "12342557",
@@ -1637,6 +1747,17 @@ export const products: Product[] = [
     "ean": "7891000249932|2104.10.11|7891000249956|false",
     "imageUrl": "/uploads/produtos/12344651 - MAGGI Caldo Bacon Display 15(10x57g) BR.png",
     "isNew": false
+  },
+  {
+    "code": "12344654",
+    "name": "MAGGI Caldo Costela Dspl 15(10x57g) BR",
+    "brand": "MAGGI",
+    "category": "CALDOS TABLETE",
+    "packSize": "150",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Seca"
   },
   {
     "code": "12346031",
@@ -1714,9 +1835,9 @@ export const products: Product[] = [
     "brand": "CHOCOLATES NESTLE",
     "category": "CANDY BARS NESTLE",
     "packSize": "30",
-    "ean": "7891000251133|1704.90.10|7891000251157|false",
+    "ean": "7891000251133|1704.90.10|7891000251157|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12350533",
@@ -1734,9 +1855,9 @@ export const products: Product[] = [
     "brand": "MAGGI",
     "category": "CALDOS TABLETE",
     "packSize": "76",
-    "ean": "7891000251577|2104.10.11|17891000251574|false",
+    "ean": "7891000251577|2104.10.11|17891000251574|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12351488",
@@ -1767,6 +1888,17 @@ export const products: Product[] = [
     "ean": "7891000251782|1704.90.10|7891000251799|false",
     "imageUrl": null,
     "isNew": false
+  },
+  {
+    "code": "12351874",
+    "name": "NESTLE Cob Choc Mamgo NPro 6x2,1 kg BR",
+    "brand": "02-NP CHOCOLATES",
+    "category": "02B-COBERTURA REGULAR NESTLE 2KG",
+    "packSize": "6",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Food"
   },
   {
     "code": "12351875",
@@ -1919,6 +2051,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12378569",
+    "name": "NESTFarlactTrdlSachet24x210gPRL210P180BR",
+    "brand": "CEREAIS FAMILIA",
+    "category": "FARINHA LACTEA SACHET ATE 400G",
+    "packSize": "24",
+    "ean": "0|0|0|true",
+    "imageUrl": null,
+    "isNew": true,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12379167",
     "name": "DOGUITOS Linguicinha 20x45g BR",
     "brand": "SNACKS",
@@ -1959,6 +2102,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12383749",
+    "name": "NESTLE Brownie Choc 6x800g NPro BR",
+    "brand": "04-NP SOBREMESAS",
+    "category": "04A-SOBREMESAS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Food"
+  },
+  {
     "code": "12383770",
     "name": "NESTLE Rech Torta 6x600g NPro BR",
     "brand": "04-NP SOBREMESAS",
@@ -1967,6 +2121,17 @@ export const products: Product[] = [
     "ean": "7891000261651|2106.90.29|7891000261668|false",
     "imageUrl": null,
     "isNew": false
+  },
+  {
+    "code": "12383806",
+    "name": "NESTLE Chocbra Mse 8x500g NPro BR",
+    "brand": "04-NP SOBREMESAS",
+    "category": "04A-SOBREMESAS",
+    "packSize": "8",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Food"
   },
   {
     "code": "12384866",
@@ -2354,9 +2519,9 @@ export const products: Product[] = [
     "brand": "MAGGI",
     "category": "DEMAIS SOPAS",
     "packSize": "12",
-    "ean": "7891000304020|2104.10.11|7891000304044|false",
+    "ean": "7891000304020|2104.10.11|7891000304044|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12439442",
@@ -2519,6 +2684,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12447586",
+    "name": "SBUX MEDIUM HOUSE BLEND T&M 12x250g UY",
+    "brand": "NESCAFE SOLUVEL + T&M",
+    "category": "STARBUCKS T&M",
+    "packSize": "12",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12451066",
     "name": "MOCALeiCondParcDesnZrLactCxnha27x395gBR",
     "brand": "LEITES CULINARIOS",
@@ -2609,6 +2785,50 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12454911",
+    "name": "PRO PLAN ReducedCalorie Med&Gde 15kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12455020",
+    "name": "PRO PLAN Adult Mini&Peq 7,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12458608",
+    "name": "PRO PLAN Adult Cat Live Clear 6x3kg AR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12458622",
+    "name": "PRO PLAN Adult Cat Live Clear 6x1kg AR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
     "code": "12458810",
     "name": "NESTLE ESPECIALIDADES Bombons 30x251g BR",
     "brand": "CHOCOLATES NESTLE",
@@ -2624,9 +2844,9 @@ export const products: Product[] = [
     "brand": "GAROTO",
     "category": "CAIXAS GAROTO",
     "packSize": "30",
-    "ean": "7891008116632|1806.90.00|17891008116646|false",
+    "ean": "7891008116632|1806.90.00|17891008116646|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12460205",
@@ -2767,6 +2987,17 @@ export const products: Product[] = [
     "ean": "7891000333600|1904.10.00|7891000333617|false",
     "imageUrl": "/uploads/produtos/12469063 - NESFITCerMatCacau0%AdicaoAcu24x220gBR.png",
     "isNew": false
+  },
+  {
+    "code": "12469083",
+    "name": "PRO PLAN VeterinaryDiets Cnne HA 7,5kgBR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PPVD DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
   },
   {
     "code": "12470571",
@@ -2919,6 +3150,116 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12481476",
+    "name": "CAT CHOW PsFilhFrangoeLeite 10,1kg N2 BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12481492",
+    "name": "CAT CHOW Ps Adultos Carne 10,1kg N2 BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12481519",
+    "name": "CAT CHOW Ps Adultos Peixe 10,1kg N2 BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12481526",
+    "name": "CAT CHOW Ps Adultos Carne 5x2,7kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY SMALL BAGS",
+    "packSize": "5",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12481983",
+    "name": "CAT CHOW Ps Castrados 10,1kg N2 BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12482395",
+    "name": "CAT CHOW Castrados Carne 15x85g N1 XI",
+    "brand": "WET",
+    "category": "CAT CHOW WET POUCH",
+    "packSize": "15",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12482399",
+    "name": "CAT CHOW Adultos Frango 15x85g N1 XI",
+    "brand": "WET",
+    "category": "CAT CHOW WET POUCH",
+    "packSize": "15",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12482400",
+    "name": "CAT CHOW Adultos Carne 15x85g N1 XI",
+    "brand": "WET",
+    "category": "CAT CHOW WET POUCH",
+    "packSize": "15",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12482401",
+    "name": "CAT CHOW Castrados Peixe 15x85g N1 XI",
+    "brand": "WET",
+    "category": "CAT CHOW WET POUCH",
+    "packSize": "15",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12482410",
+    "name": "CAT CHOW Filhotes Frango 15x85g N1 XI",
+    "brand": "WET",
+    "category": "CAT CHOW WET POUCH",
+    "packSize": "15",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
     "code": "12489996",
     "name": "ALPO Filhotes CarFrgCerVeg Lei 10x1kg BR",
     "brand": "MAINSTREAM",
@@ -3047,6 +3388,28 @@ export const products: Product[] = [
     "ean": "7891008121926|1806.31.10|17891008121947|false",
     "imageUrl": null,
     "isNew": false
+  },
+  {
+    "code": "12493320",
+    "name": "NESQUIK Morango 24x200g BR",
+    "brand": "BEBIDAS POS",
+    "category": "NESQUIK",
+    "packSize": "24",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "12494461",
+    "name": "GALAK Rech&Cob Negresco 6x1,01kg NPro BR",
+    "brand": "02-NP CHOCOLATES",
+    "category": "02E-PASTAS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Food"
   },
   {
     "code": "12494821",
@@ -3319,6 +3682,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12520104",
+    "name": "NESTLE Choc Po Solu 50% NPro 9x1,01kg BR",
+    "brand": "02-NP CHOCOLATES",
+    "category": "02D-CHOCOLATE PO",
+    "packSize": "9",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Food"
+  },
+  {
     "code": "12520114",
     "name": "NESTLE Choc Po Solu 32% NPro 9x1,01kg BR",
     "brand": "02-NP CHOCOLATES",
@@ -3327,6 +3701,17 @@ export const products: Product[] = [
     "ean": "7891000364567|1806.10.00|17891000364571|false",
     "imageUrl": null,
     "isNew": false
+  },
+  {
+    "code": "12520118",
+    "name": "FRISKIES Delicias daGranja Frg 10,1kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
   },
   {
     "code": "12520225",
@@ -3379,6 +3764,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12520569",
+    "name": "FRISKIES Filhotes Frango 10,1kg N1 BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "FRISKIES DRY LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12521363",
     "name": "PASSATEMPO Biscoito Maisena 40x170g BR",
     "brand": "BISCOITOS",
@@ -3397,6 +3793,17 @@ export const products: Product[] = [
     "ean": "7891000365267|1905.31.00|17891000365271|false",
     "imageUrl": "/uploads/produtos/12521371 - PASSATEMPO BiscoitoLeiteMaltado54x150gBR.png",
     "isNew": false
+  },
+  {
+    "code": "12521575",
+    "name": "CAT CHOW Ps Castrados Peixe 10,1kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
   },
   {
     "code": "12521749",
@@ -3489,6 +3896,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12524409",
+    "name": "MOCA Caramelo Salgado NPro 8x980g BR",
+    "brand": "01-NP LACTEOS",
+    "category": "01A-TOP LACTEOS MANGA",
+    "packSize": "8",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Food"
+  },
+  {
     "code": "12524586",
     "name": "GAROTO Crocante Chocolate 18(30x25g) BR",
     "brand": "GAROTO",
@@ -3517,6 +3935,17 @@ export const products: Product[] = [
     "ean": "7891000368145|1901.10.30|17891000368159|false",
     "imageUrl": null,
     "isNew": false
+  },
+  {
+    "code": "12526275",
+    "name": "MAGGI Sopao Gl 24x200g PRL200P150 BR",
+    "brand": "MAGGI",
+    "category": "SOPAO",
+    "packSize": "24",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
   },
   {
     "code": "12526276",
@@ -3729,6 +4158,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12527441",
+    "name": "NESTLE DoisFrades Pasta NPro 6x1,01kg BR",
+    "brand": "02-NP CHOCOLATES",
+    "category": "02E-PASTAS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Food"
+  },
+  {
     "code": "12528243",
     "name": "SBUX Frappuccino Classic 4(6x280ml) BR",
     "brand": "RTD ADULTOS",
@@ -3859,6 +4299,61 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12534939",
+    "name": "PPVD CANINE NC NEUROCARE 6x2kg AR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PPVD DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12534962",
+    "name": "PPVD CANINE OM Obesidade 6x2kg AR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PPVD DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12534969",
+    "name": "PPVD CANINE UR Trato Urinario 7,5kg AR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PPVD DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12534980",
+    "name": "PPVD CANINE OM Obesidade 7,5kg AR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PPVD DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12534986",
+    "name": "PPVD CANINE NC NEUROCARE 7,5kg AR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PPVD DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
     "code": "12535219",
     "name": "NESCAFE GOLD ESPRS Intsd6 Lata 12x100gBR",
     "brand": "NESCAFE SOLUVEL + T&M",
@@ -3899,6 +4394,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12536927",
+    "name": "PPVD FELINEOM ObesityManagement8x1,5kgAR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PPVD CAT SMALL BAGS",
+    "packSize": "8",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
     "code": "12537280",
     "name": "NESLAC Zero Lactose 6x700g N1 BR",
     "brand": "LEITES DE CRESCIMENTO",
@@ -3907,6 +4413,28 @@ export const products: Product[] = [
     "ean": "7891000309711|2106.90.90|7891000309704|false",
     "imageUrl": "/uploads/produtos/12537280 - NESLAC Zero Lactose 6x700g N1 BR.png",
     "isNew": false
+  },
+  {
+    "code": "12537291",
+    "name": "PPVD FELINE UR TratoUrinario 7,5kg AR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PPVD CAT LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12537301",
+    "name": "PPVD FELINE UR Trato Urinario 8x1,5kg AR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PPVD CAT SMALL BAGS",
+    "packSize": "8",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
   },
   {
     "code": "12537601",
@@ -3937,6 +4465,17 @@ export const products: Product[] = [
     "ean": "7891000106099|1901.10.10|7891000106105|false",
     "imageUrl": null,
     "isNew": false
+  },
+  {
+    "code": "12549161",
+    "name": "NAN SUPREME 0-6Meses 4HMO 6x800g BR",
+    "brand": "FORMULAS INFANTIS",
+    "category": "FAMILIA NAN SUPREME",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
   },
   {
     "code": "12549968",
@@ -4209,6 +4748,28 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12552618",
+    "name": "NDG Cafe Caseiro Inso 10Caps 6x90g BR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "DEMAIS CAFES",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "12555193",
+    "name": "NDG Mochaccino Avela 10Caps 6x170g BR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "DEMAIS BEBIDAS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12555551",
     "name": "NESCAU Achoc Po Cilindrico 24x200g BR",
     "brand": "BEBIDAS POS",
@@ -4227,6 +4788,72 @@ export const products: Product[] = [
     "ean": "7891000379738|1806.90.00EX01|17891000379742|false",
     "imageUrl": "/uploads/produtos/12556035 - NESCAU Achoc Po Cilindro 12x670g BR.png",
     "isNew": false
+  },
+  {
+    "code": "12556838",
+    "name": "CAT CHOW PS Castrados Peixe 5x2,7kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY SMALL BAGS",
+    "packSize": "5",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12556860",
+    "name": "CAT CHOW PS Castrados Frango 5x2,7kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY SMALL BAGS",
+    "packSize": "5",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12557599",
+    "name": "CAT CHOW Ps Filhotes Frango 10x1kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY SMALL BAGS",
+    "packSize": "10",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12557602",
+    "name": "CAT CHOW Ps Adultos Carne 10x1kg N2 BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY SMALL BAGS",
+    "packSize": "10",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12557610",
+    "name": "CAT CHOW Ps Adultos Peixe 5x2,7kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY SMALL BAGS",
+    "packSize": "5",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "12557620",
+    "name": "CAT CHOW Ps Filhotes Frango 5x2,7kg BR",
+    "brand": "PREMIUM DRY CAT",
+    "category": "CAT CHOW DRY SMALL BAGS",
+    "packSize": "5",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
   },
   {
     "code": "12558277",
@@ -4574,9 +5201,9 @@ export const products: Product[] = [
     "brand": "CEREAIS INFANTIS",
     "category": "MUCILON SNACKS",
     "packSize": "7",
-    "ean": "7891000395134|1905.31.00|17891000395155|true",
+    "ean": "7891000395134|1905.31.00|17891000395155|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12581434",
@@ -4584,9 +5211,9 @@ export const products: Product[] = [
     "brand": "CEREAIS INFANTIS",
     "category": "MUCILON SNACKS",
     "packSize": "7",
-    "ean": "7891000395233|1905.31.00|17891000395254|true",
+    "ean": "7891000395233|1905.31.00|17891000395254|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12581445",
@@ -4594,9 +5221,9 @@ export const products: Product[] = [
     "brand": "CEREAIS INFANTIS",
     "category": "MUCILON SNACKS",
     "packSize": "7",
-    "ean": "7891000395189|1905.31.00|17891000395209|true",
+    "ean": "7891000395189|1905.31.00|17891000395209|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12581664",
@@ -4669,6 +5296,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12582872",
+    "name": "NESCAFE Coador Papel NPro 500Uni BR",
+    "brand": "07-NP SOLUCOES",
+    "category": "07D-ACESSORIOS NESCAFE",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Bebidas"
+  },
+  {
     "code": "12582874",
     "name": "NINHO Leite Integral Inst Sac 12x350g BR",
     "brand": "NINHO",
@@ -4734,9 +5372,9 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS PLENOS DOCES TOSTINES",
     "packSize": "54",
-    "ean": "7891000397961|1905.31.00|17891000397975|true",
+    "ean": "7891000397961|1905.31.00|17891000397975|false",
     "imageUrl": "/uploads/produtos/12586084 - TOSTINES Biscoito Especiarias 54x150g BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12586515",
@@ -4784,9 +5422,9 @@ export const products: Product[] = [
     "brand": "LEITES DE CRESCIMENTO",
     "category": "NESTONUTRI",
     "packSize": "12",
-    "ean": "7891000400210|1901.10.90|17891000400217|true",
+    "ean": "7891000400210|1901.10.90|17891000400217|false",
     "imageUrl": "/uploads/produtos/12589907 - NESTONUTRI 1+ FI 12x800g BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12590487",
@@ -4894,9 +5532,9 @@ export const products: Product[] = [
     "brand": "SNACKS",
     "category": "DOG CHOW BISCUITS SNACKS",
     "packSize": "16",
-    "ean": "7891000403075|2309.90.30|17891000403072|false",
+    "ean": "7891000403075|2309.90.30|17891000403072|true",
     "imageUrl": "/uploads/produtos/12592352.png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12592353",
@@ -4919,6 +5557,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12593902",
+    "name": "NDG CHOCOCINO Kit Kat 10Caps 6x170g BR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "BEBIDAS CHOCOS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12595044",
     "name": "MOCA Leite Cond Semi Desn NPro 5x3kg BR",
     "brand": "01-NP LACTEOS",
@@ -4934,9 +5583,9 @@ export const products: Product[] = [
     "brand": "NHS ACTIVE NUTRITION",
     "category": "NUTREN PROTEIN RTD",
     "packSize": "24",
-    "ean": "7891000405079|2202.99.00EX01|17891000405076|true",
+    "ean": "7891000405079|2202.99.00EX01|17891000405076|false",
     "imageUrl": "/uploads/produtos/12595377 - NUTREN Protein 15g RTD Choc 4(6x260ml)BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12595468",
@@ -4957,6 +5606,17 @@ export const products: Product[] = [
     "ean": "7891000405543|0901.21.00|17891000405540|false",
     "imageUrl": null,
     "isNew": false
+  },
+  {
+    "code": "12596509",
+    "name": "NESCAFE Espr Brasileiro NPro 6x1kg BR",
+    "brand": "07-NP SOLUCOES",
+    "category": "07A-CAFE GRAO NESCAFE",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Bebidas"
   },
   {
     "code": "12598146",
@@ -5079,14 +5739,25 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12603778",
+    "name": "NDG Alto Paranaiba 10Caps 6x60g BR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "DEMAIS CAFES",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12604954",
     "name": "NESTLE ChocoCookiesRechPeanut 40x100g BR",
     "brand": "BISCOITOS",
     "category": "BISCOITOS CHOCOCOOKIES",
     "packSize": "40",
-    "ean": "7891000412503|1905.31.00|17891000412500|false",
+    "ean": "7891000412503|1905.31.00|17891000412500|true",
     "imageUrl": "/uploads/produtos/12604954 - NESTLE ChocoCookiesRechPeanut 40x100g BR.png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12604964",
@@ -5094,9 +5765,9 @@ export const products: Product[] = [
     "brand": "BEBIDAS POS",
     "category": "NESCAU LATA 350G",
     "packSize": "36",
-    "ean": "7891000412855|1806.90.00EX01|17891000412852|false",
+    "ean": "7891000412855|1806.90.00EX01|17891000412852|true",
     "imageUrl": "/uploads/produtos/12604964 - NESCAU Achoc Po Cilindrico 36x350g BR.png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12606771",
@@ -5104,9 +5775,9 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS PLENOS DOCES TOSTINES",
     "packSize": "48",
-    "ean": "7891000413579|1905.31.00|17891000413576|true",
+    "ean": "7891000413579|1905.31.00|17891000413576|false",
     "imageUrl": "/uploads/produtos/12606771 - TOSTINES Leite Maltado 48x160g N1 BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12607311",
@@ -5127,6 +5798,17 @@ export const products: Product[] = [
     "ean": "7891000414804|4823.69.00|17891000414801|false",
     "imageUrl": null,
     "isNew": false
+  },
+  {
+    "code": "12608184",
+    "name": "NESCAFE CAPPU Barista NPro 6x1,3kg BR",
+    "brand": "07-NP SOLUCOES",
+    "category": "07H-CAPPUCCINO NESCAFE",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Bebidas"
   },
   {
     "code": "12608573",
@@ -5234,9 +5916,9 @@ export const products: Product[] = [
     "brand": "RTD ADULTOS",
     "category": "RTD ADULTOS PROTEINADOS",
     "packSize": "24",
-    "ean": "7891000417348|2202.99.00EX01|17891000417345|true",
+    "ean": "7891000417348|2202.99.00EX01|17891000417345|false",
     "imageUrl": "/uploads/produtos/12610745 - NESCAFE CAPPU ProEnergy Canl4(6x270ml)BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12610767",
@@ -5244,9 +5926,9 @@ export const products: Product[] = [
     "brand": "RTD ADULTOS",
     "category": "RTD ADULTOS PROTEINADOS",
     "packSize": "24",
-    "ean": "7891000417331|2202.99.00EX01|17891000417338|true",
+    "ean": "7891000417331|2202.99.00EX01|17891000417338|false",
     "imageUrl": "/uploads/produtos/12610767 - NESCAFE CAPPU ClasProEnergy 4(6x270ml)BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12610829",
@@ -5254,9 +5936,9 @@ export const products: Product[] = [
     "brand": "RTD ADULTOS",
     "category": "RTD ADULTOS PROTEINADOS",
     "packSize": "24",
-    "ean": "7891000417409|2202.99.00EX01|17891000417406|true",
+    "ean": "7891000417409|2202.99.00EX01|17891000417406|false",
     "imageUrl": "/uploads/produtos/12610829 - NESCAFE ProEnergy Chocno 4(6x270ml) BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12611191",
@@ -5274,9 +5956,9 @@ export const products: Product[] = [
     "brand": "MAGGI",
     "category": "TEMPEROS GRANULADO SACHET",
     "packSize": "48",
-    "ean": "7891000418277|2103.90.21|17891000418274|true",
+    "ean": "7891000418277|2103.90.21|17891000418274|false",
     "imageUrl": "/uploads/produtos/12611501 - MAGGI Tempr Grnul p Frango 48(10x5g) BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12611512",
@@ -5284,9 +5966,9 @@ export const products: Product[] = [
     "brand": "MAGGI",
     "category": "TEMPEROS GRANULADO SACHET",
     "packSize": "48",
-    "ean": "7891000418284|2103.90.21|17891000418281|true",
+    "ean": "7891000418284|2103.90.21|17891000418281|false",
     "imageUrl": "/uploads/produtos/12611512 - MAGGI Tempr Grnl p Carne 48(10x5g) BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12611545",
@@ -5304,9 +5986,9 @@ export const products: Product[] = [
     "brand": "CEREAIS MATINAIS",
     "category": "KIT KAT",
     "packSize": "12",
-    "ean": "7891000418376|1904.10.00|17891000418373|false",
+    "ean": "7891000418376|1904.10.00|17891000418373|true",
     "imageUrl": "/uploads/produtos/12611772 - KITKAT+SNF CerMat 12(210+230)g PRBpak BR.png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12611997",
@@ -5329,6 +6011,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12612263",
+    "name": "NDG Gold Lungo Intsd8 10Caps 6x80g BR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "DEMAIS CAFES",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12612400",
     "name": "NESTLE ChocoCookies CobChoc 35x100g BR",
     "brand": "BISCOITOS",
@@ -5344,9 +6037,9 @@ export const products: Product[] = [
     "brand": "MAGGI",
     "category": "TEMPEROS GRANULADO SACHET",
     "packSize": "48",
-    "ean": "7891000419601|2103.90.21|17891000419608|true",
+    "ean": "7891000419601|2103.90.21|17891000419608|false",
     "imageUrl": "/uploads/produtos/12612574 - MAGGI Tempr Grnl p Legumes 48(10x5g) BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12613072",
@@ -5424,9 +6117,9 @@ export const products: Product[] = [
     "brand": "MAGGI",
     "category": "TEMPEROS FRASCO",
     "packSize": "30",
-    "ean": "7891000502303|3507.90.49|17891000502300|false",
+    "ean": "7891000502303|3507.90.49|17891000502300|true",
     "imageUrl": "/uploads/produtos/12613349 - MAGGI Amaciante Car cTempero30x120gN1BR.png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12613366",
@@ -5444,9 +6137,9 @@ export const products: Product[] = [
     "brand": "SISTEMA DOLCE GUSTO",
     "category": "DEMAIS CAFES",
     "packSize": "6",
-    "ean": "7891000420782|0901.21.00|17891000420789|false",
+    "ean": "7891000420782|0901.21.00|17891000420789|true",
     "imageUrl": "/uploads/produtos/12613375 - NDG Gold Espresso Intsd6 10Caps 6x60g BR.png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12613380",
@@ -5454,9 +6147,9 @@ export const products: Product[] = [
     "brand": "MAGGI",
     "category": "TEMPEROS FRASCO",
     "packSize": "30",
-    "ean": "7891000502204|2103.90.21|17891000502201|false",
+    "ean": "7891000502204|2103.90.21|17891000502201|true",
     "imageUrl": "/uploads/produtos/12613380 - MAGGI GRIL Tempero 30x120g BR.jpg",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12613546",
@@ -5464,9 +6157,9 @@ export const products: Product[] = [
     "brand": "PREMIUM DRY DOG",
     "category": "DOG CHOW DRY LARGE BAGS",
     "packSize": "1",
-    "ean": "7891000116715|2309.10.00||false",
+    "ean": "7891000116715|2309.10.00||true",
     "imageUrl": "https://bzdpgsfmbbhpqbyugrmg.supabase.co/storage/v1/object/public/product-images/12613546.jpg",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12613548",
@@ -5504,9 +6197,9 @@ export const products: Product[] = [
     "brand": "PREMIUM DRY DOG",
     "category": "DOG CHOW DRY LARGE BAGS",
     "packSize": "1",
-    "ean": "7891000350973|2309.10.00||false",
+    "ean": "7891000350973|2309.10.00||true",
     "imageUrl": "https://bzdpgsfmbbhpqbyugrmg.supabase.co/storage/v1/object/public/product-images/12613570.png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12613573",
@@ -5579,6 +6272,28 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12615584",
+    "name": "NDG Kopng LinguadeGato 10Caps 6x162,5gBR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "BEBIDAS CHOCOS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "12615588",
+    "name": "NDG Kopenhagen Lajotinha 10Caps 6x170gBR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "DEMAIS BEBIDAS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12615709",
     "name": "KIT KAT Cereal Mat Sachet 12(16x25g) BR",
     "brand": "CEREAIS MATINAIS",
@@ -5627,6 +6342,28 @@ export const products: Product[] = [
     "ean": "7891000424957|2309.10.00|17891000424954|false",
     "imageUrl": null,
     "isNew": false
+  },
+  {
+    "code": "12616034",
+    "name": "DOG CHOW Filhote Frango&Leite 15x85g BR",
+    "brand": "WET",
+    "category": "DOG CHOW WET POUCH",
+    "packSize": "15",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "12616041",
+    "name": "DOG CHOW Adulto Alta Proteina 15x85g BR",
+    "brand": "WET",
+    "category": "DOG CHOW WET POUCH",
+    "packSize": "15",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
   },
   {
     "code": "12616042",
@@ -5709,6 +6446,28 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12617479",
+    "name": "FANCY FEAST Supremo Bacalhau 15x75g XI",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "packSize": "15",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "12617486",
+    "name": "FANCY FEAST Supremo PeixeBranco 15x75gXI",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "packSize": "15",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12617495",
     "name": "FANCY FEAST Supremo Carne 15x75g XI",
     "brand": "WET",
@@ -5744,9 +6503,9 @@ export const products: Product[] = [
     "brand": "LEITES CULINARIOS",
     "category": "SPREADS",
     "packSize": "12",
-    "ean": "7891000432143|1806.90.00|17891000432140|true",
+    "ean": "7891000432143|1806.90.00|17891000432140|false",
     "imageUrl": "/uploads/produtos/12618976 - KIT KAT Rech&Cob Chocolate 12x330g BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12620119",
@@ -5799,6 +6558,17 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12621154",
+    "name": "FANCY FEAST Cass Frango & Peru15x85gN2XI",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "packSize": "15",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12621896",
     "name": "FANCY FEAST Petit Filet Salmao15x85gN2XI",
     "brand": "WET",
@@ -5844,9 +6614,9 @@ export const products: Product[] = [
     "brand": "CHOCOLATES NESTLE",
     "category": "KIT KAT 4 FINGERS",
     "packSize": "24",
-    "ean": "7891000433843|1905.32.00|17891000433840|true",
+    "ean": "7891000433843|1905.32.00|17891000433840|false",
     "imageUrl": "/uploads/produtos/12623003 - KIT KAT 4Fngr Churros 4(24x41,5g) BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12623506",
@@ -5954,9 +6724,9 @@ export const products: Product[] = [
     "brand": "CHOCOLATES NESTLE",
     "category": "JUMBOS RECHEADOS NESTLE",
     "packSize": "14",
-    "ean": "7891000435458|1806.31.10|17891000435455|true",
+    "ean": "7891000435458|1806.31.10|17891000435455|false",
     "imageUrl": "/uploads/produtos/12624593 - PRESTIGIO Tablete Recheado 4(14x90g) BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12624628",
@@ -5974,9 +6744,9 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS PLENOS DOCES TOSTINES",
     "packSize": "54",
-    "ean": "7891000436110|1905.31.00|17891000436117|true",
+    "ean": "7891000436110|1905.31.00|17891000436117|false",
     "imageUrl": "/uploads/produtos/12625382 - TOSTINES Bisc Espec Gengibre 54x150g BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12625733",
@@ -5994,9 +6764,9 @@ export const products: Product[] = [
     "brand": "NHS ACTIVE NUTRITION",
     "category": "NUTREN PROTEIN RTD",
     "packSize": "4",
-    "ean": "7891000437810|2202.99.00|17891000437817|false",
+    "ean": "7891000437810|2202.99.00|17891000437817|true",
     "imageUrl": "/uploads/produtos/12627332 - NUTRENPrtn15g PpbBaun4(6x260ml)PRLMPMBR.png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12627341",
@@ -6039,14 +6809,25 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12627579",
+    "name": "DENTALIFE Gatos 12x40g N1 XI",
+    "brand": "ORAL CARE",
+    "category": "DENTALIFE DOG SNACKS",
+    "packSize": "12",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
     "code": "12628280",
     "name": "NINHO 1+ PREBIO 1 Fases Lepo 6x800g N4BR",
     "brand": "NINHO FASES",
     "category": "NINHO FASES",
     "packSize": "6",
-    "ean": "7891000062661|1901.10.90|17891000062668|true",
+    "ean": "7891000062661|1901.10.90|17891000062668|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12628857",
@@ -6054,9 +6835,9 @@ export const products: Product[] = [
     "brand": "NHS ACTIVE NUTRITION",
     "category": "NUTREN PROTEIN RTD",
     "packSize": "24",
-    "ean": "7891000440483|2202.99.00EX01|17891000440480|true",
+    "ean": "7891000440483|2202.99.00EX01|17891000440480|false",
     "imageUrl": "/uploads/produtos/12628857 - NUTREN Prtn15gRTDChocoWafer 4(6x260ml)BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12629594",
@@ -6099,14 +6880,36 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12630671",
+    "name": "MUCILON BL 5 Cereais Zero 9x360g BR",
+    "brand": "CEREAIS INFANTIS",
+    "category": "MUCILON ZERO",
+    "packSize": "9",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "12630807",
+    "name": "MUCILON Ameixa e Aveia Sachet 9x360g BR",
+    "brand": "CEREAIS INFANTIS",
+    "category": "MUCILON SACHET 360G",
+    "packSize": "9",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12631039",
     "name": "CHARGE Tablete Recheado 4(14x90g) BR",
     "brand": "CHOCOLATES NESTLE",
     "category": "JUMBOS RECHEADOS NESTLE",
     "packSize": "14",
-    "ean": "7891000442265|1806.31.10|17891000442262|true",
+    "ean": "7891000442265|1806.31.10|17891000442262|false",
     "imageUrl": "/uploads/produtos/12631039 - CHARGE Tablete Recheado 4(14x90g) BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12655014",
@@ -6134,9 +6937,9 @@ export const products: Product[] = [
     "brand": "PREMIUM DRY DOG",
     "category": "DOG CHOW DRY SMALL BAGS",
     "packSize": "8",
-    "ean": "7891000442845|2309.10.00|17891000442842|false",
+    "ean": "7891000442845|2309.10.00|17891000442842|true",
     "imageUrl": "/uploads/produtos/12655184.jpeg",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12664895",
@@ -6144,9 +6947,9 @@ export const products: Product[] = [
     "brand": "CHOCOLATES NESTLE",
     "category": "KIT KAT 2 FINGERS",
     "packSize": "10",
-    "ean": "7891000443071|1905.32.00|17891000443078|false",
+    "ean": "7891000443071|1905.32.00|17891000443078|true",
     "imageUrl": "/uploads/produtos/12664895 - KITKAT 2Fngr Leite Bag 10x417,6gPRLMPMBR.png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "12799262",
@@ -6189,14 +6992,25 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "12889867",
+    "name": "NINHO CmptoLact Zero Lact Sac 12x700g BR",
+    "brand": "NINHO",
+    "category": "NINHO ZERO LACTOSE",
+    "packSize": "12",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "12941325",
     "name": "KIT KAT 4Fngr Cereja 4(24x41,5g) BR",
     "brand": "CHOCOLATES",
     "category": "KIT KAT 4 FINGERS",
     "packSize": "24",
-    "ean": "7891000445020|1905.32.00|17891000445027|true",
+    "ean": "7891000445020|1905.32.00|17891000445027|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "12997472",
@@ -6209,14 +7023,25 @@ export const products: Product[] = [
     "isNew": false
   },
   {
+    "code": "13006270",
+    "name": "NESCAFE Xicara e Pires 75ml NPro 24Pc BR",
+    "brand": "07-NP SOLUCOES",
+    "category": "07D-ACESSORIOS NESCAFE",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Bebidas"
+  },
+  {
     "code": "13069775",
     "name": "NINHO 1+ PBIO1 Fases Lepo 24x400g N5 BR",
     "brand": "NINHO FASES",
     "category": "NINHO FASES",
     "packSize": "24",
-    "ean": "7891000001080|1901.10.90|17891000001087|true",
+    "ean": "7891000001080|1901.10.90|17891000001087|false",
     "imageUrl": "/uploads/produtos/13069775 - NINHO 1+ PBIO1 Fases Lepo 24x400g N5 BR.jpg",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13129259",
@@ -6227,6 +7052,17 @@ export const products: Product[] = [
     "ean": "7891000282809|1901.90.90|17891000282806|false",
     "imageUrl": null,
     "isNew": false
+  },
+  {
+    "code": "13160910",
+    "name": "NESCAFE Xicara e Pires 200ml NPro24PcsBR",
+    "brand": "07-NP SOLUCOES",
+    "category": "07D-ACESSORIOS NESCAFE",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Bebidas"
   },
   {
     "code": "13320068",
@@ -6244,9 +7080,9 @@ export const products: Product[] = [
     "brand": "RTD ADULTOS",
     "category": "RTD ADULTOS PROTEINADOS",
     "packSize": "24",
-    "ean": "7891000446799|2202.99.00EX01|17891000446796|true",
+    "ean": "7891000446799|2202.99.00EX01|17891000446796|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13383314",
@@ -6254,9 +7090,9 @@ export const products: Product[] = [
     "brand": "CEREAIS MATINAIS",
     "category": "NESCAU ATE 300G",
     "packSize": "20",
-    "ean": "7891000447277|1904.10.00|17891000447274|true",
+    "ean": "7891000447277|1904.10.00|17891000447274|false",
     "imageUrl": "/uploads/produtos/13383314.jpg",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13389250",
@@ -6274,9 +7110,9 @@ export const products: Product[] = [
     "brand": "CHOCOLATES NESTLE",
     "category": "CHOCOTRIO NESTLE",
     "packSize": "12",
-    "ean": "7891000377543|1806.31.10|17891000377571|false",
+    "ean": "7891000377543|1806.31.10|17891000377571|true",
     "imageUrl": "/uploads/produtos/13389256 - NESTLE Chocotrio aoLeite ST 4(12x90g) BR (1).png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "13392666",
@@ -6344,9 +7180,9 @@ export const products: Product[] = [
     "brand": "CEREAIS MATINAIS",
     "category": "NESCAU ATE 300G",
     "packSize": "20",
-    "ean": "7891000449486|1904.10.00|17891000449483|true",
+    "ean": "7891000449486|1904.10.00|17891000449483|false",
     "imageUrl": "/uploads/produtos/13463462.jpg",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13466600",
@@ -6354,9 +7190,9 @@ export const products: Product[] = [
     "brand": "NESCAFE SOLUVEL + T&M",
     "category": "DEMAIS NESCAFE",
     "packSize": "24",
-    "ean": "7891000449608|2101.11.10|17891000449605|true",
+    "ean": "7891000449608|2101.11.10|17891000449605|false",
     "imageUrl": "/uploads/produtos/13466600.jpg",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13522060",
@@ -6394,9 +7230,9 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS RECHEADOS NEGRESCO",
     "packSize": "66",
-    "ean": "7891000376805|1905.31.00|17891000376819|false",
+    "ean": "7891000376805|1905.31.00|17891000376819|true",
     "imageUrl": "/uploads/produtos/13528301 - NEGRESCO Biscoito Rech Mrg 66x90g N1 BR.png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "13528866",
@@ -6434,9 +7270,20 @@ export const products: Product[] = [
     "brand": "SISTEMA DOLCE GUSTO",
     "category": "DEMAIS BEBIDAS",
     "packSize": "6",
-    "ean": "7891000451106|2101.12.00|17891000451103|true",
+    "ean": "7891000451106|2101.12.00|17891000451103|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
+  },
+  {
+    "code": "13574122",
+    "name": "MLCO LepoParcialDesn+Fibras24x330g N1 BR",
+    "brand": "MOLICO",
+    "category": "MOLICO ESPECIAIS",
+    "packSize": "24",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
   },
   {
     "code": "13597100",
@@ -6444,9 +7291,9 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS RECHEADOS NEGRESCO",
     "packSize": "66",
-    "ean": "7891000451656|1905.31.00|17891000451653|true",
+    "ean": "7891000451656|1905.31.00|17891000451653|false",
     "imageUrl": "/uploads/produtos/13597100 - NEGRES Nevado Recheado Baun 66x90g BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13597926",
@@ -6454,9 +7301,9 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS RECHEADOS NEGRESCO",
     "packSize": "66",
-    "ean": "7891000451786|1905.31.00|17891000451783|true",
+    "ean": "7891000451786|1905.31.00|17891000451783|false",
     "imageUrl": "/uploads/produtos/13597926 - NEGRES Nevado Recheado Morango 66x90g BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13612736",
@@ -6484,9 +7331,9 @@ export const products: Product[] = [
     "brand": "NHS ACTIVE NUTRITION",
     "category": "NUTREN PROTEIN RTD",
     "packSize": "24",
-    "ean": "7891000452912|2202.99.00EX01|17891000452919|true",
+    "ean": "7891000452912|2202.99.00EX01|17891000452919|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13680782",
@@ -6504,9 +7351,9 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS RECHEADOS OUTROS",
     "packSize": "70",
-    "ean": "7891000453407|1905.31.00|17891000453404|true",
+    "ean": "7891000453407|1905.31.00|17891000453404|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13720753",
@@ -6524,9 +7371,9 @@ export const products: Product[] = [
     "brand": "CEREAIS MATINAIS",
     "category": "NESCAU ATE 300G",
     "packSize": "24",
-    "ean": "7891000453421|1904.10.00|17891000453428|true",
+    "ean": "7891000453421|1904.10.00|17891000453428|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13754078",
@@ -6534,9 +7381,9 @@ export const products: Product[] = [
     "brand": "PREMIUM DRY CAT",
     "category": "FRISKIES DRY SMALL BAGS",
     "packSize": "9",
-    "ean": "7891000454152|2309.10.00|17891000454159|true",
+    "ean": "7891000454152|2309.10.00|17891000454159|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13754108",
@@ -6544,9 +7391,9 @@ export const products: Product[] = [
     "brand": "PREMIUM DRY CAT",
     "category": "FRISKIES DRY SMALL BAGS",
     "packSize": "9",
-    "ean": "7891000454145|2309.10.00|17891000454142|true",
+    "ean": "7891000454145|2309.10.00|17891000454142|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13759759",
@@ -6554,9 +7401,9 @@ export const products: Product[] = [
     "brand": "PREMIUM DRY CAT",
     "category": "FRISKIES DRY SMALL BAGS",
     "packSize": "9",
-    "ean": "7891000454169|2309.10.00|17891000454166|true",
+    "ean": "7891000454169|2309.10.00|17891000454166|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13760030",
@@ -6594,9 +7441,9 @@ export const products: Product[] = [
     "brand": "PREMIUM DRY CAT",
     "category": "FRISKIES DRY SMALL BAGS",
     "packSize": "9",
-    "ean": "7891000454190|2309.10.00|17891000454197|true",
+    "ean": "7891000454190|2309.10.00|17891000454197|false",
     "imageUrl": "https://bzdpgsfmbbhpqbyugrmg.supabase.co/storage/v1/object/public/product-images/13760033.jpeg",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13760063",
@@ -6614,9 +7461,9 @@ export const products: Product[] = [
     "brand": "CHOCOLATES NESTLE",
     "category": "CANDY BARS NESTLE",
     "packSize": "30",
-    "ean": "7891000454589|1806.31.20|17891000454586|true",
+    "ean": "7891000454589|1806.31.20|17891000454586|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13799711",
@@ -6624,9 +7471,9 @@ export const products: Product[] = [
     "brand": "MAGGI",
     "category": "TEMPEROS FRASCO",
     "packSize": "30",
-    "ean": "7891000454695|2103.90.21|17891000454692|true",
+    "ean": "7891000454695|2103.90.21|17891000454692|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13800870",
@@ -6647,6 +7494,17 @@ export const products: Product[] = [
     "ean": "7891000455227|1901.90.90|17891000455224|true",
     "imageUrl": null,
     "isNew": true
+  },
+  {
+    "code": "13837464",
+    "name": "MAG Tempero Empana Paprica 12(9x60g)BR",
+    "brand": "MAGGI",
+    "category": "TEMPERA E EMPANA",
+    "packSize": "108",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
   },
   {
     "code": "13837465",
@@ -6684,9 +7542,9 @@ export const products: Product[] = [
     "brand": "CHOCOLATES NESTLE",
     "category": "JUMBOS NESTLE",
     "packSize": "16",
-    "ean": "7891000455562|1806.31.10|17891000455569|true",
+    "ean": "7891000455562|1806.31.10|17891000455569|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13850171",
@@ -6714,9 +7572,9 @@ export const products: Product[] = [
     "brand": "CHOCOLATES NESTLE",
     "category": "JUMBOS RECHEADOS NESTLE",
     "packSize": "14",
-    "ean": "7891000455951|1806.31.10|17891000455958|true",
+    "ean": "7891000455951|1806.31.10|17891000455958|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13882992",
@@ -6724,9 +7582,9 @@ export const products: Product[] = [
     "brand": "MAGGI",
     "category": "MASSAS",
     "packSize": "108",
-    "ean": "7891000456217|1902.30.00|17891000456214|true",
+    "ean": "7891000456217|1902.30.00|17891000456214|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13882993",
@@ -6734,9 +7592,9 @@ export const products: Product[] = [
     "brand": "MAGGI",
     "category": "MASSAS",
     "packSize": "108",
-    "ean": "7891000456200|1902.30.00|17891000456207|true",
+    "ean": "7891000456200|1902.30.00|17891000456207|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13882994",
@@ -6744,9 +7602,20 @@ export const products: Product[] = [
     "brand": "MAGGI",
     "category": "MASSAS",
     "packSize": "108",
-    "ean": "7891000456224|1902.30.00|17891000456221|true",
+    "ean": "7891000456224|1902.30.00|17891000456221|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
+  },
+  {
+    "code": "13921392",
+    "name": "NDG Kopng Chocno Cereja 10Caps 6x170g BR",
+    "brand": "SISTEMA DOLCE GUSTO",
+    "category": "BEBIDAS CHOCOS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
   },
   {
     "code": "13926876",
@@ -6754,9 +7623,9 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS CHOCOBISCUIT",
     "packSize": "30",
-    "ean": "7891000456941|1905.31.00|17891000456948|true",
+    "ean": "7891000456941|1905.31.00|17891000456948|false",
     "imageUrl": "/uploads/produtos/13926876 - NEST Chocobiscuit Choc Branco 30x78g BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13945245",
@@ -6764,9 +7633,9 @@ export const products: Product[] = [
     "brand": "GAROTO",
     "category": "CAIXAS GAROTO",
     "packSize": "30",
-    "ean": "7891000457092|1806.90.00|17891000457099|true",
+    "ean": "7891000457092|1806.90.00|17891000457099|false",
     "imageUrl": "/uploads/produtos/13945245 - GRT Bombons Sortidos Caixa 30x220g BR.png",
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "13970140",
@@ -6776,7 +7645,8 @@ export const products: Product[] = [
     "packSize": "12",
     "ean": "7891000457276|1806.32.10|17891000457273|false",
     "imageUrl": null,
-    "isNew": false
+    "isNew": false,
+    "organizacao": "Food"
   },
   {
     "code": "13970185",
@@ -6786,7 +7656,8 @@ export const products: Product[] = [
     "packSize": "12",
     "ean": "7891000457283|1806.32.10|17891000457280|false",
     "imageUrl": null,
-    "isNew": false
+    "isNew": false,
+    "organizacao": "Food"
   },
   {
     "code": "13982513",
@@ -6794,9 +7665,9 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS RECHEADOS PASSATEMPO",
     "packSize": "70",
-    "ean": "7891000457368|1905.31.00|17891000457365|false",
+    "ean": "7891000457368|1905.31.00|17891000457365|true",
     "imageUrl": "/uploads/produtos/13982513 - PSTMP Bisc Rech Choc 70x130g PR10%GrtsBR.png",
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "13991250",
@@ -6804,9 +7675,9 @@ export const products: Product[] = [
     "brand": "CHOCOLATES NESTLE",
     "category": "CAIXAS NESTLE",
     "packSize": "30",
-    "ean": "7891000457467|1806.90.00|17891000457464|true",
+    "ean": "7891000457467|1806.90.00|17891000457464|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "14024359",
@@ -6814,9 +7685,218 @@ export const products: Product[] = [
     "brand": "CHOCOLATES NESTLE",
     "category": "KIT KAT 4 FINGERS",
     "packSize": "24",
-    "ean": "7891000457641|1905.32.00|17891000457648|true",
+    "ean": "7891000457641|1905.32.00|17891000457648|false",
     "imageUrl": "/uploads/produtos/14024359.jpg",
-    "isNew": true
+    "isNew": false
+  },
+  {
+    "code": "14076839",
+    "name": "PRPN Hipoalergenico Mini&Peq 11x1kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "11",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14076921",
+    "name": "PRPN Des Excp Filhote Gde 6x2,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14076922",
+    "name": "PRPN Controle Peso Mini&Peq 11x1kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "11",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14077240",
+    "name": "PRPN Urinary 11x1kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "11",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14084587",
+    "name": "PRPN Hipoalergenico Med&Gde 6x2,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14084875",
+    "name": "PRPN Hipoalergenico Mini&Peq 6x2,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14085053",
+    "name": "PRPN Des Excp Filhote Medio 6x2,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14085216",
+    "name": "PRPN Adult Grande 6x2,5kg N1 BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14085555",
+    "name": "PRPN Controle Peso Med&Gde 6x2,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14085584",
+    "name": "PRPN Controle Peso Mini&Peq 6x2,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14085652",
+    "name": "PRPN Adult Mini&Peq 6x2,5kg N1 BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14085771",
+    "name": "PRPN Adult Med 6x2,5kg N1 BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14086554",
+    "name": "PRPN Des Excp Filh Mini&Peq 6x2,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14087793",
+    "name": "PRPN Hipoalergenico Mini&Peq 7,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14088061",
+    "name": "PRPN Adult Mini&Peq 7,5kg N1 BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14089195",
+    "name": "PRPN Des Excp Filhote Mini&Peq 7,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14089931",
+    "name": "PRPN Controle Peso Mini&Peq 7,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14089983",
+    "name": "PRPN Controle Peso Med&Gde 10,1kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14090167",
+    "name": "PRPN Adult Frango 11x1kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "11",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
   },
   {
     "code": "14106543",
@@ -6824,9 +7904,9 @@ export const products: Product[] = [
     "brand": "GAROTO",
     "category": "JUMBOS RECHEADOS GAROTO",
     "packSize": "14",
-    "ean": "7891000459041|1806.31.10|17891000459048|true",
+    "ean": "7891000459041|1806.31.10|17891000459048|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "14106626",
@@ -6839,14 +7919,25 @@ export const products: Product[] = [
     "isNew": true
   },
   {
+    "code": "14123574",
+    "name": "NNHO Lepo Integral Sac12x575gPR85gGrtsBR",
+    "brand": "NINHO",
+    "category": "NINHO INTEGRAL SACHET",
+    "packSize": "12",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "14123615",
     "name": "SFLR Duo 12(20x50g) BR",
     "brand": "CHOCOLATES NESTLE",
     "category": "TABLETES NESTLE",
     "packSize": "20",
-    "ean": "7891000460221|1704.90.10|17891000460228|false",
+    "ean": "7891000460221|1704.90.10|17891000460228|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "14123616",
@@ -6859,6 +7950,17 @@ export const products: Product[] = [
     "isNew": true
   },
   {
+    "code": "14123617",
+    "name": "NNHO Lepo Integr Inst 12x575gPR85gGrtsBR",
+    "brand": "NINHO",
+    "category": "NINHO INSTANTANEO SACHET",
+    "packSize": "12",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "14131309",
     "name": "BTN Tablete Rech 4(14x90g) BR",
     "brand": "GAROTO",
@@ -6869,14 +7971,300 @@ export const products: Product[] = [
     "isNew": true
   },
   {
+    "code": "14154391",
+    "name": "PRPN Sterilised 7,5kg N1 BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14154406",
+    "name": "PRPN Longevidade Mini&Pequeno 7,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14154407",
+    "name": "PRPN Adult 7+ 7,5kg N2 BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14154478",
+    "name": "PRPN Paladar Exigente 7,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14157227",
+    "name": "PRPN Des Excp Gato Filhote 7,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14159777",
+    "name": "FNCY FST DemiGlace Carne 15x85g N3 XI",
+    "brand": "WET",
+    "category": "FANCY FEAST WET POUCH",
+    "packSize": "15",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14162941",
+    "name": "PRPN Hipoalergenico Gato 7,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14182845",
+    "name": "PRPN Alta Vitalidade 12kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14182846",
+    "name": "PRPN Des Excp Filhote Medio 12kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14182951",
+    "name": "PRPN Adult Grande 12kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14183021",
+    "name": "PRPN Adult Medio 12kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14200282",
+    "name": "PRPN Longevidade MdGd 12kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG LARGE BAGS",
+    "packSize": "1",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
     "code": "14317522",
     "name": "NCU Achoc Po Cilindro Copa 36x350g BR",
     "brand": "BEBIDAS POS",
     "category": "NESCAU LATA 350G",
     "packSize": "36",
-    "ean": "7891000412855|1806.90.00EX01|17891000412852|false",
+    "ean": "7891000412855|1806.90.00EX01|17891000412852|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
+  },
+  {
+    "code": "14327414",
+    "name": "PRPN Paladar Exigente 6x2,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14327415",
+    "name": "PRPN Alta Vitalidade 6x2,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14327416",
+    "name": "PRPN Longevidade Medio&Grande 6x2,5kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "6",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14327419",
+    "name": "PRPN Adulto 7+ 11x1kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "11",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14327825",
+    "name": "PRPN Gato Hipoalergenico 11x1kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "11",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14327826",
+    "name": "PRPN Paladar Exigente 11x1kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "11",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14327828",
+    "name": "PRPN Longevidade Mini&Peq 11x1kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY DOG SMALL BAGS",
+    "packSize": "11",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14351039",
+    "name": "SNWFLAKE Cereal Matinal Churros 20x75gBR",
+    "brand": "CEREAIS MATINAIS",
+    "category": "SNOW ATE 300G",
+    "packSize": "20",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "14352494",
+    "name": "PRPN Adult 7+ 5x3kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "5",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14352673",
+    "name": "PRPN Sterilised 5x3kg N1 BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "5",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14352674",
+    "name": "PRPN Adult Frango 5x3kg N1 BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "5",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14352675",
+    "name": "PRPN Des Excp Gato Filhote 5x3kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "5",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14352676",
+    "name": "PRPN Urinary 5x3kg N1 BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "5",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
+  },
+  {
+    "code": "14352677",
+    "name": "PRPN Hipoalergenico Gato 5x3kg BR",
+    "brand": "SUPER PREMIUM DRY",
+    "category": "PRO PLAN DRY CAT SMALL BAGS",
+    "packSize": "5",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Purina"
   },
   {
     "code": "14376159",
@@ -6904,9 +8292,31 @@ export const products: Product[] = [
     "brand": "NHS ACTIVE NUTRITION",
     "category": "NUTREN PROTEIN RTD",
     "packSize": "24",
-    "ean": "7891000465783|2202.99.00|17891000465780|false",
+    "ean": "7891000465783|2202.99.00|17891000465780|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
+  },
+  {
+    "code": "14377098",
+    "name": "NTRN SENIOR Po Baun 24x370g PR20%Dsc BR",
+    "brand": "NHS ACTIVE NUTRITION",
+    "category": "NUTREN SENIOR LATA",
+    "packSize": "24",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "14377240",
+    "name": "NTRN SENIOR Po 24x370g PR20%Dsc BR",
+    "brand": "NHS ACTIVE NUTRITION",
+    "category": "NUTREN SENIOR LATA",
+    "packSize": "24",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
   },
   {
     "code": "14385458",
@@ -6914,9 +8324,9 @@ export const products: Product[] = [
     "brand": "NHS ACTIVE NUTRITION",
     "category": "NUTREN SENIOR LATA",
     "packSize": "6",
-    "ean": "7891000465981|1901.90.90|17891000465988|false",
+    "ean": "7891000465981|1901.90.90|17891000465988|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
   },
   {
     "code": "14476614",
@@ -6929,14 +8339,47 @@ export const products: Product[] = [
     "isNew": true
   },
   {
+    "code": "14476881",
+    "name": "SNF Churros Cereal Matinal 24x170g BR",
+    "brand": "CEREAIS MATINAIS",
+    "category": "SNOW ATE 300G",
+    "packSize": "24",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "14487021",
+    "name": "NNHO Kids Ppb Cremosinho 27x180ml BR",
+    "brand": "RTD KIDS",
+    "category": "RTD KIDS ESPECIAIS",
+    "packSize": "27",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "14487023",
+    "name": "NNHO Kids Ppb Mrg e Bna 27x180ml BR",
+    "brand": "RTD KIDS",
+    "category": "RTD KIDS ESPECIAIS",
+    "packSize": "27",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
     "code": "14506130",
     "name": "NDG Moca PistacchioLatte 10Caps 6x175gBR",
     "brand": "SISTEMA DOLCE GUSTO",
     "category": "DEMAIS BEBIDAS",
     "packSize": "6",
-    "ean": "7891000469132|2101.12.00|17891000469139|true",
+    "ean": "7891000469132|2101.12.00|17891000469139|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "14506131",
@@ -6944,9 +8387,20 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS RECHEADOS PASSATEMPO",
     "packSize": "66",
-    "ean": "7891000469156|1905.31.00|17891000469153|true",
+    "ean": "7891000469156|1905.31.00|17891000469153|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
+  },
+  {
+    "code": "14506284",
+    "name": "NEST ChocQuente Cremoso NPro 4x2,01kg BR",
+    "brand": "06-NP STANDARD",
+    "category": "06A-INGREDIENTE ACHOCOLATADO",
+    "packSize": "4",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
   },
   {
     "code": "14506333",
@@ -6954,9 +8408,9 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS RECHEADOS PASSATEMPO",
     "packSize": "66",
-    "ean": "7891000469552|1905.31.00|17891000469559|true",
+    "ean": "7891000469552|1905.31.00|17891000469559|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "14506353",
@@ -6964,9 +8418,86 @@ export const products: Product[] = [
     "brand": "BISCOITOS",
     "category": "BISCOITOS RECHEADOS PASSATEMPO",
     "packSize": "66",
-    "ean": "7891000469545|1905.31.00|17891000469542|true",
+    "ean": "7891000469545|1905.31.00|17891000469542|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
+  },
+  {
+    "code": "14507345",
+    "name": "MCLN Cereal Leite 24x160g N1 BR",
+    "brand": "CEREAIS INFANTIS",
+    "category": "MUCININHO",
+    "packSize": "24",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "14507356",
+    "name": "DCHOW Multiproteinas 7x2,5kg BR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY SMALL BAGS",
+    "packSize": "7",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "14507357",
+    "name": "DCHOW Multiproteinas 8x900g BR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY SMALL BAGS",
+    "packSize": "8",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "14507381",
+    "name": "DCHOW Alta Proteina 7x2,5kg BR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY SMALL BAGS",
+    "packSize": "7",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "14507382",
+    "name": "DCHOW Alta Proteina 8x900g BR",
+    "brand": "PREMIUM DRY DOG",
+    "category": "DOG CHOW DRY SMALL BAGS",
+    "packSize": "8",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "14507390",
+    "name": "MCLN Cereal Leite 9x560g N1 BR",
+    "brand": "CEREAIS INFANTIS",
+    "category": "MUCININHO",
+    "packSize": "9",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
+  },
+  {
+    "code": "14507681",
+    "name": "NESC NPro Copo Futebol 200ml 25x40Uni BR",
+    "brand": "07-NP SOLUCOES",
+    "category": "07D-ACESSORIOS NESCAFE",
+    "packSize": "25",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Bebidas"
   },
   {
     "code": "14510841",
@@ -6974,9 +8505,20 @@ export const products: Product[] = [
     "brand": "CHOCOLATES NESTLE",
     "category": "CAIXAS NESTLE",
     "packSize": "30",
-    "ean": "7891000474990|1806.90.00|17891000474997|false",
+    "ean": "7891000474990|1806.90.00|17891000474997|true",
     "imageUrl": null,
-    "isNew": false
+    "isNew": true
+  },
+  {
+    "code": "14512779",
+    "name": "KK Cereal Matinal 24x210g PR10%Grts BR",
+    "brand": "CEREAIS MATINAIS",
+    "category": "KIT KAT",
+    "packSize": "24",
+    "ean": "|||false",
+    "imageUrl": null,
+    "isNew": false,
+    "organizacao": "Seca"
   },
   {
     "code": "14513265",
@@ -7004,9 +8546,9 @@ export const products: Product[] = [
     "brand": "GAROTO",
     "category": "CANDY BARS GAROTO",
     "packSize": "12",
-    "ean": "7891000477274|0|17891000477271|true",
+    "ean": "7891000477274|0|17891000477271|false",
     "imageUrl": null,
-    "isNew": true
+    "isNew": false
   },
   {
     "code": "14513974",
