@@ -4,6 +4,7 @@ import { supabaseService, isAllowedImageFile } from "@/services/supabaseService"
 import { Product, products as initialProducts, parseProductTechnicalData, serializeProductTechnicalData } from "@/data/products";
 import { getDerivativeUrl, resolveProductImageUrl, imageVersion } from "@/utils/imageUtils";
 import { logoutAdmin } from "@/lib/adminAuth";
+import { buildCsv, downloadCsv } from "@/utils/csvExport";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -27,7 +28,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Plus, Pencil, Trash2, LogOut, RefreshCw, FileSpreadsheet, Images, Search, ChevronLeft, ChevronRight } from "lucide-react";
+import { Plus, Pencil, Trash2, LogOut, RefreshCw, FileSpreadsheet, Images, Search, ChevronLeft, ChevronRight, Download, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -70,6 +71,7 @@ const Admin = () => {
   const [removingImage, setRemovingImage] = useState(false);
   const [imgPreviewFallback, setImgPreviewFallback] = useState(false); // derivado falhou → tenta original
   const [search, setSearch] = useState("");
+  const [newOnly, setNewOnly] = useState(false); // filtro "só lançamentos"
   const [page, setPage] = useState(1);
   const PAGE_SIZE = 10;
 
@@ -248,17 +250,39 @@ const Admin = () => {
 
   const filteredProducts = useMemo(() => {
     const q = search.trim().toLowerCase();
-    if (!q) return products;
     return products.filter(p => {
+      if (newOnly && !p.isNew) return false;
+      if (!q) return true;
       const ean = parseProductTechnicalData(p).ean || "";
       return String(p.code).toLowerCase().includes(q)
         || String(p.name).toLowerCase().includes(q)
         || ean.toLowerCase().includes(q);
     });
-  }, [products, search]);
+  }, [products, search, newOnly]);
+
+  // Quantidade de lançamentos no catálogo inteiro (badge do botão de filtro).
+  const newCount = useMemo(() => products.filter(p => p.isNew).length, [products]);
+
+  // Baixa SEMPRE o catálogo inteiro, independente da busca/filtro da tela.
+  const handleExportCsv = () => {
+    const headers = [
+      "Código", "Nome", "Marca", "Categoria", "Organização",
+      "Embalagem", "EAN", "Class. Fiscal (NCM)", "DUN", "Lançamento",
+    ];
+    const rows = products.map(p => {
+      const t = parseProductTechnicalData(p);
+      return [
+        p.code, p.name, p.brand, p.category, p.organizacao ?? "",
+        p.packSize, t.ean, t.ncm, t.dun, p.isNew ? "Sim" : "Não",
+      ];
+    });
+    const date = new Date().toISOString().slice(0, 10);
+    downloadCsv(`catalogo_j_arantes_${date}.csv`, buildCsv(headers, rows));
+    toast.success(`${rows.length} produto(s) exportado(s) em CSV.`);
+  };
 
   const totalPages = Math.max(1, Math.ceil(filteredProducts.length / PAGE_SIZE));
-  useEffect(() => { setPage(1); }, [search]);
+  useEffect(() => { setPage(1); }, [search, newOnly]);
   useEffect(() => { if (page > totalPages) setPage(totalPages); }, [page, totalPages]);
   const pageProducts = filteredProducts.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
 
@@ -446,6 +470,14 @@ const Admin = () => {
             <div className="flex items-center justify-between">
               <h2 className="text-2xl font-bold tracking-tight">Gerenciar Produtos</h2>
               <div className="flex gap-2">
+                <Button
+                  variant="outline"
+                  onClick={handleExportCsv}
+                  disabled={loading || products.length === 0}
+                  title="Baixa todos os produtos do catálogo em CSV (abre no Excel)"
+                >
+                  <Download className="h-4 w-4 mr-2" /> Baixar CSV
+                </Button>
                 <Button variant="outline" onClick={handleSync} title="Adiciona produtos do arquivo estático que ainda não estão no Firebase">
                   <RefreshCw className="h-4 w-4 mr-2" /> Sincronizar Novos
                 </Button>
@@ -585,14 +617,29 @@ const Admin = () => {
               </div>
             </div>
 
-            <div className="relative max-w-md">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
-              <Input
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                placeholder="Pesquisar por código, descrição ou EAN..."
-                className="pl-9"
-              />
+            <div className="flex flex-wrap items-center gap-2">
+              <div className="relative flex-1 min-w-[240px] max-w-md">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
+                <Input
+                  value={search}
+                  onChange={e => setSearch(e.target.value)}
+                  placeholder="Pesquisar por código, descrição ou EAN..."
+                  className="pl-9"
+                />
+              </div>
+              <Button
+                variant={newOnly ? "default" : "outline"}
+                onClick={() => setNewOnly(v => !v)}
+                title="Mostrar apenas produtos marcados como lançamento"
+              >
+                <Sparkles className="h-4 w-4 mr-2" /> Só lançamentos
+                <span className={cn(
+                  "ml-2 text-[10px] font-bold px-1.5 py-0.5 rounded-full",
+                  newOnly ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"
+                )}>
+                  {newCount}
+                </span>
+              </Button>
             </div>
 
             <div className="bg-white rounded-lg border shadow-sm text-slate-900">
@@ -645,7 +692,7 @@ const Admin = () => {
                   {filteredProducts.length === 0 && (
                     <TableRow>
                       <TableCell colSpan={7} className="text-center py-8 text-slate-400">
-                        {search ? "Nenhum produto encontrado para a busca." : "Nenhum produto cadastrado."}
+                        {search || newOnly ? "Nenhum produto encontrado para os filtros aplicados." : "Nenhum produto cadastrado."}
                       </TableCell>
                     </TableRow>
                   )}
