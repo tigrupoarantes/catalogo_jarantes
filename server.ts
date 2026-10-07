@@ -4,6 +4,13 @@ import path from "path";
 import multer from "multer";
 import * as xlsx from "xlsx";
 import fs from "fs/promises";
+import crypto from "crypto";
+
+// Em dev (`tsx server.ts`) carrega o .env para o servidor; na Vercel as
+// variáveis já vêm do ambiente do projeto.
+if (!process.env.VERCEL) {
+  try { process.loadEnvFile(); } catch { /* sem .env local */ }
+}
 
 const app = express();
 const PORT = 3000;
@@ -302,6 +309,34 @@ app.post(
   }
 );
 
+
+// Login do catálogo público. As credenciais ficam SÓ no servidor
+// (CATALOG_USER / CATALOG_PASSWORD, sem prefixo VITE_) para não irem no bundle.
+const normalizeCredential = (v: unknown) => String(v ?? "").normalize("NFC");
+const safeEqual = (a: string, b: string) => {
+  const ha = crypto.createHash("sha256").update(a).digest();
+  const hb = crypto.createHash("sha256").update(b).digest();
+  return crypto.timingSafeEqual(ha, hb);
+};
+
+app.post("/api/catalog-login", async (req, res) => {
+  const expectedUser = process.env.CATALOG_USER;
+  const expectedPassword = process.env.CATALOG_PASSWORD;
+  if (!expectedUser || !expectedPassword) {
+    return res.status(503).json({ ok: false, message: "Acesso ao catálogo não configurado no servidor." });
+  }
+  const user = normalizeCredential(req.body?.user).trim();
+  const password = normalizeCredential(req.body?.password);
+  // Avalia os dois sempre (sem curto-circuito) para não vazar qual campo errou.
+  const userOk = safeEqual(user.toLowerCase(), normalizeCredential(expectedUser).trim().toLowerCase());
+  const passOk = safeEqual(password, normalizeCredential(expectedPassword));
+  if (userOk && passOk) {
+    return res.json({ ok: true });
+  }
+  // Atraso fixo para desencorajar tentativa em massa.
+  await new Promise((r) => setTimeout(r, 800));
+  return res.status(401).json({ ok: false, message: "Usuário ou senha inválidos." });
+});
 
 // IDML export endpoint
 app.post('/api/export/idml', idmlExportHandler);

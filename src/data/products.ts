@@ -7005,7 +7005,7 @@ export const products: Product[] = [
   {
     "code": "12941325",
     "name": "KIT KAT 4Fngr Cereja 4(24x41,5g) BR",
-    "brand": "CHOCOLATES",
+    "brand": "CHOCOLATES NESTLE",
     "category": "KIT KAT 4 FINGERS",
     "packSize": "24",
     "ean": "7891000445020|1905.32.00|17891000445027|false",

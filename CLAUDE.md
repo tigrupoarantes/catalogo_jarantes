@@ -29,7 +29,7 @@ React 18 + TypeScript + **Vite** · shadcn/ui + Radix + Tailwind · React Router
 - **Caveat produção:** o IDML usa `worker_threads` + disco local, incompatível com serverless efêmero da Vercel (30s). Ver `docs/PRD.md` §7 e `instrucoes_desenvolvedor.md`.
 
 ## API (Express — `server.ts`)
-`POST /api/upload-image`, `POST /api/upload` (planilha+imagens, valida EAN único), `POST /api/export/idml`. Entrypoint serverless: `api/index.ts` reexporta o app; `vercel.json` faz rewrite `/api/(.*)` → `/api/index`. **Produção: https://catalogo.brkarantes.com.br/** (o `/api` funciona; export IDML é síncrono). Rotas que gravam em disco são protegidas por `IS_SERVERLESS` (fs read-only na Vercel).
+`POST /api/upload-image`, `POST /api/upload` (planilha+imagens, valida EAN único), `POST /api/export/idml`, `POST /api/catalog-login` (login do catálogo público — credenciais em `CATALOG_USER`/`CATALOG_PASSWORD`, só no servidor; tela `/acesso`, guard `RequireCatalogAccess` em `/`, sessão 30 dias em `src/lib/catalogAuth.ts`; separado do login de admin em `/login`). Entrypoint serverless: `api/index.ts` reexporta o app; `vercel.json` faz rewrite `/api/(.*)` → `/api/index`. **Produção: https://catalogo.brkarantes.com.br/** (o `/api` funciona; export IDML é síncrono). Rotas que gravam em disco são protegidas por `IS_SERVERLESS` (fs read-only na Vercel).
 
 ## Estado / dívidas
 Cobertura de testes ~nula (1 arquivo); TS/ESLint frouxos; sem Prettier; lockfiles duplicados (`bun.lock` + `package-lock.json`). Ao adicionar código, prefira reusar utilitários existentes.

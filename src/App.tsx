@@ -5,9 +5,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { FirebaseProvider } from "@/contexts/FirebaseContext";
 import RequireAdmin from "@/components/RequireAdmin";
+import RequireCatalogAccess from "@/components/RequireCatalogAccess";
 import Index from "./pages/Index.tsx";
 import Admin from "./pages/Admin.tsx";
 import Login from "./pages/Login.tsx";
+import CatalogLogin from "./pages/CatalogLogin.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -20,7 +22,8 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<RequireCatalogAccess><Index /></RequireCatalogAccess>} />
+            <Route path="/acesso" element={<CatalogLogin />} />
             <Route path="/admin" element={<RequireAdmin><Admin /></RequireAdmin>} />
             <Route path="/login" element={<Login />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
